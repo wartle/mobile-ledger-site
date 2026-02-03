@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Mobile Ledger</title>
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --secondary-color: #5856D6;
+            --text-color: #1D1D1F;
+            --light-text: #86868B;
+            --bg-color: #F5F5F7;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            color: var(--text-color);
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--text-color);
+            border-bottom: 1px solid #E5E5E5;
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        .contact-box {
+            margin-top: 30px;
+            padding: 30px;
+            background: #F9F9F9;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: #0062CC;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="nav-link">← Back to Home</a>
+
+        <div class="card">
+            <header>
+                <h1>Support</h1>
+                <p>We're here to help you get the most out of Mobile Ledger.</p>
+            </header>
+
+            <section>
+                <h2>Contact Us</h2>
+                <p>Have a question, feedback, or need help with a technical issue? Our team is ready to assist you.</p>
+                
+                <div class="contact-box">
+                    <p><strong>Email Support</strong></p>
+                    <p>We typically respond within 24-48 hours.</p>
+                    <a href="mailto:support@wartle.app" class="btn">Email support@wartle.app</a>
+                </div>
+            </section>
+
+            <section>
+                <h2>Frequently Asked Questions</h2>
+                <p><strong>Where is my data stored?</strong><br>
+                All your financial data is stored locally on your device using Apple's SwiftData framework. It never leaves your device unless you choose to create a manual backup.</p>
+                
+                <p><strong>How do I backup my data?</strong><br>
+                You can create manual backups to your iCloud account through the settings menu in the app. This ensures you can restore your data if you switch devices.</p>
+                
+                <p><strong>Is my data secure?</strong><br>
+                Yes. We leverage iOS built-in encryption and offer optional biometric (Face ID/Touch ID) protection to keep your financial information private.</p>
+            </section>
+
+            <section>
+                <h2>App Version</h2>
+                <p style="color: var(--light-text); font-size: 14px;">Mobile Ledger for iOS</p>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
