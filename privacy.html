@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Mobile Ledger</title>
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --secondary-color: #5856D6;
+            --text-color: #1D1D1F;
+            --light-text: #86868B;
+            --bg-color: #F5F5F7;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            color: var(--text-color);
+        }
+
+        .last-updated {
+            color: var(--light-text);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--text-color);
+            border-bottom: 1px solid #E5E5E5;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .summary-box {
+            background: #F2F7FF;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .summary-box ul {
+            margin-bottom: 0;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .summary-box li {
+            position: relative;
+            padding-left: 24px;
+            font-weight: 500;
+        }
+
+        .summary-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        .contact-box {
+            margin-top: 50px;
+            padding: 30px;
+            background: #F9F9F9;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #EEE;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="nav-link">← Back to Home</a>
+
+        <div class="card">
+            <header>
+                <h1>Privacy Policy</h1>
+                <p class="last-updated">Last Updated: February 3, 2026</p>
+            </header>
+
+            <section>
+                <p>Mobile Ledger ("we," "our," or "the app") is a personal finance management application designed to
+                    help you track expenses, income, and manage your financial accounts. We are committed to protecting
+                    your privacy and ensuring you understand how your data is handled.</p>
+            </section>
+
+            <div class="summary-box">
+                <h3>Summary</h3>
+                <ul>
+                    <li><strong>Your data stays on your device</strong> - All financial data is stored locally using
+                        Apple's SwiftData framework</li>
+                    <li><strong>No cloud sync by default</strong> - CloudKit synchronization is disabled</li>
+                    <li><strong>No third-party tracking</strong> - We do not use analytics services or share your data
+                    </li>
+                    <li><strong>Optional backup</strong> - You can manually backup/restore your data via iCloud</li>
+                    <li><strong>Biometric protection</strong> - Optional Face ID/Touch ID authentication for app access
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Data We Collect</h2>
+
+            <h3>Financial Data (Stored Locally)</h3>
+            <p>The app stores the following data exclusively on your device:</p>
+            <ul>
+                <li><strong>Transactions</strong>: Date, amount, description, type (expense/income/transfer), and
+                    category</li>
+                <li><strong>Accounts</strong>: Account names, types, balances, associated bank/institution</li>
+                <li><strong>Categories</strong>: Custom and default spending/income categories</li>
+                <li><strong>Budgets</strong>: Budget amounts and thresholds</li>
+                <li><strong>Ledgers</strong>: Organizational groupings for your financial data</li>
+                <li><strong>Currencies</strong>: Currency preferences and exchange information</li>
+                <li><strong>Custom Icons</strong>: Any custom icons you upload for accounts</li>
+            </ul>
+
+            <h3>User Preferences</h3>
+            <p>We store your app preferences locally using Apple's standard storage:</p>
+            <ul>
+                <li>Display preferences (currency format, theme)</li>
+                <li>Privacy settings (auto-lock timeout, biometric authentication)</li>
+                <li>Notification preferences</li>
+                <li>Account visibility settings</li>
+            </ul>
+
+            <h3>Biometric Data</h3>
+            <p>If you enable Face ID or Touch ID authentication:</p>
+            <ul>
+                <li><strong>We do not store biometric data</strong> - Authentication is handled entirely by Apple's
+                    secure enclave</li>
+                <li>We only store a preference flag indicating whether biometric lock is enabled</li>
+            </ul>
+
+            <h2>How Your Data Is Stored</h2>
+
+            <h3>Local Storage</h3>
+            <p>All your financial data is stored locally on your device using Apple's SwiftData framework. This means:
+            </p>
+            <ul>
+                <li>Your data never leaves your device automatically</li>
+                <li>Data is protected by your device's built-in encryption</li>
+                <li>Data is only accessible through the Mobile Ledger app</li>
+            </ul>
+
+            <h3>iCloud Backup (Optional)</h3>
+            <p>The app provides an optional manual backup feature:</p>
+            <ul>
+                <li>You can create backups stored in your personal iCloud account</li>
+                <li>Backups are encrypted and protected by your Apple ID credentials</li>
+                <li>You control when backups are created and restored</li>
+                <li>We cannot access your iCloud backup data</li>
+            </ul>
+            <p><strong>Note:</strong> Standard iCloud device backups may include app data. You can manage this in your
+                device's iCloud settings.</p>
+
+            <h2>Data We Do NOT Collect</h2>
+            <ul>
+                <li>We do <strong>not</strong> collect or transmit personal identification information</li>
+                <li>We do <strong>not</strong> use third-party analytics or tracking services</li>
+                <li>We do <strong>not</strong> sell, share, or rent your data to third parties</li>
+                <li>We do <strong>not</strong> access your bank accounts or financial institutions</li>
+                <li>We do <strong>not</strong> store data on external servers</li>
+                <li>We do <strong>not</strong> use advertising networks</li>
+            </ul>
+
+            <h2>Data Security</h2>
+            <p>We implement the following security measures:</p>
+            <ul>
+                <li><strong>Local-only storage</strong>: Data remains on your device</li>
+                <li><strong>Biometric authentication</strong>: Optional Face ID/Touch ID protection</li>
+                <li><strong>Auto-lock</strong>: Configurable automatic lock when the app enters the background</li>
+                <li><strong>Balance hiding</strong>: Option to hide sensitive balance information in the UI</li>
+                <li><strong>Apple's security framework</strong>: Leveraging iOS built-in encryption and secure enclave
+                </li>
+            </ul>
+
+            <h2>Your Rights and Controls</h2>
+            <p>You have complete control over your data:</p>
+
+            <h3>Access and Export</h3>
+            <ul>
+                <li>View all your data within the app</li>
+                <li>Export transactions to CSV format for personal use</li>
+            </ul>
+
+            <h3>Deletion</h3>
+            <ul>
+                <li>Delete individual transactions, accounts, or categories at any time</li>
+                <li>Delete the app to remove all locally stored data</li>
+                <li>Manage iCloud backups through your Apple ID settings</li>
+            </ul>
+
+            <h3>Privacy Controls</h3>
+            <ul>
+                <li>Enable/disable biometric authentication</li>
+                <li>Configure auto-lock timeout</li>
+                <li>Hide account balances from view</li>
+                <li>Exclude accounts from net worth calculations</li>
+            </ul>
+
+            <h2>Children's Privacy</h2>
+            <p>Mobile Ledger does not knowingly collect information from children under 13. The app is designed for
+                personal finance management by adults.</p>
+
+            <h2>Third-Party Services</h2>
+
+            <h3>Apple Services</h3>
+            <p>The app uses the following Apple services:</p>
+            <ul>
+                <li><strong>SwiftData</strong>: Local data storage (no data transmitted)</li>
+                <li><strong>iCloud</strong>: Optional backup storage (encrypted, controlled by your Apple ID)</li>
+                <li><strong>Face ID/Touch ID</strong>: Biometric authentication (processed in secure enclave)</li>
+                <li><strong>Local Notifications</strong>: Reminder notifications (processed on-device)</li>
+            </ul>
+            <p>No third-party services, SDKs, or analytics platforms are used.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by:</p>
+            <ul>
+                <li>Updating the "Last Updated" date at the top of this policy</li>
+                <li>Providing notice within the app for significant changes</li>
+            </ul>
+
+            <h2>Data Retention</h2>
+            <ul>
+                <li>Local data is retained until you delete it or uninstall the app</li>
+                <li>iCloud backups follow your Apple ID's iCloud storage policies</li>
+                <li>We do not retain any data on external servers</li>
+            </ul>
+
+            <div class="contact-box">
+                <h2>Contact Us</h2>
+                <p>If you have questions or concerns about this Privacy Policy or your data, please contact us at:</p>
+                <p><strong>Email:</strong> <a href="mailto:support@wartle.app">support@wartle.app</a></p>
+                <p><strong>Website:</strong> <a href="https://mobile-ledger.wartle.app">mobile-ledger.wartle.app</a></p>
+            </div>
+
+            <h2>Region-Specific Provisions</h2>
+
+            <h3>For Users in the European Economic Area (EEA)</h3>
+            <p>Under GDPR, you have the right to access, rectify, erase, restrict, and object to processing, as well as
+                the right to data portability. Since all data is stored locally, you exercise these rights directly
+                through the app's features.</p>
+
+            <h3>For Users in California</h3>
+            <p>Under CCPA, California residents have the right to know what personal information is collected, delete
+                it, and opt-out of its sale. <strong>We do not sell personal information.</strong></p>
+
+            <hr>
+            <p style="text-align: center; font-style: italic; color: var(--light-text); font-size: 14px;">This privacy
+                policy applies to Mobile Ledger for iOS.</p>
+        </div>
+    </div>
+</body>
+
+</html>

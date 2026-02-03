@@ -1,39 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Ledger: Finance Tracker</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background-color: #f9f9f9; }
-        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        h1 { color: #007AFF; }
-        .links { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
-        a { color: #007AFF; text-decoration: none; margin-right: 20px; font-weight: 500; }
-        a:hover { text-decoration: underline; }
+        :root {
+            --primary-color: #007AFF;
+            --text-color: #1D1D1F;
+            --light-text: #86868B;
+            --bg-color: #F5F5F7;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 60px 40px;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            color: var(--text-color);
+        }
+
+        .tagline {
+            font-size: 19px;
+            color: var(--light-text);
+            margin-bottom: 40px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 40px;
+            border-top: 1px solid #F2F2F7;
+            padding-top: 40px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .support-info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--light-text);
+        }
+
+        .support-info a {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>Mobile Ledger</h1>
-        <p>Simple, secure, and smart finance tracking. Take control of your spending and grow your wealth with ease.</p>
-        
-        <div class="links">
-            <a href="#support">Support</a>
-            <a href="#privacy">Privacy Policy</a>
+    <div class="container">
+        <div class="card">
+            <h1>Mobile Ledger</h1>
+            <p class="tagline">Simple, secure, and smart finance tracking. Take control of your spending and grow your
+                wealth with ease.</p>
+
+            <div class="links">
+                <a href="privacy.html">Privacy Policy</a>
+                <div class="support-info">
+                    Need help? <a href="mailto:support@wartle.app">support@wartle.app</a>
+                </div>
+            </div>
         </div>
-
-        <h2 id="support">Support</h2>
-        <p>Need help? Contact us at: <strong>[Your Email Address]</strong></p>
-
-        <h2 id="privacy">Privacy Policy</h2>
-        <p><em>Last updated: February 2026</em></p>
-        <p>Mobile Ledger is built with your privacy in mind. We believe your financial data should remain yours.</p>
-        <ul>
-            <li><strong>Data Collection:</strong> We do not collect or store your financial transactions on our servers. All data is stored locally on your device or in your personal iCloud storage.</li>
-            <li><strong>Third Parties:</strong> We do not sell or share your data with third parties.</li>
-            <li><strong>Security:</strong> We recommend using FaceID/TouchID features within the app to secure your local data.</li>
-        </ul>
     </div>
 </body>
+
 </html>
