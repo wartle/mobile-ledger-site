@@ -4,118 +4,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Ledger: Finance Tracker</title>
+    <title>Mobile Ledger - Simple, Secure Finance Tracking</title>
+    <meta name="description"
+        content="Take control of your spending and grow your wealth with Mobile Ledger, the professional finance tracker for iOS.">
     <style>
         :root {
-            --primary-color: #007AFF;
-            --text-color: #1D1D1F;
-            --light-text: #86868B;
-            --bg-color: #F5F5F7;
-            --card-bg: #FFFFFF;
+            --primary: #007AFF;
+            --primary-hover: #0056b3;
+            --text: #1d1d1f;
+            --text-secondary: #86868b;
+            --bg: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --card-bg: #ffffff;
+            --border: #d2d2d7;
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            padding: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 60px 40px;
-            border-radius: 32px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-            color: var(--text-color);
-        }
-
-        .tagline {
-            font-size: 19px;
-            color: var(--light-text);
-            margin-bottom: 40px;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: 40px;
-            border-top: 1px solid #F2F2F7;
-            padding-top: 40px;
+            overflow-x: hidden;
         }
 
         a {
-            color: var(--primary-color);
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 17px;
-            transition: opacity 0.2s;
+            transition: opacity 0.3s ease;
         }
 
         a:hover {
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
-        .support-info {
-            margin-top: 20px;
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 32px;
+            width: 32px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
             font-size: 14px;
-            color: var(--light-text);
+            color: var(--text);
+            font-weight: 400;
         }
 
-        .support-info a {
-            font-size: 14px;
-            font-weight: 500;
+        /* Hero */
+        .hero {
+            padding: 80px 0 0;
+            text-align: center;
+            background: var(--bg);
+            overflow: hidden;
         }
 
-        @media (max-width: 480px) {
-            .card {
-                padding: 40px 20px;
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-bottom: 16px;
+            line-height: 1.07143;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+            line-height: 1.16667;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-hover);
+            opacity: 1;
+        }
+
+        .hero-image {
+            margin-top: 60px;
+            max-width: 1000px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12));
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 17px;
+            line-height: 1.47059;
+        }
+
+        /* Showcase */
+        .showcase {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .showcase-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .showcase-item:hover {
+            transform: scale(1.02);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
             }
 
-            h1 {
-                font-size: 36px;
+            .hero p {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .nav-links {
+                display: none;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>Mobile Ledger</h1>
-            <p class="tagline">Simple, secure, and smart finance tracking. Take control of your spending and grow your
-                wealth with ease.</p>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    Mobile Ledger
+                </div>
+                <div class="nav-links">
+                    <a href="support.html">Support</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="mailto:support@wartle.app" class="cta-button"
+                        style="padding: 8px 20px; font-size: 14px;">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-            <div class="links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="support.html">Support</a>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Take Control of Your Finances</h1>
+                <p>Simple, secure, and smart finance tracking designed for your life.</p>
+                <a href="support.html" class="cta-button">Get Started</a>
+                <img src="images/en-US-5-Angled.png" alt="Mobile Ledger App Interface" class="hero-image">
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Everything you need to master your money.</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🛡️</span>
+                        <h3>Privacy First</h3>
+                        <p>All your financial data stays on your device. We don't store your sensitive information on
+                            our servers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📊</span>
+                        <h3>Smart Insights</h3>
+                        <p>Get a clear picture of your spending habits with automatic categorization and beautiful
+                            charts.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🎯</span>
+                        <h3>Budgeting Made Easy</h3>
+                        <p>Set goals, track your progress, and stay on top of your monthly expenses with intuitive
+                            budget tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="showcase">
+            <div class="container">
+                <h2 class="section-title">A beautiful experience, every time.</h2>
+                <div class="showcase-grid">
+                    <div class="showcase-item">
+                        <img src="images/en-US-2-Bottom.png" alt="Account View">
+                    </div>
+                    <div class="showcase-item">
+                        <img src="images/en-US-3-Top.png" alt="Transaction History">
+                    </div>
+                    <div class="showcase-item">
+                        <img src="images/en-US-4-Fullscreen.png" alt="Detailed Stats">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <strong>Mobile Ledger</strong>
+                    <p style="margin-top: 10px;">The professional way to track your finances on iOS.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <p style="margin-bottom: 10px; font-weight: 600; color: var(--text);">Support</p>
+                        <a href="support.html">Help Center</a><br>
+                        <a href="mailto:support@wartle.app">Email Support</a>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 10px; font-weight: 600; color: var(--text);">Legal</p>
+                        <a href="privacy.html">Privacy Policy</a><br>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Mobile Ledger. All rights reserved. iPhone and iOS are trademarks of Apple Inc.
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>
