@@ -85,6 +85,7 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 30px;
         }
 
@@ -92,6 +93,16 @@
             font-size: 14px;
             color: var(--text);
             font-weight: 400;
+        }
+
+        .lang-selector {
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-size: 12px;
+            background: var(--bg);
+            cursor: pointer;
+            outline: none;
         }
 
         /* Hero */
@@ -137,13 +148,14 @@
 
         .hero-image {
             margin-top: 60px;
-            max-width: 1000px;
+            max-width: 800px;
             width: 100%;
             height: auto;
             display: block;
             margin-left: auto;
             margin-right: auto;
             filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12));
+            border-radius: 40px;
         }
 
         /* Features */
@@ -210,10 +222,11 @@
         }
 
         .showcase-item {
-            border-radius: 20px;
+            border-radius: 30px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease;
+            background: var(--bg-secondary);
         }
 
         .showcase-item:hover {
@@ -278,6 +291,10 @@
             }
 
             .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a:not(.cta-button) {
                 display: none;
             }
         }
@@ -292,9 +309,15 @@
                     Mobile Ledger
                 </div>
                 <div class="nav-links">
-                    <a href="support.html">Support</a>
-                    <a href="privacy.html">Privacy</a>
-                    <a href="mailto:support@wartle.app" class="cta-button"
+                    <select class="lang-selector" id="lang-selector">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="ko">한국어</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                    <a href="support.html" data-i18n="nav-support">Support</a>
+                    <a href="privacy.html" data-i18n="nav-privacy">Privacy</a>
+                    <a href="mailto:support@wartle.app" class="cta-button" data-i18n="nav-contact"
                         style="padding: 8px 20px; font-size: 14px;">Contact Us</a>
                 </div>
             </nav>
@@ -304,33 +327,37 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Take Control of Your Finances</h1>
-                <p>Simple, secure, and smart finance tracking designed for your life.</p>
-                <a href="support.html" class="cta-button">Get Started</a>
-                <img src="images/en-US-5-Angled.png" alt="Mobile Ledger App Interface" class="hero-image">
+                <h1 data-i18n="hero-title">Take Control of Your Finances</h1>
+                <p data-i18n="hero-subtitle">Simple, secure, and smart finance tracking designed for your life.</p>
+                <a href="support.html" class="cta-button" data-i18n="cta-get-started">Get Started</a>
+                <img src="images/screenshots/en/screenshot-1.png" alt="Mobile Ledger App Interface" class="hero-image"
+                    id="hero-img">
             </div>
         </section>
 
         <section class="features">
             <div class="container">
-                <h2 class="section-title">Everything you need to master your money.</h2>
+                <h2 class="section-title" data-i18n="features-title">Everything you need to master your money.</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
                         <span class="feature-icon">🛡️</span>
-                        <h3>Privacy First</h3>
-                        <p>All your financial data stays on your device. We don't store your sensitive information on
+                        <h3 data-i18n="feature-1-title">Privacy First</h3>
+                        <p data-i18n="feature-1-desc">All your financial data stays on your device. We don't store your
+                            sensitive information on
                             our servers.</p>
                     </div>
                     <div class="feature-card">
                         <span class="feature-icon">📊</span>
-                        <h3>Smart Insights</h3>
-                        <p>Get a clear picture of your spending habits with automatic categorization and beautiful
+                        <h3 data-i18n="feature-2-title">Smart Insights</h3>
+                        <p data-i18n="feature-2-desc">Get a clear picture of your spending habits with automatic
+                            categorization and beautiful
                             charts.</p>
                     </div>
                     <div class="feature-card">
                         <span class="feature-icon">🎯</span>
-                        <h3>Budgeting Made Easy</h3>
-                        <p>Set goals, track your progress, and stay on top of your monthly expenses with intuitive
+                        <h3 data-i18n="feature-3-title">Budgeting Made Easy</h3>
+                        <p data-i18n="feature-3-desc">Set goals, track your progress, and stay on top of your monthly
+                            expenses with intuitive
                             budget tools.</p>
                     </div>
                 </div>
@@ -339,16 +366,20 @@
 
         <section class="showcase">
             <div class="container">
-                <h2 class="section-title">A beautiful experience, every time.</h2>
-                <div class="showcase-grid">
-                    <div class="showcase-item">
-                        <img src="images/en-US-2-Bottom.png" alt="Account View">
+                <h2 class="section-title" data-i18n="showcase-title">A beautiful experience, every time.</h2>
+                <div class="showcase-grid" id="screenshot-grid">
+                    <!-- Screenshots will be injected here -->
+                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-1.png" alt="Screenshot 1">
                     </div>
-                    <div class="showcase-item">
-                        <img src="images/en-US-3-Top.png" alt="Transaction History">
+                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-2.png" alt="Screenshot 2">
                     </div>
-                    <div class="showcase-item">
-                        <img src="images/en-US-4-Fullscreen.png" alt="Detailed Stats">
+                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-3.png" alt="Screenshot 3">
+                    </div>
+                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-4.png" alt="Screenshot 4">
+                    </div>
+                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-5.png" alt="Screenshot 5">
+                    </div>
+                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-6.png" alt="Screenshot 6">
                     </div>
                 </div>
             </div>
@@ -360,26 +391,185 @@
             <div class="footer-content">
                 <div>
                     <strong>Mobile Ledger</strong>
-                    <p style="margin-top: 10px;">The professional way to track your finances on iOS.</p>
+                    <p style="margin-top: 10px;" data-i18n="footer-desc">The professional way to track your finances on
+                        iOS.</p>
                 </div>
                 <div class="footer-links">
                     <div>
-                        <p style="margin-bottom: 10px; font-weight: 600; color: var(--text);">Support</p>
-                        <a href="support.html">Help Center</a><br>
-                        <a href="mailto:support@wartle.app">Email Support</a>
+                        <p style="margin-bottom: 10px; font-weight: 600; color: var(--text);"
+                            data-i18n="footer-support-header">Support</p>
+                        <a href="support.html" data-i18n="footer-help">Help Center</a><br>
+                        <a href="mailto:support@wartle.app" data-i18n="footer-email">Email Support</a>
                     </div>
                     <div>
-                        <p style="margin-bottom: 10px; font-weight: 600; color: var(--text);">Legal</p>
-                        <a href="privacy.html">Privacy Policy</a><br>
-                        <a href="#">Terms of Service</a>
+                        <p style="margin-bottom: 10px; font-weight: 600; color: var(--text);"
+                            data-i18n="footer-legal-header">Legal</p>
+                        <a href="privacy.html" data-i18n="footer-privacy">Privacy Policy</a><br>
+                        <a href="#" data-i18n="footer-terms">Terms of Service</a>
                     </div>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright" id="copyright-text">
                 &copy; 2026 Mobile Ledger. All rights reserved. iPhone and iOS are trademarks of Apple Inc.
             </div>
         </div>
     </footer>
+
+    <script>
+        const translations = {
+            en: {
+                "nav-support": "Support",
+                "nav-privacy": "Privacy",
+                "nav-contact": "Contact Us",
+                "hero-title": "Take Control of Your Finances",
+                "hero-subtitle": "Simple, secure, and smart finance tracking designed for your life.",
+                "cta-get-started": "Get Started",
+                "features-title": "Everything you need to master your money.",
+                "feature-1-title": "Privacy First",
+                "feature-1-desc": "All your financial data stays on your device. We don't store your sensitive information on our servers.",
+                "feature-2-title": "Smart Insights",
+                "feature-2-desc": "Get a clear picture of your spending habits with automatic categorization and beautiful charts.",
+                "feature-3-title": "Budgeting Made Easy",
+                "feature-3-desc": "Set goals, track your progress, and stay on top of your monthly expenses with intuitive budget tools.",
+                "showcase-title": "A beautiful experience, every time.",
+                "footer-desc": "The professional way to track your finances on iOS.",
+                "footer-support-header": "Support",
+                "footer-help": "Help Center",
+                "footer-email": "Email Support",
+                "footer-legal-header": "Legal",
+                "footer-privacy": "Privacy Policy",
+                "footer-terms": "Terms of Service",
+                "copyright": "&copy; 2026 Mobile Ledger. All rights reserved. iPhone and iOS are trademarks of Apple Inc."
+            },
+            hi: {
+                "nav-support": "सहायता",
+                "nav-privacy": "गोपनीयता",
+                "nav-contact": "हमसे संपर्क करें",
+                "hero-title": "अपने वित्त पर नियंत्रण रखें",
+                "hero-subtitle": "आपके जीवन के लिए डिज़ाइन किया गया सरल, सुरक्षित और स्मार्ट वित्त ट्रैकिंग।",
+                "cta-get-started": "शुरू करें",
+                "features-title": "वह सब कुछ जो आपको अपने पैसे पर महारत हासिल करने के लिए चाहिए।",
+                "feature-1-title": "गोपनीयता पहले",
+                "feature-1-desc": "आपका सारा वित्तीय डेटा आपके डिवाइस पर रहता है। हम आपकी संवेदनशील जानकारी अपने सर्वर पर स्टोर नहीं करते हैं।",
+                "feature-2-title": "स्मार्ट अंतर्दृष्टि",
+                "feature-2-desc": "स्वचालित वर्गीकरण और सुंदर चार्ट के साथ अपनी खर्च करने की आदतों की स्पष्ट तस्वीर प्राप्त करें।",
+                "feature-3-title": "बजट बनाना हुआ आसान",
+                "feature-3-desc": "सहज बजट टूल के साथ लक्ष्य निर्धारित करें, अपनी प्रगति को ट्रैक करें और अपने मासिक खर्चों पर नज़र रखें।",
+                "showcase-title": "हर बार एक सुंदर अनुभव।",
+                "footer-desc": "iOS पर अपने वित्त को ट्रैक करने का पेशेवर तरीका।",
+                "footer-support-header": "सहायता",
+                "footer-help": "सहायता केंद्र",
+                "footer-email": "ईमेल सहायता",
+                "footer-legal-header": "कानूनी",
+                "footer-privacy": "गोपनीयता नीति",
+                "footer-terms": "सेवा की शर्तें",
+                "copyright": "&copy; 2026 मोबाइल लेजर। सर्वाधिकार सुरक्षित। iPhone और iOS Apple Inc. के ट्रेडमार्क हैं।"
+            },
+            ko: {
+                "nav-support": "지원",
+                "nav-privacy": "개인정보 보호",
+                "nav-contact": "문의하기",
+                "hero-title": "당신의 재정을 관리하세요",
+                "hero-subtitle": "당신의 삶을 위해 설계된 간단하고 안전하며 스마트한 재정 추적.",
+                "cta-get-started": "시작하기",
+                "features-title": "돈을 마스터하는 데 필요한 모든 것.",
+                "feature-1-title": "개인정보 보호 우선",
+                "feature-1-desc": "모든 재정 데이터는 장치에 보관됩니다. 당사는 귀하의 민감한 정보를 서버에 저장하지 않습니다.",
+                "feature-2-title": "스마트 인사이트",
+                "feature-2-desc": "자동 분류 및 아름다운 차트로 소비 습관을 명확하게 파악하세요.",
+                "feature-3-title": "쉬운 예산 관리",
+                "feature-3-desc": "직관적인 예산 도구로 목표를 설정하고, 진행 상황을 추적하며, 월간 지출을 모니터링하세요.",
+                "showcase-title": "항상 아름다운 경험.",
+                "footer-desc": "iOS에서 재정을 추적하는 전문적인 방법.",
+                "footer-support-header": "지원",
+                "footer-help": "고객 센터",
+                "footer-email": "이메일 지원",
+                "footer-legal-header": "법적 고지",
+                "footer-privacy": "개인정보 처리방침",
+                "footer-terms": "서비스 이용약관",
+                "copyright": "&copy; 2026 Mobile Ledger. 모든 권리 보유. iPhone 및 iOS는 Apple Inc.의 상표입니다."
+            },
+            ja: {
+                "nav-support": "サポート",
+                "nav-privacy": "プライバシー",
+                "nav-contact": "お問い合わせ",
+                "hero-title": "家計를 完璧に管理",
+                "hero-subtitle": "あなたのライフスタイルに合わせた、シンプルで安全、かつスマートな収支管理。",
+                "cta-get-started": "今すぐ始める",
+                "features-title": "お金をマスターするために必要なすべてがここに。",
+                "feature-1-title": "プライバシーを最優先",
+                "feature-1-desc": "すべての財務データはデバイス内に保存されます。機密情報をサーバーに保存することはありません。",
+                "feature-2-title": "スマートな分析",
+                "feature-2-desc": "自動カテゴリ分けと美しいチャートで、支出の傾向を明確に把握。",
+                "feature-3-title": "予算管理を簡単に",
+                "feature-3-desc": "直感的な予算ツールで目標を設定し、進捗を追跡。毎月の支出をしっかり管理。",
+                "showcase-title": "いつでも最高のユーザー体験を。",
+                "footer-desc": "iOSで家計を管理するプロフェッショナルな方法。",
+                "footer-support-header": "サポート",
+                "footer-help": "ヘルプセンター",
+                "footer-email": "メールサポート",
+                "footer-legal-header": "法的情報",
+                "footer-privacy": "プライバシーポリシー",
+                "footer-terms": "利用規約",
+                "copyright": "&copy; 2026 Mobile Ledger. All rights reserved. iPhoneおよびiOSはApple Inc.の商標です。"
+            }
+        };
+
+        function updateLanguage(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('preferred-lang', lang);
+
+            // Update text
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Special case for copyright (HTML)
+            document.getElementById('copyright-text').innerHTML = translations[lang]['copyright'];
+
+            // Update hero image
+            document.getElementById('hero-img').src = `images/screenshots/${lang}/screenshot-1.png`;
+
+            // Update showcase grid
+            const grid = document.getElementById('screenshot-grid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= 6; i++) {
+                const item = document.createElement('div');
+                item.className = 'showcase-item';
+                const img = document.createElement('img');
+                img.src = `images/screenshots/${lang}/screenshot-${i}.png`;
+                img.alt = `Screenshot ${i}`;
+                item.appendChild(img);
+                grid.appendChild(item);
+            }
+
+            // Update links to include lang param
+            document.querySelectorAll('a[href$=".html"]').forEach(link => {
+                const url = new URL(link.href, window.location.origin);
+                url.searchParams.set('lang', lang);
+                link.href = url.pathname + url.search;
+            });
+        }
+
+        const selector = document.getElementById('lang-selector');
+        selector.addEventListener('change', (e) => {
+            updateLanguage(e.target.value);
+        });
+
+        // Initialize from URL or LocalStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        const savedLang = localStorage.getItem('preferred-lang');
+        const initialLang = langParam || savedLang || 'en';
+
+        if (translations[initialLang]) {
+            selector.value = initialLang;
+            updateLanguage(initialLang);
+        }
+    </script>
 </body>
 
 </html>

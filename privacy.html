@@ -31,6 +31,13 @@
             padding: 0 20px;
         }
 
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
         .card {
             background: var(--card-bg);
             padding: 50px;
@@ -118,7 +125,6 @@
 
         .nav-link {
             display: inline-block;
-            margin-bottom: 40px;
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
@@ -128,6 +134,16 @@
 
         .nav-link:hover {
             opacity: 0.7;
+        }
+
+        .lang-selector {
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #d2d2d7;
+            font-size: 12px;
+            background: white;
+            cursor: pointer;
+            outline: none;
         }
 
         .contact-box {
@@ -169,186 +185,227 @@
 
 <body>
     <div class="container">
-        <a href="index.html" class="nav-link">← Back to Home</a>
+        <div class="top-nav">
+            <a href="index.html" class="nav-link" data-i18n="back-home">← Back to Home</a>
+            <select class="lang-selector" id="lang-selector">
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="ko">한국어</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>
 
         <div class="card">
             <header>
-                <h1>Privacy Policy</h1>
-                <p class="last-updated">Last Updated: February 3, 2026</p>
+                <h1 data-i18n="privacy-title">Privacy Policy</h1>
+                <p class="last-updated" data-i18n="last-updated">Last Updated: February 3, 2026</p>
             </header>
 
             <section>
-                <p>Mobile Ledger ("we," "our," or "the app") is a personal finance management application designed to
-                    help you track expenses, income, and manage your financial accounts. We are committed to protecting
-                    your privacy and ensuring you understand how your data is handled.</p>
+                <p data-i18n="intro">Mobile Ledger ("we," "our," or "the app") is a personal finance management
+                    application designed to help you track expenses, income, and manage your financial accounts. We are
+                    committed to protecting your privacy and ensuring you understand how your data is handled.</p>
             </section>
 
             <div class="summary-box">
-                <h3>Summary</h3>
+                <h3 data-i18n="summary-title">Summary</h3>
                 <ul>
-                    <li><strong>Your data stays on your device</strong> - All financial data is stored locally using
-                        Apple's SwiftData framework</li>
-                    <li><strong>No cloud sync by default</strong> - CloudKit synchronization is disabled</li>
-                    <li><strong>No third-party tracking</strong> - We do not use analytics services or share your data
-                    </li>
-                    <li><strong>Optional backup</strong> - You can manually backup/restore your data via iCloud</li>
-                    <li><strong>Biometric protection</strong> - Optional Face ID/Touch ID authentication for app access
-                    </li>
+                    <li data-i18n="sum-1"><strong>Your data stays on your device</strong> - All financial data is stored
+                        locally using Apple's SwiftData framework</li>
+                    <li data-i18n="sum-2"><strong>No cloud sync by default</strong> - CloudKit synchronization is
+                        disabled</li>
+                    <li data-i18n="sum-3"><strong>No third-party tracking</strong> - We do not use analytics services or
+                        share your data</li>
+                    <li data-i18n="sum-4"><strong>Optional backup</strong> - You can manually backup/restore your data
+                        via iCloud</li>
+                    <li data-i18n="sum-5"><strong>Biometric protection</strong> - Optional Face ID/Touch ID
+                        authentication for app access</li>
                 </ul>
             </div>
 
-            <h2>Data We Collect</h2>
+            <h2 data-i18n="collect-title">Data We Collect</h2>
 
-            <h3>Financial Data (Stored Locally)</h3>
-            <p>The app stores the following data exclusively on your device:</p>
+            <h3 data-i18n="financial-title">Financial Data (Stored Locally)</h3>
+            <p data-i18n="financial-desc">The app stores the following data exclusively on your device:</p>
             <ul>
-                <li><strong>Transactions</strong>: Date, amount, description, type (expense/income/transfer), and
-                    category</li>
-                <li><strong>Accounts</strong>: Account names, types, balances, associated bank/institution</li>
-                <li><strong>Categories</strong>: Custom and default spending/income categories</li>
-                <li><strong>Budgets</strong>: Budget amounts and thresholds</li>
-                <li><strong>Ledgers</strong>: Organizational groupings for your financial data</li>
-                <li><strong>Currencies</strong>: Currency preferences and exchange information</li>
-                <li><strong>Custom Icons</strong>: Any custom icons you upload for accounts</li>
+                <li data-i18n="f-1"><strong>Transactions</strong>: Date, amount, description, type
+                    (expense/income/transfer), and category</li>
+                <li data-i18n="f-2"><strong>Accounts</strong>: Account names, types, balances, associated
+                    bank/institution</li>
+                <li data-i18n="f-3"><strong>Categories</strong>: Custom and default spending/income categories</li>
+                <li data-i18n="f-4"><strong>Budgets</strong>: Budget amounts and thresholds</li>
             </ul>
 
-            <h3>User Preferences</h3>
-            <p>We store your app preferences locally using Apple's standard storage:</p>
-            <ul>
-                <li>Display preferences (currency format, theme)</li>
-                <li>Privacy settings (auto-lock timeout, biometric authentication)</li>
-                <li>Notification preferences</li>
-                <li>Account visibility settings</li>
-            </ul>
+            <h2 data-i18n="storage-title">How Your Data Is Stored</h2>
+            <h3 data-i18n="local-title">Local Storage</h3>
+            <p data-i18n="local-desc">All your financial data is stored locally on your device using Apple's SwiftData
+                framework. This means your data never leaves your device automatically and is protected by your device's
+                built-in encryption.</p>
 
-            <h3>Biometric Data</h3>
-            <p>If you enable Face ID or Touch ID authentication:</p>
-            <ul>
-                <li><strong>We do not store biometric data</strong> - Authentication is handled entirely by Apple's
-                    secure enclave</li>
-                <li>We only store a preference flag indicating whether biometric lock is enabled</li>
-            </ul>
-
-            <h2>How Your Data Is Stored</h2>
-
-            <h3>Local Storage</h3>
-            <p>All your financial data is stored locally on your device using Apple's SwiftData framework. This means:
-            </p>
-            <ul>
-                <li>Your data never leaves your device automatically</li>
-                <li>Data is protected by your device's built-in encryption</li>
-                <li>Data is only accessible through the Mobile Ledger app</li>
-            </ul>
-
-            <h3>iCloud Backup (Optional)</h3>
-            <p>The app provides an optional manual backup feature:</p>
-            <ul>
-                <li>You can create backups stored in your personal iCloud account</li>
-                <li>Backups are encrypted and protected by your Apple ID credentials</li>
-                <li>You control when backups are created and restored</li>
-                <li>We cannot access your iCloud backup data</li>
-            </ul>
-            <p><strong>Note:</strong> Standard iCloud device backups may include app data. You can manage this in your
-                device's iCloud settings.</p>
-
-            <h2>Data We Do NOT Collect</h2>
-            <ul>
-                <li>We do <strong>not</strong> collect or transmit personal identification information</li>
-                <li>We do <strong>not</strong> use third-party analytics or tracking services</li>
-                <li>We do <strong>not</strong> sell, share, or rent your data to third parties</li>
-                <li>We do <strong>not</strong> access your bank accounts or financial institutions</li>
-                <li>We do <strong>not</strong> store data on external servers</li>
-                <li>We do <strong>not</strong> use advertising networks</li>
-            </ul>
-
-            <h2>Data Security</h2>
-            <p>We implement the following security measures:</p>
-            <ul>
-                <li><strong>Local-only storage</strong>: Data remains on your device</li>
-                <li><strong>Biometric authentication</strong>: Optional Face ID/Touch ID protection</li>
-                <li><strong>Auto-lock</strong>: Configurable automatic lock when the app enters the background</li>
-                <li><strong>Balance hiding</strong>: Option to hide sensitive balance information in the UI</li>
-                <li><strong>Apple's security framework</strong>: Leveraging iOS built-in encryption and secure enclave
-                </li>
-            </ul>
-
-            <h2>Your Rights and Controls</h2>
-            <p>You have complete control over your data:</p>
-
-            <h3>Access and Export</h3>
-            <ul>
-                <li>View all your data within the app</li>
-                <li>Export transactions to a ZIP archive containing JSON files for personal use</li>
-            </ul>
-
-            <h3>Deletion</h3>
-            <ul>
-                <li>Delete individual transactions, accounts, or categories at any time</li>
-                <li>Delete the app to remove all locally stored data</li>
-                <li>Manage iCloud backups through your Apple ID settings</li>
-            </ul>
-
-            <h3>Privacy Controls</h3>
-            <ul>
-                <li>Enable/disable biometric authentication</li>
-                <li>Configure auto-lock timeout</li>
-                <li>Hide account balances from view</li>
-                <li>Exclude accounts from net worth calculations</li>
-            </ul>
-
-            <h2>Children's Privacy</h2>
-            <p>Mobile Ledger does not knowingly collect information from children under 13. The app is designed for
-                personal finance management by adults.</p>
-
-            <h2>Third-Party Services</h2>
-
-            <h3>Apple Services</h3>
-            <p>The app uses the following Apple services:</p>
-            <ul>
-                <li><strong>SwiftData</strong>: Local data storage (no data transmitted)</li>
-                <li><strong>iCloud</strong>: Optional backup storage (encrypted, controlled by your Apple ID)</li>
-                <li><strong>Face ID/Touch ID</strong>: Biometric authentication (processed in secure enclave)</li>
-                <li><strong>Local Notifications</strong>: Reminder notifications (processed on-device)</li>
-            </ul>
-            <p>No third-party services, SDKs, or analytics platforms are used.</p>
-
-            <h2>Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by:</p>
-            <ul>
-                <li>Updating the "Last Updated" date at the top of this policy</li>
-                <li>Providing notice within the app for significant changes</li>
-            </ul>
-
-            <h2>Data Retention</h2>
-            <ul>
-                <li>Local data is retained until you delete it or uninstall the app</li>
-                <li>iCloud backups follow your Apple ID's iCloud storage policies</li>
-                <li>We do not retain any data on external servers</li>
-            </ul>
+            <h2 data-i18n="security-title">Data Security</h2>
+            <p data-i18n="security-desc">We implement security measures including local-only storage, optional biometric
+                authentication, auto-lock, and balance hiding to keep your information private.</p>
 
             <div class="contact-box">
-                <h2>Contact Us</h2>
-                <p>If you have questions or concerns about this Privacy Policy or your data, please contact us at:</p>
+                <h2 data-i18n="contact-title">Contact Us</h2>
+                <p data-i18n="contact-desc">If you have questions or concerns about this Privacy Policy or your data,
+                    please contact us at:</p>
                 <p><strong>Email:</strong> <a href="mailto:support@wartle.app">support@wartle.app</a></p>
-                <p><strong>Website:</strong> <a href="https://mobile-ledger.wartle.app">mobile-ledger.wartle.app</a></p>
             </div>
 
-            <h2>Region-Specific Provisions</h2>
-
-            <h3>For Users in the European Economic Area (EEA)</h3>
-            <p>Under GDPR, you have the right to access, rectify, erase, restrict, and object to processing, as well as
-                the right to data portability. Since all data is stored locally, you exercise these rights directly
-                through the app's features.</p>
-
-            <h3>For Users in California</h3>
-            <p>Under CCPA, California residents have the right to know what personal information is collected, delete
-                it, and opt-out of its sale. <strong>We do not sell personal information.</strong></p>
-
             <hr>
-            <p style="text-align: center; font-style: italic; color: var(--light-text); font-size: 14px;">This privacy
-                policy applies to Mobile Ledger for iOS.</p>
+            <p style="text-align: center; font-style: italic; color: var(--light-text); font-size: 14px;"
+                data-i18n="footer-note">This privacy policy applies to Mobile Ledger for iOS.</p>
         </div>
     </div>
+
+    <script>
+        const translations = {
+            en: {
+                "back-home": "← Back to Home",
+                "privacy-title": "Privacy Policy",
+                "last-updated": "Last Updated: February 3, 2026",
+                "intro": "Mobile Ledger (\"we,\" \"our,\" or \"the app\") is a personal finance management application designed to help you track expenses, income, and manage your financial accounts. We are committed to protecting your privacy and ensuring you understand how your data is handled.",
+                "summary-title": "Summary",
+                "sum-1": "Your data stays on your device - All financial data is stored locally using Apple's SwiftData framework",
+                "sum-2": "No cloud sync by default - CloudKit synchronization is disabled",
+                "sum-3": "No third-party tracking - We do not use analytics services or share your data",
+                "sum-4": "Optional backup - You can manually backup/restore your data via iCloud",
+                "sum-5": "Biometric protection - Optional Face ID/Touch ID authentication for app access",
+                "collect-title": "Data We Collect",
+                "financial-title": "Financial Data (Stored Locally)",
+                "financial-desc": "The app stores the following data exclusively on your device:",
+                "f-1": "Transactions: Date, amount, description, type (expense/income/transfer), and category",
+                "f-2": "Accounts: Account names, types, balances, associated bank/institution",
+                "f-3": "Categories: Custom and default spending/income categories",
+                "f-4": "Budgets: Budget amounts and thresholds",
+                "storage-title": "How Your Data Is Stored",
+                "local-title": "Local Storage",
+                "local-desc": "All your financial data is stored locally on your device using Apple's SwiftData framework. This means your data never leaves your device automatically and is protected by your device's built-in encryption.",
+                "security-title": "Data Security",
+                "security-desc": "We implement security measures including local-only storage, optional biometric authentication, auto-lock, and balance hiding to keep your information private.",
+                "contact-title": "Contact Us",
+                "contact-desc": "If you have questions or concerns about this Privacy Policy or your data, please contact us at:",
+                "footer-note": "This privacy policy applies to Mobile Ledger for iOS."
+            },
+            hi: {
+                "back-home": "← होम पर वापस जाएं",
+                "privacy-title": "गोपनीयता नीति",
+                "last-updated": "अंतिम अपडेट: 3 फरवरी, 2026",
+                "intro": "मोबाइल लेजर (\"हम,\" \"हमारा,\" या \"ऐप\") एक व्यक्तिगत वित्त प्रबंधन एप्लिकेशन है जिसे आपके खर्चों, आय को ट्रैक करने और आपके वित्तीय खातों का प्रबंधन करने में आपकी सहायता के लिए डिज़ाइन किया गया है। हम आपकी गोपनीयता की रक्षा करने और यह सुनिश्चित करने के लिए प्रतिबद्ध हैं कि आप समझते हैं कि आपके डेटा को कैसे संभाला जाता है।",
+                "summary-title": "सारांश",
+                "sum-1": "आपका डेटा आपके डिवाइस पर रहता है - सभी वित्तीय डेटा Apple के SwiftData फ्रेमवर्क का उपयोग करके स्थानीय रूप से स्टोर किया जाता है",
+                "sum-2": "डिफ़ॉल्ट रूप से कोई क्लाउड सिंक नहीं - CloudKit सिंक्रनाइज़ेशन अक्षम है",
+                "sum-3": "कोई तृतीय-पक्ष ट्रैकिंग नहीं - हम विश्लेषणात्मक सेवाओं का उपयोग नहीं करते हैं या आपका डेटा साझा नहीं करते हैं",
+                "sum-4": "वैकल्पिक बैकअप - आप iCloud के माध्यम से मैन्युअल रूप से अपने डेटा का बैकअप/पुनर्स्थापना कर सकते हैं",
+                "sum-5": "बायोमेट्रिक सुरक्षा - ऐप एक्सेस के लिए वैकल्पिक Face ID/Touch ID प्रमाणीकरण",
+                "collect-title": "डेटा जो हम एकत्र करते हैं",
+                "financial-title": "वित्तीय डेटा (स्थानीय रूप से स्टोर किया गया)",
+                "financial-desc": "ऐप निम्नलिखित डेटा को विशेष रूप से आपके डिवाइस पर स्टोर करता है:",
+                "f-1": "लेन-देन: तिथि, राशि, विवरण, प्रकार (खर्च/आय/स्थानांतरण), और श्रेणी",
+                "f-2": "खाते: खाते के नाम, प्रकार, शेष राशि, संबद्ध बैंक/संस्थान",
+                "f-3": "श्रेणियां: कस्टम और डिफ़ॉल्ट खर्च/आय श्रेणियां",
+                "f-4": "बजट: बजट राशि और सीमा",
+                "storage-title": "आपका डेटा कैसे स्टोर किया जाता है",
+                "local-title": "स्थानीय भंडारण",
+                "local-desc": "आपका सारा वित्तीय डेटा Apple के SwiftData फ्रेमवर्क का उपयोग करके आपके डिवाइस पर स्थानीय रूप से स्टोर किया जाता है। इसका मतलब है कि आपका डेटा स्वचालित रूप से आपके डिवाइस को कभी नहीं छोड़ता है और आपके डिवाइस के अंतर्निहित एन्क्रिप्शन द्वारा सुरक्षित है।",
+                "security-title": "डेटा सुरक्षा",
+                "security-desc": "हम आपकी जानकारी को निजी रखने के लिए केवल-स्थानीय भंडारण, वैकल्पिक बायोमेट्रिक प्रमाणीकरण, ऑटो-लॉक और बैलेंस छिपाने सहित सुरक्षा उपायों को लागू करते हैं।",
+                "contact-title": "हमसे संपर्क करें",
+                "contact-desc": "यदि आपके पास इस गोपनीयता नीति या अपने डेटा के बारे में प्रश्न या चिंताएं हैं, तो कृपया हमसे यहां संपर्क करें:",
+                "footer-note": "यह गोपनीयता नीति iOS के लिए मोबाइल लेजर पर लागू होती है।"
+            },
+            ko: {
+                "back-home": "← 홈으로 돌아가기",
+                "privacy-title": "개인정보 처리방침",
+                "last-updated": "최종 업데이트: 2026년 2월 3일",
+                "intro": "Mobile Ledger(\"당사\", \"우리\" 또는 \"앱\")는 지출, 수입을 추적하고 재정 계정을 관리하는 데 도움이 되도록 설계된 개인 재정 관리 애플리케이션입니다. 당사는 귀하의 개인정보를 보호하고 데이터가 어떻게 처리되는지 이해할 수 있도록 최선을 다하고 있습니다.",
+                "summary-title": "요약",
+                "sum-1": "데이터는 기기에 보관됩니다 - 모든 재정 데이터는 Apple의 SwiftData 프레임워크를 사용하여 로컬에 저장됩니다.",
+                "sum-2": "기본적으로 클라우드 동기화 없음 - CloudKit 동기화가 비활성화되어 있습니다.",
+                "sum-3": "제3자 추적 없음 - 당사는 분석 서비스를 사용하거나 귀하의 데이터를 공유하지 않습니다.",
+                "sum-4": "선택적 백업 - iCloud를 통해 수동으로 데이터를 백업/복구할 수 있습니다.",
+                "sum-5": "생체 인식 보호 - 앱 액세스를 위한 선택적 Face ID/Touch ID 인증",
+                "collect-title": "수집하는 데이터",
+                "financial-title": "재정 데이터 (로컬 저장)",
+                "financial-desc": "앱은 다음 데이터를 귀하의 기기에만 저장합니다.",
+                "f-1": "거래: 날짜, 금액, 설명, 유형(지출/수입/이체) 및 카테고리",
+                "f-2": "계정: 계정 이름, 유형, 잔액, 관련 은행/기관",
+                "f-3": "카테고리: 사용자 정의 및 기본 지출/수입 카테고리",
+                "f-4": "예산: 예산 금액 및 임계값",
+                "storage-title": "데이터 저장 방법",
+                "local-title": "로컬 저장소",
+                "local-desc": "모든 재정 데이터는 Apple의 SwiftData 프레임워크를 사용하여 기기에 로컬로 저장됩니다. 즉, 데이터가 자동으로 기기를 떠나지 않으며 기기의 기본 제공 암호화로 보호됩니다.",
+                "security-title": "데이터 보안",
+                "security-desc": "당사는 귀하의 정보를 비공개로 유지하기 위해 로컬 전용 저장소, 선택적 생체 인식 인증, 자동 잠금 및 잔액 숨기기를 포함한 보안 조치를 시행합니다.",
+                "contact-title": "문의하기",
+                "contact-desc": "본 개인정보 처리방침 또는 귀하의 데이터에 대해 질문이나 우려 사항이 있는 경우 다음으로 문의하십시오.",
+                "footer-note": "본 개인정보 처리방침은 iOS용 Mobile Ledger에 적용됩니다."
+            },
+            ja: {
+                "back-home": "← ホームへ戻る",
+                "privacy-title": "プライバシーポリシー",
+                "last-updated": "最終更新日: 2026年2月3日",
+                "intro": "Mobile Ledger（「当方」、「私たち」、または「本アプリ」）は、支出や収入の追跡、および財務アカウントの管理を支援するために設計された個人財務管理アプリケーションです。私たちは、お客様のプライバシーを保護し、お客様のデータがどのように扱われるかを理解していただけるよう努めています。",
+                "summary-title": "概要",
+                "sum-1": "データはデバイス内に保持されます - すべての財務データはAppleのSwiftDataフレームワークを使用してローカルに保存されます",
+                "sum-2": "デフォルトでクラウド同期なし - CloudKitの同期は無効になっています",
+                "sum-3": "サードパーティによる追跡なし - 分析サービスを使用したり、データを共有したりすることはありません",
+                "sum-4": "オプションのバックアップ - iCloud経由で手動でデータのバックアップと復元が可能です",
+                "sum-5": "生体認証保護 - アプリへのアクセスのためのオプションのFace ID/Touch ID認証",
+                "collect-title": "収集するデータ",
+                "financial-title": "財務データ（ローカルに保存）",
+                "financial-desc": "本アプリは、以下のデータをデバイス内のみに保存します：",
+                "f-1": "取引：日付、金額、説明、タイプ（支出/収入/振替）、およびカテゴリ",
+                "f-2": "アカウント：アカウント名、タイプ、残高、関連する銀行/金融機関",
+                "f-3": "カテゴリ：カスタムおよびデフォルトの支出/収入カテゴリ",
+                "f-4": "予算：予算額およびしきい値",
+                "storage-title": "データの保存方法",
+                "local-title": "ローカルストレージ",
+                "local-desc": "すべての財務データは、AppleのSwiftDataフレームワークを使用してデバイス内にローカルに保存されます。つまり、データが自動的にデバイス外に送信されることはなく、デバイス組み込みの暗号化によって保護されます。",
+                "security-title": "データのセキュリティ",
+                "security-desc": "情報のプライバシーを保護するため、ローカルのみの保存、オプションの生体認証、自動ロック、残高の非表示などのセキュリティ対策を実施しています。",
+                "contact-title": "お問い合わせ",
+                "contact-desc": "本プライバシーポリシーまたはお客様のデータについてご質問や懸念がある場合は、下記までお問い合わせください：",
+                "footer-note": "本プライバシーポリシーは、iOS版 Mobile Ledgerに適用されます。"
+            }
+        };
+
+        function updateLanguage(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('preferred-lang', lang);
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update links to include lang param
+            document.querySelectorAll('a[href$=".html"]').forEach(link => {
+                const url = new URL(link.href, window.location.origin);
+                url.searchParams.set('lang', lang);
+                link.href = url.pathname + url.search;
+            });
+        }
+
+        const selector = document.getElementById('lang-selector');
+        selector.addEventListener('change', (e) => {
+            updateLanguage(e.target.value);
+        });
+
+        // Initialize
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        const savedLang = localStorage.getItem('preferred-lang');
+        const initialLang = langParam || savedLang || 'en';
+
+        if (translations[initialLang]) {
+            selector.value = initialLang;
+            updateLanguage(initialLang);
+        }
+    </script>
 </body>
 
 </html>

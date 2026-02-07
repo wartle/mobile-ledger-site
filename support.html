@@ -31,6 +31,13 @@
             padding: 0 20px;
         }
 
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
         .card {
             background: var(--card-bg);
             padding: 50px;
@@ -68,7 +75,6 @@
 
         .nav-link {
             display: inline-block;
-            margin-bottom: 40px;
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
@@ -78,6 +84,16 @@
 
         .nav-link:hover {
             opacity: 0.7;
+        }
+
+        .lang-selector {
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #d2d2d7;
+            font-size: 12px;
+            background: white;
+            cursor: pointer;
+            outline: none;
         }
 
         .contact-box {
@@ -99,7 +115,7 @@
             margin-top: 10px;
             transition: transform 0.2s, background-color 0.2s;
         }
-        
+
         .btn:hover {
             background-color: #0062CC;
             transform: translateY(-1px);
@@ -119,43 +135,175 @@
 
 <body>
     <div class="container">
-        <a href="index.html" class="nav-link">← Back to Home</a>
+        <div class="top-nav">
+            <a href="index.html" class="nav-link" data-i18n="back-home">← Back to Home</a>
+            <select class="lang-selector" id="lang-selector">
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="ko">한국어</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>
 
         <div class="card">
             <header>
-                <h1>Support</h1>
-                <p>We're here to help you get the most out of Mobile Ledger.</p>
+                <h1 data-i18n="support-title">Support</h1>
+                <p data-i18n="support-subtitle">We're here to help you get the most out of Mobile Ledger.</p>
             </header>
 
             <section>
-                <h2>Contact Us</h2>
-                <p>Have a question, feedback, or need help with a technical issue? Our team is ready to assist you.</p>
-                
+                <h2 data-i18n="contact-title">Contact Us</h2>
+                <p data-i18n="contact-desc">Have a question, feedback, or need help with a technical issue? Our team is
+                    ready to assist you.</p>
+
                 <div class="contact-box">
-                    <p><strong>Email Support</strong></p>
-                    <p>We typically respond within 24-48 hours.</p>
-                    <a href="mailto:support@wartle.app" class="btn">Email support@wartle.app</a>
+                    <p><strong data-i18n="email-support">Email Support</strong></p>
+                    <p data-i18n="response-time">We typically respond within 24-48 hours.</p>
+                    <a href="mailto:support@wartle.app" class="btn" data-i18n="btn-email">Email support@wartle.app</a>
                 </div>
             </section>
 
             <section>
-                <h2>Frequently Asked Questions</h2>
-                <p><strong>Where is my data stored?</strong><br>
-                All your financial data is stored locally on your device using Apple's SwiftData framework. It never leaves your device unless you choose to create a manual backup.</p>
-                
-                <p><strong>How do I backup my data?</strong><br>
-                You can create manual backups to your iCloud account through the settings menu in the app. This ensures you can restore your data if you switch devices.</p>
-                
-                <p><strong>Is my data secure?</strong><br>
-                Yes. We leverage iOS built-in encryption and offer optional biometric (Face ID/Touch ID) protection to keep your financial information private.</p>
+                <h2 data-i18n="faq-title">Frequently Asked Questions</h2>
+                <p><strong data-i18n="faq-1-q">Where is my data stored?</strong><br>
+                    <span data-i18n="faq-1-a">All your financial data is stored locally on your device using Apple's
+                        SwiftData framework. It never leaves your device unless you choose to create a manual
+                        backup.</span>
+                </p>
+
+                <p><strong data-i18n="faq-2-q">How do I backup my data?</strong><br>
+                    <span data-i18n="faq-2-a">You can create manual backups to your iCloud account through the settings
+                        menu in the app. This ensures you can restore your data if you switch devices.</span>
+                </p>
+
+                <p><strong data-i18n="faq-3-q">Is my data secure?</strong><br>
+                    <span data-i18n="faq-3-a">Yes. We leverage iOS built-in encryption and offer optional biometric
+                        (Face ID/Touch ID) protection to keep your financial information private.</span>
+                </p>
             </section>
 
             <section>
-                <h2>App Version</h2>
-                <p style="color: var(--light-text); font-size: 14px;">Mobile Ledger for iOS</p>
+                <h2 data-i18n="version-title">App Version</h2>
+                <p style="color: var(--light-text); font-size: 14px;" data-i18n="version-desc">Mobile Ledger for iOS</p>
             </section>
         </div>
     </div>
+
+    <script>
+        const translations = {
+            en: {
+                "back-home": "← Back to Home",
+                "support-title": "Support",
+                "support-subtitle": "We're here to help you get the most out of Mobile Ledger.",
+                "contact-title": "Contact Us",
+                "contact-desc": "Have a question, feedback, or need help with a technical issue? Our team is ready to assist you.",
+                "email-support": "Email Support",
+                "response-time": "We typically respond within 24-48 hours.",
+                "btn-email": "Email support@wartle.app",
+                "faq-title": "Frequently Asked Questions",
+                "faq-1-q": "Where is my data stored?",
+                "faq-1-a": "All your financial data is stored locally on your device using Apple's SwiftData framework. It never leaves your device unless you choose to create a manual backup.",
+                "faq-2-q": "How do I backup my data?",
+                "faq-2-a": "You can create manual backups to your iCloud account through the settings menu in the app. This ensures you can restore your data if you switch devices.",
+                "faq-3-q": "Is my data secure?",
+                "faq-3-a": "Yes. We leverage iOS built-in encryption and offer optional biometric (Face ID/Touch ID) protection to keep your financial information private.",
+                "version-title": "App Version",
+                "version-desc": "Mobile Ledger for iOS"
+            },
+            hi: {
+                "back-home": "← होम पर वापस जाएं",
+                "support-title": "सहायता",
+                "support-subtitle": "हम यहां मोबाइल लेजर का अधिकतम लाभ उठाने में आपकी सहायता के लिए हैं।",
+                "contact-title": "हमसे संपर्क करें",
+                "contact-desc": "कोई प्रश्न, प्रतिक्रिया है, या तकनीकी समस्या में सहायता चाहिए? हमारी टीम आपकी सहायता के लिए तैयार है।",
+                "email-support": "ईमेल सहायता",
+                "response-time": "हम आम तौर पर 24-48 घंटों के भीतर जवाब देते हैं।",
+                "btn-email": "ईमेल support@wartle.app",
+                "faq-title": "अक्सर पूछे जाने वाले प्रश्न",
+                "faq-1-q": "मेरा डेटा कहाँ स्टोर किया जाता है?",
+                "faq-1-a": "आपका सारा वित्तीय डेटा Apple के SwiftData फ्रेमवर्क का उपयोग करके आपके डिवाइस पर स्थानीय रूप से स्टोर किया जाता है। यह आपके डिवाइस को कभी नहीं छोड़ता जब तक कि आप मैन्युअल बैकअप बनाना नहीं चुनते।",
+                "faq-2-q": "मैं अपने डेटा का बैकअप कैसे ले सकता हूँ?",
+                "faq-2-a": "आप ऐप में सेटिंग मेनू के माध्यम से अपने iCloud खाते में मैन्युअल बैकअप बना सकते हैं। यह सुनिश्चित करता है कि यदि आप डिवाइस बदलते हैं तो आप अपना डेटा पुनर्स्थापित कर सकते हैं।",
+                "faq-3-q": "क्या मेरा डेटा सुरक्षित है?",
+                "faq-3-a": "हाँ। हम आपकी वित्तीय जानकारी को निजी रखने के लिए iOS अंतर्निहित एन्क्रिप्शन का लाभ उठाते हैं और वैकल्पिक बायोमेट्रिक (Face ID/Touch ID) सुरक्षा प्रदान करते हैं।",
+                "version-title": "ऐप संस्करण",
+                "version-desc": "iOS के लिए मोबाइल लेजर"
+            },
+            ko: {
+                "back-home": "← 홈으로 돌아가기",
+                "support-title": "지원",
+                "support-subtitle": "모바일 레저를 최대한 활용할 수 있도록 도와드리겠습니다.",
+                "contact-title": "문의하기",
+                "contact-desc": "질문, 피드백이 있거나 기술적 문제로 도움이 필요하신가요? 저희 팀이 도와드릴 준비가 되어 있습니다.",
+                "email-support": "이메일 지원",
+                "response-time": "보통 24-48시간 이내에 답변을 드립니다.",
+                "btn-email": "이메일 support@wartle.app",
+                "faq-title": "자주 묻는 질문",
+                "faq-1-q": "데이터는 어디에 저장되나요?",
+                "faq-1-a": "모든 재정 데이터는 Apple의 SwiftData 프레임워크를 사용하여 장치에 로컬로 저장됩니다. 수동 백업을 만들지 않는 한 장치를 떠나지 않습니다.",
+                "faq-2-q": "데이터를 어떻게 백업하나요?",
+                "faq-2-a": "앱의 설정 메뉴를 통해 iCloud 계정에 수동 백업을 만들 수 있습니다. 이를 통해 장치를 변경할 때 데이터를 복구할 수 있습니다.",
+                "faq-3-q": "데이터는 안전한가요?",
+                "faq-3-a": "네. 귀하의 재정 정보를 비공개로 유지하기 위해 iOS 기본 암호화를 활용하고 선택적 생체 인식(Face ID/Touch ID) 보호를 제공합니다.",
+                "version-title": "앱 버전",
+                "version-desc": "iOS용 모바일 레저"
+            },
+            ja: {
+                "back-home": "← ホームへ戻る",
+                "support-title": "サポート",
+                "support-subtitle": "Mobile Ledgerを最大限に活用できるようサポートいたします。",
+                "contact-title": "お問い合わせ",
+                "contact-desc": "ご質問、フィードバック、または技術的な問題でお困りですか？ 私たちのチームがお手伝いいたします。",
+                "email-support": "メールサポート",
+                "response-time": "通常24〜48時間以内に返信いたします。",
+                "btn-email": "メール support@wartle.app",
+                "faq-title": "よくある質問",
+                "faq-1-q": "データはどこに保存されますか？",
+                "faq-1-a": "すべての財務データは、AppleのSwiftDataフレームワークを使用してデバイス内にローカルに保存されます。手動バックアップを作成しない限り、デバイス外に送信されることはありません。",
+                "faq-2-q": "データのバックアップ方法は？",
+                "faq-2-a": "アプリ内の設定メニューから、iCloudアカウントに手動バックアップを作成できます。これにより、デバイスを買い替えた際などにデータを復元できます。",
+                "faq-3-q": "データのセキュリティは？",
+                "faq-3-a": "はい。iOS組み込みの暗号化を活用し、オプションで生体認証（Face ID/Touch ID）保護を提供することで、財務情報のプライバシーを保護しています。",
+                "version-title": "アプリのバージョン",
+                "version-desc": "iOS版 Mobile Ledger"
+            }
+        };
+
+        function updateLanguage(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('preferred-lang', lang);
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update links to include lang param
+            document.querySelectorAll('a[href$=".html"]').forEach(link => {
+                const url = new URL(link.href, window.location.origin);
+                url.searchParams.set('lang', lang);
+                link.href = url.pathname + url.search;
+            });
+        }
+
+        const selector = document.getElementById('lang-selector');
+        selector.addEventListener('change', (e) => {
+            updateLanguage(e.target.value);
+        });
+
+        // Initialize
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        const savedLang = localStorage.getItem('preferred-lang');
+        const initialLang = langParam || savedLang || 'en';
+
+        if (translations[initialLang]) {
+            selector.value = initialLang;
+            updateLanguage(initialLang);
+        }
+    </script>
 </body>
 
 </html>
