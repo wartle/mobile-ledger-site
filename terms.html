@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - Mobile Ledger</title>
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --secondary-color: #5856D6;
+            --text-color: #1D1D1F;
+            --light-text: #86868B;
+            --bg-color: #F5F5F7;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            color: var(--text-color);
+        }
+
+        .last-updated {
+            color: var(--light-text);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--text-color);
+            border-bottom: 1px solid #E5E5E5;
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .summary-box {
+            background: #F2F7FF;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .summary-box ul {
+            margin-bottom: 0;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .summary-box li {
+            position: relative;
+            padding-left: 24px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .summary-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .nav-link {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        .lang-selector {
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #d2d2d7;
+            font-size: 12px;
+            background: white;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .eula-link {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .eula-link:hover {
+            background-color: #0062CC;
+            transform: translateY(-1px);
+        }
+
+        .eula-box {
+            margin-top: 30px;
+            padding: 30px;
+            background: #F9F9F9;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #EEE;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-nav">
+            <a href="index.html" class="nav-link" data-i18n="back-home">← Back to Home</a>
+            <select class="lang-selector" id="lang-selector">
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="ko">한국어</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>
+
+        <div class="card">
+            <header>
+                <h1 data-i18n="terms-title">Terms of Use (EULA)</h1>
+                <p class="last-updated" data-i18n="last-updated">Last Updated: April 9, 2026</p>
+            </header>
+
+            <section>
+                <p data-i18n="intro">Mobile Ledger is licensed to you under the Apple Standard End User License
+                    Agreement (EULA). By downloading, installing, or using Mobile Ledger, you agree to be bound by
+                    the terms of the Apple Standard EULA.</p>
+            </section>
+
+            <div class="summary-box">
+                <h3 style="font-size: 18px; font-weight: 600; margin-top: 0; margin-bottom: 12px;"
+                    data-i18n="summary-title">Key Points</h3>
+                <ul>
+                    <li data-i18n="sum-1">Mobile Ledger uses the Apple Standard End User License Agreement (EULA)</li>
+                    <li data-i18n="sum-2">The EULA governs your use of the app and any related services</li>
+                    <li data-i18n="sum-3">Your privacy is protected as described in our Privacy Policy</li>
+                    <li data-i18n="sum-4">Subscriptions are managed through Apple and subject to Apple's terms</li>
+                </ul>
+            </div>
+
+            <h2 data-i18n="eula-title">Apple Standard EULA</h2>
+            <p data-i18n="eula-desc">Mobile Ledger is licensed under the standard Apple End User License Agreement
+                (EULA) as provided by Apple Inc. This agreement governs your use of the application, including any
+                updates, upgrades, and related services provided through the app.</p>
+
+            <div class="eula-box">
+                <p><strong data-i18n="eula-read">Read the full Apple Standard EULA</strong></p>
+                <p style="font-size: 14px; color: var(--light-text);" data-i18n="eula-redirect">You will be
+                    redirected to Apple's website.</p>
+                <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank"
+                    rel="noopener noreferrer" class="eula-link" data-i18n="eula-btn">View Apple Standard EULA</a>
+            </div>
+
+            <h2 data-i18n="subscriptions-title">Subscriptions</h2>
+            <p data-i18n="subscriptions-desc">Mobile Ledger offers auto-renewable subscriptions. Payment is charged
+                to your Apple ID account at confirmation of purchase. Subscriptions automatically renew unless
+                cancelled at least 24 hours before the end of the current period. You can manage and cancel your
+                subscriptions in your Apple ID account settings.</p>
+
+            <h2 data-i18n="privacy-title">Privacy</h2>
+            <p data-i18n="privacy-desc">Your use of Mobile Ledger is also governed by our Privacy Policy, which
+                describes how we handle your data. All your financial data is stored locally on your device.</p>
+            <p><a href="privacy.html" data-i18n="privacy-link">Read our Privacy Policy →</a></p>
+
+            <h2 data-i18n="contact-title">Contact Us</h2>
+            <p data-i18n="contact-desc">If you have questions about these terms, please contact us at:</p>
+            <p><strong>Email:</strong> <a href="mailto:support@wartle.app">support@wartle.app</a></p>
+
+            <hr>
+            <p style="text-align: center; font-style: italic; color: var(--light-text); font-size: 14px;"
+                data-i18n="footer-note">These terms apply to Mobile Ledger for iOS.</p>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                "back-home": "← Back to Home",
+                "terms-title": "Terms of Use (EULA)",
+                "last-updated": "Last Updated: April 9, 2026",
+                "intro": "Mobile Ledger is licensed to you under the Apple Standard End User License Agreement (EULA). By downloading, installing, or using Mobile Ledger, you agree to be bound by the terms of the Apple Standard EULA.",
+                "summary-title": "Key Points",
+                "sum-1": "Mobile Ledger uses the Apple Standard End User License Agreement (EULA)",
+                "sum-2": "The EULA governs your use of the app and any related services",
+                "sum-3": "Your privacy is protected as described in our Privacy Policy",
+                "sum-4": "Subscriptions are managed through Apple and subject to Apple's terms",
+                "eula-title": "Apple Standard EULA",
+                "eula-desc": "Mobile Ledger is licensed under the standard Apple End User License Agreement (EULA) as provided by Apple Inc. This agreement governs your use of the application, including any updates, upgrades, and related services provided through the app.",
+                "eula-read": "Read the full Apple Standard EULA",
+                "eula-redirect": "You will be redirected to Apple's website.",
+                "eula-btn": "View Apple Standard EULA",
+                "subscriptions-title": "Subscriptions",
+                "subscriptions-desc": "Mobile Ledger offers auto-renewable subscriptions. Payment is charged to your Apple ID account at confirmation of purchase. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period. You can manage and cancel your subscriptions in your Apple ID account settings.",
+                "privacy-title": "Privacy",
+                "privacy-desc": "Your use of Mobile Ledger is also governed by our Privacy Policy, which describes how we handle your data. All your financial data is stored locally on your device.",
+                "privacy-link": "Read our Privacy Policy →",
+                "contact-title": "Contact Us",
+                "contact-desc": "If you have questions about these terms, please contact us at:",
+                "footer-note": "These terms apply to Mobile Ledger for iOS."
+            },
+            hi: {
+                "back-home": "← होम पर वापस जाएं",
+                "terms-title": "उपयोग की शर्तें (EULA)",
+                "last-updated": "अंतिम अपडेट: 9 अप्रैल, 2026",
+                "intro": "मोबाइल लेजर आपको Apple मानक अंतिम उपयोगकर्ता लाइसेंस समझौते (EULA) के तहत लाइसेंस प्राप्त है। मोबाइल लेजर को डाउनलोड, इंस्टॉल या उपयोग करके, आप Apple मानक EULA की शर्तों से बाध्य होने के लिए सहमत हैं।",
+                "summary-title": "मुख्य बिंदु",
+                "sum-1": "मोबाइल लेजर Apple मानक अंतिम उपयोगकर्ता लाइसेंस समझौते (EULA) का उपयोग करता है",
+                "sum-2": "EULA ऐप और किसी भी संबंधित सेवाओं के आपके उपयोग को नियंत्रित करता है",
+                "sum-3": "आपकी गोपनीयता हमारी गोपनीयता नीति में वर्णित अनुसार सुरक्षित है",
+                "sum-4": "सदस्यता Apple के माध्यम से प्रबंधित की जाती है और Apple की शर्तों के अधीन है",
+                "eula-title": "Apple मानक EULA",
+                "eula-desc": "मोबाइल लेजर Apple Inc. द्वारा प्रदान किए गए मानक Apple अंतिम उपयोगकर्ता लाइसेंस समझौते (EULA) के तहत लाइसेंस प्राप्त है। यह समझौता ऐप के माध्यम से प्रदान किए गए किसी भी अपडेट, अपग्रेड और संबंधित सेवाओं सहित एप्लिकेशन के आपके उपयोग को नियंत्रित करता है।",
+                "eula-read": "पूर्ण Apple मानक EULA पढ़ें",
+                "eula-redirect": "आपको Apple की वेबसाइट पर रीडायरेक्ट किया जाएगा।",
+                "eula-btn": "Apple मानक EULA देखें",
+                "subscriptions-title": "सदस्यता",
+                "subscriptions-desc": "मोबाइल लेजर ऑटो-नवीकरणीय सदस्यता प्रदान करता है। खरीद की पुष्टि पर भुगतान आपके Apple ID खाते से लिया जाता है। सदस्यता स्वचालित रूप से नवीनीकृत होती है जब तक कि वर्तमान अवधि समाप्त होने से कम से कम 24 घंटे पहले रद्द नहीं किया जाता। आप अपनी Apple ID खाता सेटिंग में अपनी सदस्यता प्रबंधित और रद्द कर सकते हैं।",
+                "privacy-title": "गोपनीयता",
+                "privacy-desc": "मोबाइल लेजर का आपका उपयोग हमारी गोपनीयता नीति द्वारा भी नियंत्रित होता है, जो बताती है कि हम आपके डेटा को कैसे संभालते हैं। आपका सारा वित्तीय डेटा आपके डिवाइस पर स्थानीय रूप से स्टोर किया जाता है।",
+                "privacy-link": "हमारी गोपनीयता नीति पढ़ें →",
+                "contact-title": "हमसे संपर्क करें",
+                "contact-desc": "यदि इन शर्तों के बारे में आपके कोई प्रश्न हैं, तो कृपया हमसे यहां संपर्क करें:",
+                "footer-note": "ये शर्तें iOS के लिए मोबाइल लेजर पर लागू होती हैं।"
+            },
+            ko: {
+                "back-home": "← 홈으로 돌아가기",
+                "terms-title": "이용 약관 (EULA)",
+                "last-updated": "최종 업데이트: 2026년 4월 9일",
+                "intro": "Mobile Ledger는 Apple 표준 최종 사용자 라이선스 계약(EULA)에 따라 라이선스가 부여됩니다. Mobile Ledger를 다운로드, 설치 또는 사용함으로써 Apple 표준 EULA의 조건에 동의하게 됩니다.",
+                "summary-title": "주요 사항",
+                "sum-1": "Mobile Ledger는 Apple 표준 최종 사용자 라이선스 계약(EULA)을 사용합니다",
+                "sum-2": "EULA는 앱 및 관련 서비스의 사용을 규정합니다",
+                "sum-3": "귀하의 개인정보는 개인정보 처리방침에 따라 보호됩니다",
+                "sum-4": "구독은 Apple을 통해 관리되며 Apple의 약관에 따릅니다",
+                "eula-title": "Apple 표준 EULA",
+                "eula-desc": "Mobile Ledger는 Apple Inc.에서 제공하는 표준 Apple 최종 사용자 라이선스 계약(EULA)에 따라 라이선스가 부여됩니다. 이 계약은 앱을 통해 제공되는 업데이트, 업그레이드 및 관련 서비스를 포함하여 애플리케이션 사용을 규정합니다.",
+                "eula-read": "전체 Apple 표준 EULA 읽기",
+                "eula-redirect": "Apple 웹사이트로 이동합니다.",
+                "eula-btn": "Apple 표준 EULA 보기",
+                "subscriptions-title": "구독",
+                "subscriptions-desc": "Mobile Ledger는 자동 갱신 구독을 제공합니다. 구매 확인 시 Apple ID 계정으로 결제가 청구됩니다. 현재 기간이 끝나기 최소 24시간 전에 취소하지 않으면 구독이 자동으로 갱신됩니다. Apple ID 계정 설정에서 구독을 관리하고 취소할 수 있습니다.",
+                "privacy-title": "개인정보",
+                "privacy-desc": "Mobile Ledger 사용은 데이터 처리 방법을 설명하는 개인정보 처리방침에 의해서도 규정됩니다. 모든 재정 데이터는 기기에 로컬로 저장됩니다.",
+                "privacy-link": "개인정보 처리방침 읽기 →",
+                "contact-title": "문의하기",
+                "contact-desc": "이 약관에 대해 질문이 있으시면 다음으로 문의하십시오:",
+                "footer-note": "이 약관은 iOS용 Mobile Ledger에 적용됩니다."
+            },
+            ja: {
+                "back-home": "← ホームへ戻る",
+                "terms-title": "利用規約 (EULA)",
+                "last-updated": "最終更新日: 2026年4月9日",
+                "intro": "Mobile Ledgerは、Apple標準エンドユーザーライセンス契約（EULA）に基づいてライセンスされています。Mobile Ledgerをダウンロード、インストール、または使用することにより、Apple標準EULAの条件に同意したものとみなされます。",
+                "summary-title": "主要ポイント",
+                "sum-1": "Mobile LedgerはApple標準エンドユーザーライセンス契約（EULA）を使用しています",
+                "sum-2": "EULAは、アプリおよび関連サービスの使用を規定します",
+                "sum-3": "お客様のプライバシーは、プライバシーポリシーに記載されているとおり保護されます",
+                "sum-4": "サブスクリプションはAppleを通じて管理され、Appleの規約に従います",
+                "eula-title": "Apple標準EULA",
+                "eula-desc": "Mobile Ledgerは、Apple Inc.が提供する標準Apple エンドユーザーライセンス契約（EULA）に基づいてライセンスされています。この契約は、アプリを通じて提供されるアップデート、アップグレード、および関連サービスを含む、アプリケーションの使用を規定します。",
+                "eula-read": "完全なApple標準EULAを読む",
+                "eula-redirect": "Appleのウェブサイトに移動します。",
+                "eula-btn": "Apple標準EULAを見る",
+                "subscriptions-title": "サブスクリプション",
+                "subscriptions-desc": "Mobile Ledgerは自動更新サブスクリプションを提供しています。購入確認時にApple IDアカウントに料金が請求されます。現在の期間終了の少なくとも24時間前にキャンセルしない限り、サブスクリプションは自動的に更新されます。Apple IDアカウント設定でサブスクリプションを管理およびキャンセルできます。",
+                "privacy-title": "プライバシー",
+                "privacy-desc": "Mobile Ledgerのご利用は、データの取り扱い方法を説明するプライバシーポリシーにも準拠します。すべての財務データはデバイス内にローカルに保存されます。",
+                "privacy-link": "プライバシーポリシーを読む →",
+                "contact-title": "お問い合わせ",
+                "contact-desc": "これらの規約についてご質問がある場合は、下記までお問い合わせください：",
+                "footer-note": "この利用規約は、iOS版 Mobile Ledgerに適用されます。"
+            }
+        };
+
+        function updateLanguage(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('preferred-lang', lang);
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update links to include lang param
+            document.querySelectorAll('a[href$=".html"]').forEach(link => {
+                const url = new URL(link.href, window.location.origin);
+                url.searchParams.set('lang', lang);
+                link.href = url.pathname + url.search;
+            });
+        }
+
+        const selector = document.getElementById('lang-selector');
+        selector.addEventListener('change', (e) => {
+            updateLanguage(e.target.value);
+        });
+
+        // Initialize
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        const savedLang = localStorage.getItem('preferred-lang');
+        const initialLang = langParam || savedLang || 'en';
+
+        if (translations[initialLang]) {
+            selector.value = initialLang;
+            updateLanguage(initialLang);
+        }
+    </script>
+</body>
+
+</html>
