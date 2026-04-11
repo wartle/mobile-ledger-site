@@ -163,16 +163,88 @@
             transform: scale(1.05);
         }
 
-        .hero-image {
+        /* Screenshot loading frame (hero + showcase) */
+        .img-load {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1320 / 2868;
+            background: var(--bg-secondary);
+            overflow: hidden;
+        }
+
+        .img-load__ph {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(100deg,
+                    var(--bg-secondary) 0%,
+                    #e8e8ed 45%,
+                    var(--bg-secondary) 90%);
+            background-size: 200% 100%;
+            animation: img-load-shimmer 1.15s ease-in-out infinite;
+        }
+
+        .img-load--loaded .img-load__ph {
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+
+        .img-load--error .img-load__ph {
+            animation: none;
+            background: #ececee;
+        }
+
+        .img-load img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .img-load--loaded img {
+            opacity: 1;
+        }
+
+        @keyframes img-load-shimmer {
+            0% {
+                background-position: 100% 0;
+            }
+
+            100% {
+                background-position: -100% 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .img-load__ph {
+                animation: none;
+                background: var(--bg-secondary);
+            }
+        }
+
+        .img-load--hero {
             margin-top: 60px;
             max-width: 800px;
-            width: 100%;
-            height: auto;
-            display: block;
             margin-left: auto;
             margin-right: auto;
-            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12));
             border-radius: 40px;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12));
+        }
+
+        .img-load--hero img {
+            border-radius: 40px;
+        }
+
+        .img-load--tile {
+            border-radius: 30px;
+        }
+
+        .img-load--tile img {
+            border-radius: 30px;
         }
 
         /* Features */
@@ -250,11 +322,6 @@
             transform: scale(1.02);
         }
 
-        .showcase-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
 
         /* Footer */
         footer {
@@ -359,9 +426,12 @@
                             alt="Get it on Google Play" class="store-badge" width="135" height="40" decoding="async">
                     </a>
                 </div>
-                <img src="images/screenshots/en/screenshot-1.jpg" alt="Mobile Ledger App Interface" class="hero-image"
-                    id="hero-img" width="1320" height="2868" fetchpriority="high" decoding="async"
-                    sizes="(max-width: 800px) 100vw, 800px">
+                <div class="img-load img-load--hero" id="hero-img-wrap">
+                    <span class="img-load__ph" aria-hidden="true"></span>
+                    <img src="images/screenshots/en/screenshot-1.jpg" alt="Mobile Ledger App Interface"
+                        id="hero-img" width="1320" height="2868" fetchpriority="high" decoding="async"
+                        sizes="(max-width: 800px) 100vw, 800px">
+                </div>
             </div>
         </section>
 
@@ -399,23 +469,47 @@
                 <h2 class="section-title" data-i18n="showcase-title">A beautiful experience, every time.</h2>
                 <div class="showcase-grid" id="screenshot-grid">
                     <!-- Screenshots will be injected here -->
-                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-1.jpg" alt="Screenshot 1"
-                            width="1320" height="2868" loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                    <div class="showcase-item">
+                        <div class="img-load img-load--tile">
+                            <span class="img-load__ph" aria-hidden="true"></span>
+                            <img src="images/screenshots/en/screenshot-1.jpg" alt="Screenshot 1" width="1320" height="2868"
+                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                        </div>
                     </div>
-                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-2.jpg" alt="Screenshot 2"
-                            width="1320" height="2868" loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                    <div class="showcase-item">
+                        <div class="img-load img-load--tile">
+                            <span class="img-load__ph" aria-hidden="true"></span>
+                            <img src="images/screenshots/en/screenshot-2.jpg" alt="Screenshot 2" width="1320" height="2868"
+                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                        </div>
                     </div>
-                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-3.jpg" alt="Screenshot 3"
-                            width="1320" height="2868" loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                    <div class="showcase-item">
+                        <div class="img-load img-load--tile">
+                            <span class="img-load__ph" aria-hidden="true"></span>
+                            <img src="images/screenshots/en/screenshot-3.jpg" alt="Screenshot 3" width="1320" height="2868"
+                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                        </div>
                     </div>
-                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-4.jpg" alt="Screenshot 4"
-                            width="1320" height="2868" loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                    <div class="showcase-item">
+                        <div class="img-load img-load--tile">
+                            <span class="img-load__ph" aria-hidden="true"></span>
+                            <img src="images/screenshots/en/screenshot-4.jpg" alt="Screenshot 4" width="1320" height="2868"
+                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                        </div>
                     </div>
-                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-5.jpg" alt="Screenshot 5"
-                            width="1320" height="2868" loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                    <div class="showcase-item">
+                        <div class="img-load img-load--tile">
+                            <span class="img-load__ph" aria-hidden="true"></span>
+                            <img src="images/screenshots/en/screenshot-5.jpg" alt="Screenshot 5" width="1320" height="2868"
+                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                        </div>
                     </div>
-                    <div class="showcase-item"><img src="images/screenshots/en/screenshot-6.jpg" alt="Screenshot 6"
-                            width="1320" height="2868" loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                    <div class="showcase-item">
+                        <div class="img-load img-load--tile">
+                            <span class="img-load__ph" aria-hidden="true"></span>
+                            <img src="images/screenshots/en/screenshot-6.jpg" alt="Screenshot 6" width="1320" height="2868"
+                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -556,6 +650,23 @@
             }
         };
 
+        function bindImageLoad(wrap) {
+            const img = wrap.querySelector('img');
+            if (!img || wrap.dataset.loadBound === '1') return;
+            wrap.dataset.loadBound = '1';
+            const markDone = () => {
+                wrap.classList.add('img-load--loaded');
+                wrap.classList.remove('img-load--error');
+            };
+            const markFail = () => wrap.classList.add('img-load--error');
+            if (img.complete && img.naturalWidth > 0) {
+                markDone();
+            } else {
+                img.addEventListener('load', markDone, { once: true });
+                img.addEventListener('error', markFail, { once: true });
+            }
+        }
+
         function updateLanguage(lang) {
             document.documentElement.lang = lang;
             localStorage.setItem('preferred-lang', lang);
@@ -572,7 +683,15 @@
             document.getElementById('copyright-text').innerHTML = translations[lang]['copyright'];
 
             // Update hero image
-            document.getElementById('hero-img').src = `images/screenshots/${lang}/screenshot-1.jpg`;
+            const heroWrap = document.getElementById('hero-img-wrap');
+            const heroImg = document.getElementById('hero-img');
+            const nextHero = `images/screenshots/${lang}/screenshot-1.jpg`;
+            if (heroImg.getAttribute('src') !== nextHero) {
+                heroWrap.classList.remove('img-load--loaded', 'img-load--error');
+                delete heroWrap.dataset.loadBound;
+                heroImg.src = nextHero;
+            }
+            bindImageLoad(heroWrap);
 
             // Update showcase grid
             const grid = document.getElementById('screenshot-grid');
@@ -580,6 +699,11 @@
             for (let i = 1; i <= 6; i++) {
                 const item = document.createElement('div');
                 item.className = 'showcase-item';
+                const wrap = document.createElement('div');
+                wrap.className = 'img-load img-load--tile';
+                const ph = document.createElement('span');
+                ph.className = 'img-load__ph';
+                ph.setAttribute('aria-hidden', 'true');
                 const img = document.createElement('img');
                 img.src = `images/screenshots/${lang}/screenshot-${i}.jpg`;
                 img.alt = `Screenshot ${i}`;
@@ -588,8 +712,11 @@
                 img.loading = 'lazy';
                 img.decoding = 'async';
                 img.sizes = '(max-width: 1200px) 90vw, 380px';
-                item.appendChild(img);
+                wrap.appendChild(ph);
+                wrap.appendChild(img);
+                item.appendChild(wrap);
                 grid.appendChild(item);
+                bindImageLoad(wrap);
             }
 
             // Update links to include lang param
@@ -614,6 +741,8 @@
         if (translations[initialLang]) {
             selector.value = initialLang;
             updateLanguage(initialLang);
+        } else {
+            document.querySelectorAll('.img-load').forEach(bindImageLoad);
         }
     </script>
 </body>
