@@ -183,6 +183,107 @@
             </section>
 
             <section>
+                <h2 data-i18n="voice-title">Adding Transactions with Siri</h2>
+                <p data-i18n="voice-intro">Mobile Ledger 1.7 added voice and Shortcuts support, so you can log
+                    expenses and income without opening the app.</p>
+
+                <p><strong data-i18n="voice-step-1-q">Siri voice</strong><br>
+                    <span data-i18n="voice-step-1-a">Say "Hey Siri, add expense to Mobile Ledger" (or "Add income
+                        to Mobile Ledger"). Siri will ask for the amount, then which account, then the optional
+                        merchant and category.</span>
+                </p>
+
+                <p><strong data-i18n="voice-step-2-q">Shortcuts app</strong><br>
+                    <span data-i18n="voice-step-2-a">Open the Shortcuts app, tap +, search "Mobile Ledger", and
+                        choose Add Expense or Add Income. Fill the fields, then run the action.</span>
+                </p>
+
+                <p><strong data-i18n="voice-step-3-q">Spotlight</strong><br>
+                    <span data-i18n="voice-step-3-a">Swipe down on the Home Screen, type "add expense", and tap
+                        the action that appears.</span>
+                </p>
+
+                <p style="color: var(--light-text); font-size: 14px;" data-i18n="voice-tip">Tip: voice transactions
+                    run entirely on-device — no internet, no servers, no audio ever leaves your phone.</p>
+            </section>
+
+            <section>
+                <h2 data-i18n="backup-title">Backup &amp; Restore</h2>
+                <p data-i18n="backup-intro">Mobile Ledger creates encrypted ZIP backups in your iCloud Drive so
+                    you can move to a new device or recover from accidents.</p>
+
+                <p><strong data-i18n="backup-step-1-q">Automatic backups</strong><br>
+                    <span data-i18n="backup-step-1-a">Settings → Sync → Manage Backups. Toggle "Automatic Backups"
+                        on. Backups run silently in the background while your phone is charging.</span>
+                </p>
+
+                <p><strong data-i18n="backup-step-2-q">Create a backup now</strong><br>
+                    <span data-i18n="backup-step-2-a">Settings → Sync → Manage Backups → "Create Backup Now". The
+                        zip lands in iCloud Drive under Mobile Ledger.</span>
+                </p>
+
+                <p><strong data-i18n="backup-step-3-q">Restore on another device</strong><br>
+                    <span data-i18n="backup-step-3-a">Open Mobile Ledger on the new device. Accept the iCloud
+                        backup prompt on first launch, or go to Settings → Sync → Manage Backups, tap any backup,
+                        and choose Restore.</span>
+                </p>
+
+                <p style="color: var(--light-text); font-size: 14px;" data-i18n="backup-tip">Tip: backups include
+                    accounts, transactions, budgets, recurring rules, and your profile picture. Each device keeps
+                    its own retention window, so backups from your other devices stay visible too.</p>
+            </section>
+
+            <section>
+                <h2 data-i18n="budgets-title">Setting Up Budgets</h2>
+                <p data-i18n="budgets-intro">Budgets help you stay on track. Each budget is tied to a specific
+                    ledger and category, with optional threshold alerts.</p>
+
+                <p><strong data-i18n="budgets-step-1-q">Create a budget</strong><br>
+                    <span data-i18n="budgets-step-1-a">Open the Budget tab, tap a category, and set the monthly
+                        amount. Repeat for each category you want to track.</span>
+                </p>
+
+                <p><strong data-i18n="budgets-step-2-q">Get alerts before you overspend</strong><br>
+                    <span data-i18n="budgets-step-2-a">Settings → Notifications → Budget Threshold (Pro). Choose
+                        80%, 90%, or 100% to receive a notification when you cross that mark.</span>
+                </p>
+
+                <p><strong data-i18n="budgets-step-3-q">Personal vs Business</strong><br>
+                    <span data-i18n="budgets-step-3-a">Each ledger has its own budgets. Switch ledgers via the
+                        ledger menu at the top of the Budget tab — numbers stay scoped to whichever ledger is
+                        active.</span>
+                </p>
+
+                <p style="color: var(--light-text); font-size: 14px;" data-i18n="budgets-tip">Tip: Mobile Ledger 1.7
+                    fixed a bug where a budget's percentage could exceed 100% from spending in other ledgers. Each
+                    ledger now keeps its own books.</p>
+            </section>
+
+            <section>
+                <h2 data-i18n="recurring-title">Recurring Transactions</h2>
+                <p data-i18n="recurring-intro">For bills, salaries, or subscriptions that repeat. Mobile Ledger
+                    can either auto-post them on the day they're due, or remind you to confirm.</p>
+
+                <p><strong data-i18n="recurring-step-1-q">Create a recurring rule</strong><br>
+                    <span data-i18n="recurring-step-1-a">Transactions tab → Recurring → +. Set the amount,
+                        account, category, frequency (weekly, monthly, etc.), and start date.</span>
+                </p>
+
+                <p><strong data-i18n="recurring-step-2-q">Choose the mode</strong><br>
+                    <span data-i18n="recurring-step-2-a">"Auto-post" inserts the transaction automatically on the
+                        due date. "Reminder" sends a notification asking you to confirm before posting.</span>
+                </p>
+
+                <p><strong data-i18n="recurring-step-3-q">Stop or change a rule</strong><br>
+                    <span data-i18n="recurring-step-3-a">Tap a rule in the Recurring list to edit, pause, or
+                        delete it. Past auto-posted transactions are kept; only future scheduling changes.</span>
+                </p>
+
+                <p style="color: var(--light-text); font-size: 14px;" data-i18n="recurring-tip">Tip: recurring rules
+                    sync across iPhone, iPad, and Mac when iCloud sync is on, so you only set them up once.</p>
+            </section>
+
+            <section>
                 <h2 data-i18n="version-title">App Version</h2>
                 <p style="color: var(--light-text); font-size: 14px;" data-i18n="version-desc">Mobile Ledger for iOS</p>
             </section>
@@ -207,6 +308,42 @@
                 "faq-2-a": "You can create manual backups to your iCloud account through the settings menu in the app. This ensures you can restore your data if you switch devices.",
                 "faq-3-q": "Is my data secure?",
                 "faq-3-a": "Yes. We leverage iOS built-in encryption and offer optional biometric (Face ID/Touch ID) protection to keep your financial information private.",
+                "voice-title": "Adding Transactions with Siri",
+                "voice-intro": "Mobile Ledger 1.7 added voice and Shortcuts support, so you can log expenses and income without opening the app.",
+                "voice-step-1-q": "Siri voice",
+                "voice-step-1-a": "Say \"Hey Siri, add expense to Mobile Ledger\" (or \"Add income to Mobile Ledger\"). Siri will ask for the amount, then which account, then the optional merchant and category.",
+                "voice-step-2-q": "Shortcuts app",
+                "voice-step-2-a": "Open the Shortcuts app, tap +, search \"Mobile Ledger\", and choose Add Expense or Add Income. Fill the fields, then run the action.",
+                "voice-step-3-q": "Spotlight",
+                "voice-step-3-a": "Swipe down on the Home Screen, type \"add expense\", and tap the action that appears.",
+                "voice-tip": "Tip: voice transactions run entirely on-device — no internet, no servers, no audio ever leaves your phone.",
+                "backup-title": "Backup & Restore",
+                "backup-intro": "Mobile Ledger creates encrypted ZIP backups in your iCloud Drive so you can move to a new device or recover from accidents.",
+                "backup-step-1-q": "Automatic backups",
+                "backup-step-1-a": "Settings → Sync → Manage Backups. Toggle \"Automatic Backups\" on. Backups run silently in the background while your phone is charging.",
+                "backup-step-2-q": "Create a backup now",
+                "backup-step-2-a": "Settings → Sync → Manage Backups → \"Create Backup Now\". The zip lands in iCloud Drive under Mobile Ledger.",
+                "backup-step-3-q": "Restore on another device",
+                "backup-step-3-a": "Open Mobile Ledger on the new device. Accept the iCloud backup prompt on first launch, or go to Settings → Sync → Manage Backups, tap any backup, and choose Restore.",
+                "backup-tip": "Tip: backups include accounts, transactions, budgets, recurring rules, and your profile picture. Each device keeps its own retention window, so backups from your other devices stay visible too.",
+                "budgets-title": "Setting Up Budgets",
+                "budgets-intro": "Budgets help you stay on track. Each budget is tied to a specific ledger and category, with optional threshold alerts.",
+                "budgets-step-1-q": "Create a budget",
+                "budgets-step-1-a": "Open the Budget tab, tap a category, and set the monthly amount. Repeat for each category you want to track.",
+                "budgets-step-2-q": "Get alerts before you overspend",
+                "budgets-step-2-a": "Settings → Notifications → Budget Threshold (Pro). Choose 80%, 90%, or 100% to receive a notification when you cross that mark.",
+                "budgets-step-3-q": "Personal vs Business",
+                "budgets-step-3-a": "Each ledger has its own budgets. Switch ledgers via the ledger menu at the top of the Budget tab — numbers stay scoped to whichever ledger is active.",
+                "budgets-tip": "Tip: Mobile Ledger 1.7 fixed a bug where a budget's percentage could exceed 100% from spending in other ledgers. Each ledger now keeps its own books.",
+                "recurring-title": "Recurring Transactions",
+                "recurring-intro": "For bills, salaries, or subscriptions that repeat. Mobile Ledger can either auto-post them on the day they're due, or remind you to confirm.",
+                "recurring-step-1-q": "Create a recurring rule",
+                "recurring-step-1-a": "Transactions tab → Recurring → +. Set the amount, account, category, frequency (weekly, monthly, etc.), and start date.",
+                "recurring-step-2-q": "Choose the mode",
+                "recurring-step-2-a": "\"Auto-post\" inserts the transaction automatically on the due date. \"Reminder\" sends a notification asking you to confirm before posting.",
+                "recurring-step-3-q": "Stop or change a rule",
+                "recurring-step-3-a": "Tap a rule in the Recurring list to edit, pause, or delete it. Past auto-posted transactions are kept; only future scheduling changes.",
+                "recurring-tip": "Tip: recurring rules sync across iPhone, iPad, and Mac when iCloud sync is on, so you only set them up once.",
                 "version-title": "App Version",
                 "version-desc": "Mobile Ledger for iOS"
             },
@@ -226,6 +363,42 @@
                 "faq-2-a": "आप ऐप में सेटिंग मेनू के माध्यम से अपने iCloud खाते में मैन्युअल बैकअप बना सकते हैं। यह सुनिश्चित करता है कि यदि आप डिवाइस बदलते हैं तो आप अपना डेटा पुनर्स्थापित कर सकते हैं।",
                 "faq-3-q": "क्या मेरा डेटा सुरक्षित है?",
                 "faq-3-a": "हाँ। हम आपकी वित्तीय जानकारी को निजी रखने के लिए iOS अंतर्निहित एन्क्रिप्शन का लाभ उठाते हैं और वैकल्पिक बायोमेट्रिक (Face ID/Touch ID) सुरक्षा प्रदान करते हैं।",
+                "voice-title": "Siri से लेनदेन जोड़ें",
+                "voice-intro": "Mobile Ledger 1.7 में voice और Shortcuts का सपोर्ट जोड़ा गया है, इसलिए आप ऐप खोले बिना खर्च और आय लॉग कर सकते हैं।",
+                "voice-step-1-q": "Siri आवाज़",
+                "voice-step-1-a": "बोलें \"Hey Siri, add expense to Mobile Ledger\" (या \"Add income to Mobile Ledger\")। Siri राशि पूछेगा, फिर कौन सा खाता, फिर वैकल्पिक मर्चेंट और श्रेणी।",
+                "voice-step-2-q": "Shortcuts ऐप",
+                "voice-step-2-a": "Shortcuts ऐप खोलें, + टैप करें, \"Mobile Ledger\" खोजें, और Add Expense या Add Income चुनें। फ़ील्ड भरें, फिर एक्शन चलाएं।",
+                "voice-step-3-q": "Spotlight",
+                "voice-step-3-a": "होम स्क्रीन पर नीचे स्वाइप करें, \"add expense\" टाइप करें, और दिखाई देने वाले एक्शन को टैप करें।",
+                "voice-tip": "टिप: voice लेनदेन पूरी तरह से डिवाइस पर चलते हैं — कोई इंटरनेट नहीं, कोई सर्वर नहीं, ऑडियो आपके फ़ोन से कहीं नहीं जाता।",
+                "backup-title": "बैकअप और रिस्टोर",
+                "backup-intro": "Mobile Ledger आपके iCloud Drive में एन्क्रिप्टेड ZIP बैकअप बनाता है, ताकि आप नए डिवाइस पर जा सकें या किसी समस्या से रिकवर हो सकें।",
+                "backup-step-1-q": "स्वचालित बैकअप",
+                "backup-step-1-a": "Settings → Sync → Manage Backups। \"Automatic Backups\" को चालू करें। फ़ोन चार्ज होते समय बैकअप पृष्ठभूमि में चुपचाप चलते हैं।",
+                "backup-step-2-q": "अभी बैकअप बनाएं",
+                "backup-step-2-a": "Settings → Sync → Manage Backups → \"Create Backup Now\"। ZIP iCloud Drive में Mobile Ledger के अंतर्गत आता है।",
+                "backup-step-3-q": "दूसरे डिवाइस पर रिस्टोर करें",
+                "backup-step-3-a": "नए डिवाइस पर Mobile Ledger खोलें। पहले लॉन्च पर iCloud बैकअप प्रॉम्प्ट स्वीकार करें, या Settings → Sync → Manage Backups पर जाएं, किसी भी बैकअप को टैप करें, और Restore चुनें।",
+                "backup-tip": "टिप: बैकअप में खाते, लेनदेन, बजट, आवर्ती नियम, और आपकी प्रोफ़ाइल तस्वीर शामिल होती है। हर डिवाइस अपना रिटेंशन विंडो रखता है, इसलिए दूसरे डिवाइसों के बैकअप भी दिखते रहते हैं।",
+                "budgets-title": "बजट सेट करें",
+                "budgets-intro": "बजट आपको ट्रैक पर रहने में मदद करते हैं। हर बजट एक विशेष लेजर और श्रेणी से जुड़ा होता है, वैकल्पिक थ्रेशोल्ड अलर्ट के साथ।",
+                "budgets-step-1-q": "बजट बनाएं",
+                "budgets-step-1-a": "Budget टैब खोलें, किसी श्रेणी पर टैप करें, और मासिक राशि सेट करें। हर श्रेणी के लिए दोहराएं जिसे आप ट्रैक करना चाहते हैं।",
+                "budgets-step-2-q": "अधिक खर्च से पहले अलर्ट प्राप्त करें",
+                "budgets-step-2-a": "Settings → Notifications → Budget Threshold (Pro)। 80%, 90%, या 100% चुनें ताकि उस मार्क को पार करते ही नोटिफिकेशन मिले।",
+                "budgets-step-3-q": "Personal बनाम Business",
+                "budgets-step-3-a": "हर लेजर के अपने बजट होते हैं। Budget टैब के ऊपर लेजर मेनू से लेजर बदलें — संख्याएं उसी लेजर तक सीमित रहती हैं जो सक्रिय है।",
+                "budgets-tip": "टिप: Mobile Ledger 1.7 ने एक बग ठीक किया जहां बजट का प्रतिशत दूसरे लेजरों के खर्च से 100% से अधिक हो सकता था। अब हर लेजर अपनी खुद की किताबें रखता है।",
+                "recurring-title": "आवर्ती लेनदेन",
+                "recurring-intro": "बिल, वेतन, या सब्सक्रिप्शन के लिए जो दोहराते हैं। Mobile Ledger या तो उन्हें देय तिथि पर स्वतः पोस्ट कर सकता है, या आपको पुष्टि के लिए याद दिला सकता है।",
+                "recurring-step-1-q": "आवर्ती नियम बनाएं",
+                "recurring-step-1-a": "Transactions टैब → Recurring → +। राशि, खाता, श्रेणी, आवृत्ति (साप्ताहिक, मासिक, आदि), और प्रारंभ तिथि सेट करें।",
+                "recurring-step-2-q": "मोड चुनें",
+                "recurring-step-2-a": "\"Auto-post\" लेनदेन को देय तिथि पर स्वचालित रूप से डालता है। \"Reminder\" पोस्ट करने से पहले पुष्टि के लिए नोटिफिकेशन भेजता है।",
+                "recurring-step-3-q": "नियम बंद करें या बदलें",
+                "recurring-step-3-a": "Recurring सूची में किसी नियम पर टैप करके उसे संपादित करें, रोकें, या हटाएं। अतीत के स्वतः-पोस्ट किए गए लेनदेन रखे जाते हैं; केवल भविष्य की समय-निर्धारण बदलती है।",
+                "recurring-tip": "टिप: iCloud सिंक चालू होने पर आवर्ती नियम iPhone, iPad, और Mac में सिंक होते हैं, इसलिए आपको उन्हें केवल एक बार सेट करना होगा।",
                 "version-title": "ऐप संस्करण",
                 "version-desc": "iOS के लिए मोबाइल लेजर"
             },
@@ -245,6 +418,42 @@
                 "faq-2-a": "앱의 설정 메뉴를 통해 iCloud 계정에 수동 백업을 만들 수 있습니다. 이를 통해 장치를 변경할 때 데이터를 복구할 수 있습니다.",
                 "faq-3-q": "데이터는 안전한가요?",
                 "faq-3-a": "네. 귀하의 재정 정보를 비공개로 유지하기 위해 iOS 기본 암호화를 활용하고 선택적 생체 인식(Face ID/Touch ID) 보호를 제공합니다.",
+                "voice-title": "Siri로 거래 추가하기",
+                "voice-intro": "Mobile Ledger 1.7에서 음성 및 단축어 기능이 추가되어, 앱을 열지 않고도 지출과 수입을 기록할 수 있습니다.",
+                "voice-step-1-q": "Siri 음성",
+                "voice-step-1-a": "\"Hey Siri, add expense to Mobile Ledger\" 또는 \"Add income to Mobile Ledger\"라고 말하세요. Siri가 금액을 묻고, 다음으로 계정, 그리고 선택 사항인 가맹점과 카테고리를 묻습니다.",
+                "voice-step-2-q": "단축어 앱",
+                "voice-step-2-a": "단축어 앱을 열고 +를 탭한 후 \"Mobile Ledger\"를 검색하여 Add Expense 또는 Add Income을 선택하세요. 필드를 입력한 다음 작업을 실행하세요.",
+                "voice-step-3-q": "Spotlight",
+                "voice-step-3-a": "홈 화면을 아래로 스와이프하고 \"add expense\"를 입력한 다음 표시되는 작업을 탭하세요.",
+                "voice-tip": "팁: 음성 거래는 모두 기기에서만 처리됩니다 — 인터넷 연결도, 서버도, 음성 전송도 없습니다.",
+                "backup-title": "백업 및 복원",
+                "backup-intro": "Mobile Ledger는 iCloud Drive에 암호화된 ZIP 백업을 만들어, 새 기기로 이동하거나 사고에서 복구할 수 있도록 도와줍니다.",
+                "backup-step-1-q": "자동 백업",
+                "backup-step-1-a": "Settings → Sync → Manage Backups에서 \"Automatic Backups\"를 켜세요. 휴대폰이 충전 중일 때 백업이 백그라운드에서 조용히 실행됩니다.",
+                "backup-step-2-q": "지금 백업 만들기",
+                "backup-step-2-a": "Settings → Sync → Manage Backups → \"Create Backup Now\". ZIP 파일은 iCloud Drive의 Mobile Ledger 폴더에 저장됩니다.",
+                "backup-step-3-q": "다른 기기에서 복원",
+                "backup-step-3-a": "새 기기에서 Mobile Ledger를 열고 첫 실행 시 iCloud 백업 프롬프트를 수락하거나, Settings → Sync → Manage Backups로 이동해 백업을 탭한 뒤 Restore를 선택하세요.",
+                "backup-tip": "팁: 백업에는 계정, 거래, 예산, 반복 규칙, 프로필 사진이 포함됩니다. 각 기기는 자체 보관 기간을 유지하므로 다른 기기의 백업도 그대로 표시됩니다.",
+                "budgets-title": "예산 설정",
+                "budgets-intro": "예산은 계획을 지키도록 도와줍니다. 각 예산은 특정 원장과 카테고리에 연결되며, 선택적 임계값 알림과 함께 작동합니다.",
+                "budgets-step-1-q": "예산 만들기",
+                "budgets-step-1-a": "Budget 탭을 열고 카테고리를 탭한 후 월별 금액을 설정하세요. 추적하려는 각 카테고리에 대해 반복하세요.",
+                "budgets-step-2-q": "초과 지출 전에 알림 받기",
+                "budgets-step-2-a": "Settings → Notifications → Budget Threshold (Pro). 80%, 90%, 또는 100%를 선택해 해당 임계값을 넘으면 알림을 받으세요.",
+                "budgets-step-3-q": "Personal 대 Business",
+                "budgets-step-3-a": "각 원장은 자체 예산을 가지고 있습니다. Budget 탭 상단의 원장 메뉴에서 원장을 전환하면, 숫자는 활성화된 원장으로만 한정됩니다.",
+                "budgets-tip": "팁: Mobile Ledger 1.7은 다른 원장의 지출 때문에 예산 백분율이 100%를 초과할 수 있던 버그를 수정했습니다. 이제 각 원장은 자체 장부를 유지합니다.",
+                "recurring-title": "반복 거래",
+                "recurring-intro": "반복되는 청구서, 급여 또는 구독을 위한 기능입니다. Mobile Ledger는 만기일에 자동으로 게시하거나, 확인 알림을 보낼 수 있습니다.",
+                "recurring-step-1-q": "반복 규칙 만들기",
+                "recurring-step-1-a": "Transactions 탭 → Recurring → +. 금액, 계정, 카테고리, 빈도(주별, 월별 등), 시작 날짜를 설정하세요.",
+                "recurring-step-2-q": "모드 선택",
+                "recurring-step-2-a": "\"Auto-post\"는 만기일에 거래를 자동으로 삽입합니다. \"Reminder\"는 게시 전에 확인을 요청하는 알림을 보냅니다.",
+                "recurring-step-3-q": "규칙 중지 또는 변경",
+                "recurring-step-3-a": "Recurring 목록에서 규칙을 탭해 편집, 일시 중지 또는 삭제하세요. 과거에 자동 게시된 거래는 유지되며, 향후 일정만 변경됩니다.",
+                "recurring-tip": "팁: iCloud 동기화가 켜져 있을 때 반복 규칙은 iPhone, iPad, Mac에 동기화되므로 한 번만 설정하면 됩니다.",
                 "version-title": "앱 버전",
                 "version-desc": "iOS용 모바일 레저"
             },
@@ -264,6 +473,42 @@
                 "faq-2-a": "アプリ内の設定メニューから、iCloudアカウントに手動バックアップを作成できます。これにより、デバイスを買い替えた際などにデータを復元できます。",
                 "faq-3-q": "データのセキュリティは？",
                 "faq-3-a": "はい。iOS組み込みの暗号化を活用し、オプションで生体認証（Face ID/Touch ID）保護を提供することで、財務情報のプライバシーを保護しています。",
+                "voice-title": "Siriで取引を追加する",
+                "voice-intro": "Mobile Ledger 1.7では音声とショートカットに対応したため、アプリを開かずに支出や収入を記録できます。",
+                "voice-step-1-q": "Siri音声",
+                "voice-step-1-a": "「Hey Siri, add expense to Mobile Ledger」または「Add income to Mobile Ledger」と言ってください。Siriが金額、口座、任意で店舗とカテゴリを尋ねます。",
+                "voice-step-2-q": "ショートカットApp",
+                "voice-step-2-a": "ショートカットAppを開き、+をタップして「Mobile Ledger」を検索し、Add ExpenseまたはAdd Incomeを選びます。フィールドを入力してアクションを実行してください。",
+                "voice-step-3-q": "Spotlight",
+                "voice-step-3-a": "ホーム画面を下にスワイプし、「add expense」と入力して表示されるアクションをタップします。",
+                "voice-tip": "ヒント：音声取引はすべて端末上で処理されます — インターネット、サーバー、音声送信は一切ありません。",
+                "backup-title": "バックアップと復元",
+                "backup-intro": "Mobile LedgerはiCloud Driveに暗号化されたZIPバックアップを作成するので、新しいデバイスへの移行や事故からの復旧ができます。",
+                "backup-step-1-q": "自動バックアップ",
+                "backup-step-1-a": "設定 → 同期 → バックアップ管理。「Automatic Backups」をオンにします。バックアップは充電中にバックグラウンドで静かに実行されます。",
+                "backup-step-2-q": "今すぐバックアップを作成",
+                "backup-step-2-a": "設定 → 同期 → バックアップ管理 → 「Create Backup Now」。ZIPファイルはiCloud Drive内のMobile Ledgerに保存されます。",
+                "backup-step-3-q": "別のデバイスで復元",
+                "backup-step-3-a": "新しいデバイスでMobile Ledgerを開き、初回起動時のiCloudバックアップのプロンプトを承認するか、設定 → 同期 → バックアップ管理から任意のバックアップをタップしてRestoreを選択します。",
+                "backup-tip": "ヒント：バックアップには口座、取引、予算、繰り返しルール、プロフィール画像が含まれます。各デバイスは独自の保管期間を保持するため、他のデバイスのバックアップも引き続き表示されます。",
+                "budgets-title": "予算の設定",
+                "budgets-intro": "予算は計画を守るのに役立ちます。各予算は特定の元帳とカテゴリに紐付けられ、オプションでしきい値アラートも設定できます。",
+                "budgets-step-1-q": "予算を作成",
+                "budgets-step-1-a": "予算タブを開き、カテゴリをタップして月額を設定します。追跡したいカテゴリごとに繰り返してください。",
+                "budgets-step-2-q": "使いすぎる前にアラートを受け取る",
+                "budgets-step-2-a": "設定 → 通知 → Budget Threshold（Pro）。80%、90%、または100%を選択し、そのしきい値を超えた時点で通知を受け取ります。",
+                "budgets-step-3-q": "Personal vs Business",
+                "budgets-step-3-a": "各元帳には独自の予算があります。予算タブの上部にある元帳メニューで元帳を切り替えると、数値はアクティブな元帳に限定されます。",
+                "budgets-tip": "ヒント：Mobile Ledger 1.7では、他の元帳の支出によって予算の割合が100%を超えてしまうバグを修正しました。現在は各元帳が独自の帳簿を保持します。",
+                "recurring-title": "繰り返し取引",
+                "recurring-intro": "繰り返される請求書、給与、サブスクリプション向けの機能です。Mobile Ledgerは支払日に自動で記入するか、確認のリマインダーを送信できます。",
+                "recurring-step-1-q": "繰り返しルールを作成",
+                "recurring-step-1-a": "取引タブ → Recurring → +。金額、口座、カテゴリ、頻度（毎週、毎月など）、開始日を設定します。",
+                "recurring-step-2-q": "モードを選択",
+                "recurring-step-2-a": "「Auto-post」は支払日に取引を自動で挿入します。「Reminder」は記入前に確認を求める通知を送ります。",
+                "recurring-step-3-q": "ルールを停止または変更",
+                "recurring-step-3-a": "Recurring一覧でルールをタップして編集、一時停止、または削除します。過去に自動記入された取引は保持され、将来のスケジュールのみが変更されます。",
+                "recurring-tip": "ヒント：iCloud同期がオンの場合、繰り返しルールはiPhone、iPad、Macで同期されるため、設定は一度だけで済みます。",
                 "version-title": "アプリのバージョン",
                 "version-desc": "iOS版 Mobile Ledger"
             }
