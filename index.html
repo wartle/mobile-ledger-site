@@ -4,550 +4,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0A1020">
     <link rel="icon" type="image/png" href="images/icons/AppIcon-default.png">
     <link rel="apple-touch-icon" href="images/icons/AppIcon-default.png">
-    <title>Lago - Simple, Secure Finance Tracking</title>
+    <title>Lago — Simple, Secure Finance Tracking</title>
     <meta name="description"
-        content="Take control of your spending and grow your wealth with Lago, the professional finance tracker for iOS and Android.">
-    <style>
-        :root {
-            --primary: #007AFF;
-            --primary-hover: #0056b3;
-            --text: #1d1d1f;
-            --text-secondary: #86868b;
-            --bg: #ffffff;
-            --bg-secondary: #f5f5f7;
-            --card-bg: #ffffff;
-            --border: #d2d2d7;
-            --max-width: 1200px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-            color: var(--text);
-            background-color: var(--bg);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        a:hover {
-            opacity: 0.8;
-        }
-
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
-        header {
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 21px;
-            font-weight: 600;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo img {
-            height: 32px;
-            width: 32px;
-            border-radius: 8px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            color: var(--text);
-            font-weight: 400;
-        }
-
-        .lang-selector {
-            padding: 4px 8px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            font-size: 12px;
-            background: var(--bg);
-            cursor: pointer;
-            outline: none;
-        }
-
-        /* Hero */
-        .hero {
-            padding: 80px 0 0;
-            text-align: center;
-            background: var(--bg);
-            overflow: hidden;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            font-weight: 700;
-            letter-spacing: -0.015em;
-            margin-bottom: 16px;
-            line-height: 1.07143;
-        }
-
-        .hero p {
-            font-size: 24px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            font-weight: 400;
-            line-height: 1.16667;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 980px;
-            font-size: 17px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: var(--primary-hover);
-            opacity: 1;
-        }
-
-        .store-badges {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .store-badge {
-            height: 50px;
-            transition: transform 0.2s ease;
-        }
-
-        .store-badge:hover {
-            transform: scale(1.05);
-        }
-
-        /* Screenshot loading frame (hero + showcase) */
-        .img-load {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1320 / 2868;
-            background: var(--bg-secondary);
-            overflow: hidden;
-        }
-
-        .img-load__ph {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(100deg,
-                    var(--bg-secondary) 0%,
-                    #e8e8ed 45%,
-                    var(--bg-secondary) 90%);
-            background-size: 200% 100%;
-            animation: img-load-shimmer 1.15s ease-in-out infinite;
-        }
-
-        .img-load--loaded .img-load__ph {
-            opacity: 0;
-            transition: opacity 0.35s ease;
-            pointer-events: none;
-        }
-
-        .img-load--error .img-load__ph {
-            animation: none;
-            background: #ececee;
-        }
-
-        .img-load img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .img-load--loaded img {
-            opacity: 1;
-        }
-
-        @keyframes img-load-shimmer {
-            0% {
-                background-position: 100% 0;
-            }
-
-            100% {
-                background-position: -100% 0;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .img-load__ph {
-                animation: none;
-                background: var(--bg-secondary);
-            }
-        }
-
-        .img-load--hero {
-            margin-top: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 40px;
-            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12));
-        }
-
-        .img-load--hero img {
-            border-radius: 40px;
-        }
-
-        .img-load--tile {
-            border-radius: 30px;
-        }
-
-        .img-load--tile img {
-            border-radius: 30px;
-        }
-
-        /* Features */
-        .features {
-            padding: 100px 0;
-            background: var(--bg-secondary);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 60px;
-            letter-spacing: -0.01em;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            font-size: 17px;
-            line-height: 1.47059;
-        }
-
-        /* Showcase */
-        .showcase {
-            padding: 100px 0;
-            background: var(--bg);
-        }
-
-        .showcase-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .showcase-item {
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-            background: var(--bg-secondary);
-        }
-
-        .showcase-item:hover {
-            transform: scale(1.02);
-        }
-
-
-        /* Footer */
-        footer {
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--border);
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            width: 100%;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero p {
-                font-size: 20px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .nav-links {
-                gap: 15px;
-            }
-
-            .nav-links a:not(.cta-button) {
-                display: none;
-            }
-        }
-    </style>
+        content="Take control of your spending and grow your wealth with Lago, the private finance tracker for iOS and Android.">
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
+    <header class="site-header">
         <div class="container">
             <nav>
-                <div class="logo">
-                    <img src="images/icons/AppIcon-default.png" alt="Lago Icon" width="32" height="32"
-                        decoding="async">
+                <a href="index.html" class="brand">
+                    <img src="images/icons/AppIcon-default.png" alt="" width="34" height="34" decoding="async">
                     Lago
-                </div>
+                </a>
                 <div class="nav-links">
-                    <select class="lang-selector" id="lang-selector">
+                    <a href="#features" data-i18n="nav-features">Features</a>
+                    <a href="support.html" data-i18n="nav-support">Support</a>
+                    <a href="privacy.html" data-i18n="nav-privacy">Privacy</a>
+                    <select class="lang-selector" id="lang-selector" aria-label="Language">
                         <option value="en">English</option>
                         <option value="hi">हिन्दी</option>
                         <option value="ko">한국어</option>
                         <option value="ja">日本語</option>
                     </select>
-                    <a href="support.html" data-i18n="nav-support">Support</a>
-                    <a href="privacy.html" data-i18n="nav-privacy">Privacy</a>
-                    <a href="mailto:support@wartle.app" class="cta-button" data-i18n="nav-contact"
-                        style="padding: 8px 20px; font-size: 14px;">Contact Us</a>
+                    <a href="mailto:support@wartle.app" class="btn btn--primary btn--sm" data-i18n="nav-contact">Contact</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- ============================ HERO ============================ -->
         <section class="hero">
-            <div class="container">
-                <h1 data-i18n="hero-title">Take Control of Your Finances</h1>
-                <p data-i18n="hero-subtitle">Simple, secure, and smart finance tracking designed for your life.</p>
+            <div class="container hero__inner">
+                <span class="eyebrow eyebrow--center" data-i18n="hero-eyebrow">Mobile Ledger · iOS &amp; Android</span>
+                <h1 data-i18n-html="hero-title">Take control of <span class="grad-text">your finances</span></h1>
+                <p class="hero__sub" data-i18n="hero-subtitle">Simple, secure, and smart finance tracking designed for
+                    your life.</p>
+
                 <div class="store-badges">
                     <a href="https://apps.apple.com/ph/app/mobile-ledger-finance-tracker/id6758619891" target="_blank"
                         rel="noopener noreferrer">
                         <img src="images/icons/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
-                            alt="Download on the App Store" class="store-badge" width="120" height="40" decoding="async">
+                            alt="Download on the App Store" class="store-badge" width="156" height="52" decoding="async">
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=app.wartle.mobileledger" target="_blank"
                         rel="noopener noreferrer">
-                        <img src="images/icons/GetItOnGooglePlay_Badge_Web_color_English.svg"
-                            alt="Get it on Google Play" class="store-badge" width="135" height="40" decoding="async">
+                        <img src="images/icons/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play"
+                            class="store-badge" width="176" height="52" decoding="async">
                     </a>
                 </div>
-                <div class="img-load img-load--hero" id="hero-img-wrap">
-                    <span class="img-load__ph" aria-hidden="true"></span>
-                    <img src="images/screenshots/1.png" alt="Lago App Interface"
-                        id="hero-img" width="1242" height="2688" fetchpriority="high" decoding="async"
-                        sizes="(max-width: 800px) 100vw, 800px">
+
+                <!-- signature: the rising ledger line, drawn straight from the app mark -->
+                <svg class="ledger-line" viewBox="0 0 680 90" role="img" aria-label="A line trending upward">
+                    <defs>
+                        <linearGradient id="ledgerGrad" x1="0" y1="1" x2="1" y2="0">
+                            <stop offset="0" stop-color="#E08A0B" />
+                            <stop offset="0.45" stop-color="#F5A623" />
+                            <stop offset="0.75" stop-color="#5AA0F2" />
+                            <stop offset="1" stop-color="#2D74E6" />
+                        </linearGradient>
+                    </defs>
+                    <path class="ledger-line__path" d="M8 74 L150 58 L262 66 L392 34 L506 44 L672 8" />
+                    <circle class="ledger-line__node" cx="150" cy="58" r="5.5" />
+                    <circle class="ledger-line__node" cx="392" cy="34" r="5.5" />
+                    <circle class="ledger-line__node" cx="506" cy="44" r="5.5" />
+                    <circle class="ledger-line__node" cx="672" cy="8" r="6.5" />
+                </svg>
+
+                <div class="hero-figure">
+                    <div class="img-load" id="hero-img-wrap">
+                        <span class="img-load__ph" aria-hidden="true"></span>
+                        <img src="images/screenshots/1.png" alt="The Lago dashboard on iPhone" id="hero-img"
+                            width="1242" height="2688" fetchpriority="high" decoding="async">
+                    </div>
+                    <div class="stat-chip" aria-hidden="true">
+                        <span class="stat-chip__icon">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 17l6-6 4 4 8-8" />
+                                <path d="M21 7h-5" />
+                                <path d="M21 7v5" />
+                            </svg>
+                        </span>
+                        <span>
+                            <span class="stat-chip__label" data-i18n="chip-label">This week</span><br>
+                            <span class="stat-chip__value">+$2,310</span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="features">
+        <!-- ========================== FEATURES ========================= -->
+        <section class="section section--tint" id="features">
             <div class="container">
-                <h2 class="section-title" data-i18n="features-title">Everything you need to master your money.</h2>
+                <div class="section-head">
+                    <span class="eyebrow eyebrow--center" data-i18n="features-eyebrow">Why Lago</span>
+                    <h2 data-i18n="features-title">Everything you need to master your money.</h2>
+                </div>
                 <div class="feature-grid">
-                    <div class="feature-card">
-                        <span class="feature-icon">🛡️</span>
+                    <div class="feature-card reveal">
+                        <span class="feature-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 3l7 3v5c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6l7-3z" />
+                                <path d="M9 12l2 2 4-4" />
+                            </svg>
+                        </span>
                         <h3 data-i18n="feature-1-title">Privacy First</h3>
                         <p data-i18n="feature-1-desc">All your financial data stays on your device. We don't store your
-                            sensitive information on
-                            our servers.</p>
+                            sensitive information on our servers.</p>
                     </div>
-                    <div class="feature-card">
-                        <span class="feature-icon">📊</span>
+                    <div class="feature-card reveal">
+                        <span class="feature-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 21h18" />
+                                <path d="M6 21V12" />
+                                <path d="M11 21V7" />
+                                <path d="M16 21v-5" />
+                                <path d="M21 21V4" />
+                            </svg>
+                        </span>
                         <h3 data-i18n="feature-2-title">Smart Insights</h3>
                         <p data-i18n="feature-2-desc">Get a clear picture of your spending habits with automatic
-                            categorization and beautiful
-                            charts.</p>
+                            categorization and beautiful charts.</p>
                     </div>
-                    <div class="feature-card">
-                        <span class="feature-icon">🎯</span>
+                    <div class="feature-card reveal">
+                        <span class="feature-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="8.5" />
+                                <circle cx="12" cy="12" r="4.5" />
+                                <circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none" />
+                            </svg>
+                        </span>
                         <h3 data-i18n="feature-3-title">Budgeting Made Easy</h3>
                         <p data-i18n="feature-3-desc">Set goals, track your progress, and stay on top of your monthly
-                            expenses with intuitive
-                            budget tools.</p>
+                            expenses with intuitive budget tools.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ========================== SHOWCASE ========================= -->
         <section class="showcase">
             <div class="container">
-                <h2 class="section-title" data-i18n="showcase-title">A beautiful experience, every time.</h2>
+                <div class="section-head">
+                    <span class="eyebrow eyebrow--center eyebrow--on-dark" data-i18n="showcase-eyebrow">On every
+                        screen</span>
+                    <h2 data-i18n="showcase-title">A beautiful experience, every time.</h2>
+                </div>
                 <div class="showcase-grid" id="screenshot-grid">
-                    <!-- Screenshots will be injected here -->
+                    <!-- Screenshots are injected here by script; this static set is the no-JS fallback -->
                     <div class="showcase-item">
-                        <div class="img-load img-load--tile">
+                        <div class="img-load">
                             <span class="img-load__ph" aria-hidden="true"></span>
                             <img src="images/screenshots/1.png" alt="Screenshot 1" width="1242" height="2688"
-                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                                loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="showcase-item">
-                        <div class="img-load img-load--tile">
+                        <div class="img-load">
                             <span class="img-load__ph" aria-hidden="true"></span>
                             <img src="images/screenshots/2.png" alt="Screenshot 2" width="1242" height="2688"
-                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                                loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="showcase-item">
-                        <div class="img-load img-load--tile">
+                        <div class="img-load">
                             <span class="img-load__ph" aria-hidden="true"></span>
                             <img src="images/screenshots/3.png" alt="Screenshot 3" width="1242" height="2688"
-                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                                loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="showcase-item">
-                        <div class="img-load img-load--tile">
+                        <div class="img-load">
                             <span class="img-load__ph" aria-hidden="true"></span>
                             <img src="images/screenshots/4.png" alt="Screenshot 4" width="1242" height="2688"
-                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                                loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="showcase-item">
-                        <div class="img-load img-load--tile">
+                        <div class="img-load">
                             <span class="img-load__ph" aria-hidden="true"></span>
                             <img src="images/screenshots/5.png" alt="Screenshot 5" width="1242" height="2688"
-                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                                loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="showcase-item">
-                        <div class="img-load img-load--tile">
+                        <div class="img-load">
                             <span class="img-load__ph" aria-hidden="true"></span>
                             <img src="images/screenshots/6.png" alt="Screenshot 6" width="1242" height="2688"
-                                loading="lazy" decoding="async" sizes="(max-width: 1200px) 90vw, 380px">
+                                loading="lazy" decoding="async">
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================= CTA =========================== -->
+        <section class="cta">
+            <div class="container cta__card">
+                <span class="eyebrow eyebrow--center" data-i18n="hero-eyebrow">Mobile Ledger · iOS &amp; Android</span>
+                <h2 data-i18n="cta-title">Start your ledger today.</h2>
+                <p data-i18n="cta-subtitle">Free to download on iOS and Android.</p>
+                <div class="store-badges">
+                    <a href="https://apps.apple.com/ph/app/mobile-ledger-finance-tracker/id6758619891" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="images/icons/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+                            alt="Download on the App Store" class="store-badge" width="156" height="52" decoding="async">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=app.wartle.mobileledger" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="images/icons/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play"
+                            class="store-badge" width="176" height="52" decoding="async">
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <img src="images/icons/AppIcon-default.png" alt="Lago Icon"
-                            style="height: 32px; width: 32px; border-radius: 8px;" width="32" height="32"
-                            decoding="async" loading="lazy">
-                        <strong>Lago</strong>
-                    </div>
-                    <p style="margin-top: 10px;" data-i18n="footer-desc">The professional way to track your finances on
-                        iOS and Android.</p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="brand">
+                        <img src="images/icons/AppIcon-default.png" alt="" width="34" height="34" decoding="async"
+                            loading="lazy">
+                        Lago
+                    </span>
+                    <p data-i18n="footer-desc">The professional way to track your finances on iOS and Android.</p>
                 </div>
                 <div class="footer-links">
-                    <div>
-                        <p style="margin-bottom: 10px; font-weight: 600; color: var(--text);"
-                            data-i18n="footer-support-header">Support</p>
-                        <a href="support.html" data-i18n="footer-help">Help Center</a><br>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer-support-header">Support</h4>
+                        <a href="support.html" data-i18n="footer-help">Help Center</a>
                         <a href="mailto:support@wartle.app" data-i18n="footer-email">Email Support</a>
                     </div>
-                    <div>
-                        <p style="margin-bottom: 10px; font-weight: 600; color: var(--text);"
-                            data-i18n="footer-legal-header">Legal</p>
-                        <a href="privacy.html" data-i18n="footer-privacy">Privacy Policy</a><br>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer-legal-header">Legal</h4>
+                        <a href="privacy.html" data-i18n="footer-privacy">Privacy Policy</a>
                         <a href="terms.html" data-i18n="footer-terms">Terms of Use (EULA)</a>
                     </div>
                 </div>
             </div>
-            <div class="copyright" id="copyright-text">
+            <div class="footer-bottom" id="copyright-text">
                 &copy; 2026 Lago. All rights reserved. iPhone and iOS are trademarks of Apple Inc.
             </div>
         </div>
@@ -556,12 +266,15 @@
     <script>
         const translations = {
             en: {
+                "nav-features": "Features",
                 "nav-support": "Support",
                 "nav-privacy": "Privacy",
-                "nav-contact": "Contact Us",
-                "hero-title": "Take Control of Your Finances",
+                "nav-contact": "Contact",
+                "hero-eyebrow": "Mobile Ledger · iOS & Android",
+                "hero-title": "Take control of <span class=\"grad-text\">your finances</span>",
                 "hero-subtitle": "Simple, secure, and smart finance tracking designed for your life.",
-                "cta-get-started": "Get Started",
+                "chip-label": "This week",
+                "features-eyebrow": "Why Lago",
                 "features-title": "Everything you need to master your money.",
                 "feature-1-title": "Privacy First",
                 "feature-1-desc": "All your financial data stays on your device. We don't store your sensitive information on our servers.",
@@ -569,7 +282,10 @@
                 "feature-2-desc": "Get a clear picture of your spending habits with automatic categorization and beautiful charts.",
                 "feature-3-title": "Budgeting Made Easy",
                 "feature-3-desc": "Set goals, track your progress, and stay on top of your monthly expenses with intuitive budget tools.",
+                "showcase-eyebrow": "On every screen",
                 "showcase-title": "A beautiful experience, every time.",
+                "cta-title": "Start your ledger today.",
+                "cta-subtitle": "Free to download on iOS and Android.",
                 "footer-desc": "The professional way to track your finances on iOS and Android.",
                 "footer-support-header": "Support",
                 "footer-help": "Help Center",
@@ -580,12 +296,15 @@
                 "copyright": "&copy; 2026 Lago. All rights reserved. iPhone and iOS are trademarks of Apple Inc."
             },
             hi: {
+                "nav-features": "विशेषताएं",
                 "nav-support": "सहायता",
                 "nav-privacy": "गोपनीयता",
-                "nav-contact": "हमसे संपर्क करें",
-                "hero-title": "अपने वित्त पर नियंत्रण रखें",
+                "nav-contact": "संपर्क करें",
+                "hero-eyebrow": "मोबाइल लेजर · iOS और Android",
+                "hero-title": "अपने <span class=\"grad-text\">वित्त पर नियंत्रण</span> रखें",
                 "hero-subtitle": "आपके जीवन के लिए डिज़ाइन किया गया सरल, सुरक्षित और स्मार्ट वित्त ट्रैकिंग।",
-                "cta-get-started": "शुरू करें",
+                "chip-label": "इस सप्ताह",
+                "features-eyebrow": "Lago क्यों",
                 "features-title": "वह सब कुछ जो आपको अपने पैसे पर महारत हासिल करने के लिए चाहिए।",
                 "feature-1-title": "गोपनीयता पहले",
                 "feature-1-desc": "आपका सारा वित्तीय डेटा आपके डिवाइस पर रहता है। हम आपकी संवेदनशील जानकारी अपने सर्वर पर स्टोर नहीं करते हैं।",
@@ -593,7 +312,10 @@
                 "feature-2-desc": "स्वचालित वर्गीकरण और सुंदर चार्ट के साथ अपनी खर्च करने की आदतों की स्पष्ट तस्वीर प्राप्त करें।",
                 "feature-3-title": "बजट बनाना हुआ आसान",
                 "feature-3-desc": "सहज बजट टूल के साथ लक्ष्य निर्धारित करें, अपनी प्रगति को ट्रैक करें और अपने मासिक खर्चों पर नज़र रखें।",
+                "showcase-eyebrow": "हर स्क्रीन पर",
                 "showcase-title": "हर बार एक सुंदर अनुभव।",
+                "cta-title": "आज ही अपना लेजर शुरू करें।",
+                "cta-subtitle": "iOS और Android पर मुफ़्त डाउनलोड।",
                 "footer-desc": "iOS और Android पर अपने वित्त को ट्रैक करने का पेशेवर तरीका।",
                 "footer-support-header": "सहायता",
                 "footer-help": "सहायता केंद्र",
@@ -604,12 +326,15 @@
                 "copyright": "&copy; 2026 Lago। सर्वाधिकार सुरक्षित। iPhone और iOS Apple Inc. के ट्रेडमार्क हैं।"
             },
             ko: {
+                "nav-features": "기능",
                 "nav-support": "지원",
                 "nav-privacy": "개인정보 보호",
                 "nav-contact": "문의하기",
-                "hero-title": "당신의 재정을 관리하세요",
+                "hero-eyebrow": "모바일 가계부 · iOS & Android",
+                "hero-title": "<span class=\"grad-text\">당신의 재정</span>을 관리하세요",
                 "hero-subtitle": "당신의 삶을 위해 설계된 간단하고 안전하며 스마트한 재정 추적.",
-                "cta-get-started": "시작하기",
+                "chip-label": "이번 주",
+                "features-eyebrow": "Lago를 선택하는 이유",
                 "features-title": "돈을 마스터하는 데 필요한 모든 것.",
                 "feature-1-title": "개인정보 보호 우선",
                 "feature-1-desc": "모든 재정 데이터는 장치에 보관됩니다. 당사는 귀하의 민감한 정보를 서버에 저장하지 않습니다.",
@@ -617,7 +342,10 @@
                 "feature-2-desc": "자동 분류 및 아름다운 차트로 소비 습관을 명확하게 파악하세요.",
                 "feature-3-title": "쉬운 예산 관리",
                 "feature-3-desc": "직관적인 예산 도구로 목표를 설정하고, 진행 상황을 추적하며, 월간 지출을 모니터링하세요.",
+                "showcase-eyebrow": "모든 화면에서",
                 "showcase-title": "항상 아름다운 경험.",
+                "cta-title": "오늘 가계부를 시작하세요.",
+                "cta-subtitle": "iOS와 Android에서 무료로 다운로드하세요.",
                 "footer-desc": "iOS 및 Android에서 재정을 추적하는 전문적인 방법.",
                 "footer-support-header": "지원",
                 "footer-help": "고객 센터",
@@ -628,12 +356,15 @@
                 "copyright": "&copy; 2026 Lago. 모든 권리 보유. iPhone 및 iOS는 Apple Inc.의 상표입니다."
             },
             ja: {
+                "nav-features": "機能",
                 "nav-support": "サポート",
                 "nav-privacy": "プライバシー",
                 "nav-contact": "お問い合わせ",
-                "hero-title": "家計를 完璧に管理",
+                "hero-eyebrow": "モバイル家計簿 · iOS & Android",
+                "hero-title": "<span class=\"grad-text\">家計</span>を完璧に管理",
                 "hero-subtitle": "あなたのライフスタイルに合わせた、シンプルで安全、かつスマートな収支管理。",
-                "cta-get-started": "今すぐ始める",
+                "chip-label": "今週",
+                "features-eyebrow": "Lagoが選ばれる理由",
                 "features-title": "お金をマスターするために必要なすべてがここに。",
                 "feature-1-title": "プライバシーを最優先",
                 "feature-1-desc": "すべての財務データはデバイス内に保存されます。機密情報をサーバーに保存することはありません。",
@@ -641,7 +372,10 @@
                 "feature-2-desc": "自動カテゴリ分けと美しいチャートで、支出の傾向を明確に把握。",
                 "feature-3-title": "予算管理を簡単に",
                 "feature-3-desc": "直感的な予算ツールで目標を設定し、進捗を追跡。毎月の支出をしっかり管理。",
+                "showcase-eyebrow": "あらゆる画面で",
                 "showcase-title": "いつでも最高のユーザー体験を。",
+                "cta-title": "今日から家計簿を始めましょう。",
+                "cta-subtitle": "iOS・Androidで無料ダウンロード。",
                 "footer-desc": "iOSとAndroidで家計を管理するプロフェッショナルな方法。",
                 "footer-support-header": "サポート",
                 "footer-help": "ヘルプセンター",
@@ -670,59 +404,72 @@
             }
         }
 
+        // Scroll reveal — progressively enhances; no-op without IntersectionObserver
+        let revealObserver = null;
+        if ('IntersectionObserver' in window) {
+            revealObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-in');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        }
+
+        function observeReveals(scope) {
+            (scope || document).querySelectorAll('.reveal:not(.is-in)').forEach(el => {
+                if (revealObserver) revealObserver.observe(el);
+                else el.classList.add('is-in');
+            });
+        }
+
         function updateLanguage(lang) {
             document.documentElement.lang = lang;
             localStorage.setItem('preferred-lang', lang);
+            const dict = translations[lang] || translations.en;
 
-            // Update text
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
+                if (dict[key] != null) el.textContent = dict[key];
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (dict[key] != null) el.innerHTML = dict[key];
             });
 
-            // Special case for copyright (HTML)
-            document.getElementById('copyright-text').innerHTML = translations[lang]['copyright'];
+            const copy = document.getElementById('copyright-text');
+            if (copy && dict['copyright']) copy.innerHTML = dict['copyright'];
 
-            // Update hero image
-            const heroWrap = document.getElementById('hero-img-wrap');
-            const heroImg = document.getElementById('hero-img');
-            const nextHero = `images/screenshots/1.png`;
-            if (heroImg.getAttribute('src') !== nextHero) {
-                heroWrap.classList.remove('img-load--loaded', 'img-load--error');
-                delete heroWrap.dataset.loadBound;
-                heroImg.src = nextHero;
-            }
-            bindImageLoad(heroWrap);
-
-            // Update showcase grid
+            // Rebuild showcase grid (keeps it in sync and re-arms reveal/lazy loading)
             const grid = document.getElementById('screenshot-grid');
-            grid.innerHTML = '';
-            for (let i = 1; i <= 6; i++) {
-                const item = document.createElement('div');
-                item.className = 'showcase-item';
-                const wrap = document.createElement('div');
-                wrap.className = 'img-load img-load--tile';
-                const ph = document.createElement('span');
-                ph.className = 'img-load__ph';
-                ph.setAttribute('aria-hidden', 'true');
-                const img = document.createElement('img');
-                img.src = `images/screenshots/${i}.png`;
-                img.alt = `Screenshot ${i}`;
-                img.width = 1242;
-                img.height = 2688;
-                img.loading = 'lazy';
-                img.decoding = 'async';
-                img.sizes = '(max-width: 1200px) 90vw, 380px';
-                wrap.appendChild(ph);
-                wrap.appendChild(img);
-                item.appendChild(wrap);
-                grid.appendChild(item);
-                bindImageLoad(wrap);
+            if (grid) {
+                grid.innerHTML = '';
+                for (let i = 1; i <= 6; i++) {
+                    const item = document.createElement('div');
+                    item.className = 'showcase-item reveal';
+                    const wrap = document.createElement('div');
+                    wrap.className = 'img-load';
+                    const ph = document.createElement('span');
+                    ph.className = 'img-load__ph';
+                    ph.setAttribute('aria-hidden', 'true');
+                    const img = document.createElement('img');
+                    img.src = `images/screenshots/${i}.png`;
+                    img.alt = `Lago screenshot ${i}`;
+                    img.width = 1242;
+                    img.height = 2688;
+                    img.loading = 'lazy';
+                    img.decoding = 'async';
+                    wrap.appendChild(ph);
+                    wrap.appendChild(img);
+                    item.appendChild(wrap);
+                    grid.appendChild(item);
+                    bindImageLoad(wrap);
+                }
+                observeReveals(grid);
             }
 
-            // Update links to include lang param
+            // Carry the language across internal page links
             document.querySelectorAll('a[href$=".html"]').forEach(link => {
                 const url = new URL(link.href, window.location.origin);
                 url.searchParams.set('lang', lang);
@@ -731,22 +478,18 @@
         }
 
         const selector = document.getElementById('lang-selector');
-        selector.addEventListener('change', (e) => {
-            updateLanguage(e.target.value);
-        });
+        selector.addEventListener('change', (e) => updateLanguage(e.target.value));
 
-        // Initialize from URL or LocalStorage
         const urlParams = new URLSearchParams(window.location.search);
         const langParam = urlParams.get('lang');
         const savedLang = localStorage.getItem('preferred-lang');
-        const initialLang = langParam || savedLang || 'en';
+        const initialLang = (langParam && translations[langParam]) ? langParam
+            : (savedLang && translations[savedLang]) ? savedLang : 'en';
 
-        if (translations[initialLang]) {
-            selector.value = initialLang;
-            updateLanguage(initialLang);
-        } else {
-            document.querySelectorAll('.img-load').forEach(bindImageLoad);
-        }
+        selector.value = initialLang;
+        bindImageLoad(document.getElementById('hero-img-wrap'));
+        updateLanguage(initialLang);
+        observeReveals();
     </script>
 </body>
 
