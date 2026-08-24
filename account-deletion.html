@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0A1020">
+    <link rel="icon" type="image/png" href="images/icons/AppIcon-default.png">
+    <link rel="apple-touch-icon" href="images/icons/AppIcon-default.png">
+    <title>Account and Data Deletion - Lago</title>
+    <meta name="description" content="Delete your Lago sync account and associated All Devices Sync cloud data.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lago">
+    <meta property="og:title" content="Account and Data Deletion - Lago">
+    <meta property="og:description" content="Delete your Lago sync account and associated All Devices Sync cloud data.">
+    <meta property="og:image" content="https://mobileledger.wartle.app/images/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Account and Data Deletion - Lago">
+    <meta name="twitter:description" content="Delete your Lago sync account and associated All Devices Sync cloud data.">
+    <meta name="twitter:image" content="https://mobileledger.wartle.app/images/og.png">
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="brand">
+                    <img src="images/icons/AppIcon-default.png" alt="" width="34" height="34" decoding="async">
+                    Lago
+                </a>
+                <div class="nav-links">
+                    <a href="index.html#features">Features</a>
+                    <a href="support.html">Support</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="mailto:support@wartle.app" class="btn btn--primary btn--sm">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="doc">
+        <div class="doc-wrap">
+            <a href="index.html" class="doc-back">← Back to Home</a>
+            <article class="doc-card">
+                <header>
+                    <h1>Account and Data Deletion</h1>
+                    <p class="last-updated">Lago (Mobile Ledger)</p>
+                </header>
+
+                <p>You can permanently delete your Lago sync account and the All Devices Sync cloud data associated
+                    with it. Supported Apple versions provide the quickest and most secure method directly inside Lago.</p>
+
+                <div class="summary-box">
+                    <h3>Delete your account in Lago</h3>
+                    <ol class="deletion-steps">
+                        <li>Open <strong>Settings</strong> in Lago on your Apple device.</li>
+                        <li>Choose <strong>Manage Backups</strong>, then <strong>Real-Time Sync</strong>.</li>
+                        <li>Tap <strong>Delete Lago Account</strong>.</li>
+                        <li>Review the warning, confirm deletion, and complete the requested Apple or Google sign-in.</li>
+                    </ol>
+                    <p>Deletion begins immediately after successful verification and cannot be undone.</p>
+                </div>
+
+                <h2>What is deleted</h2>
+                <ul>
+                    <li>Your Lago Firebase Authentication account and Lago sign-in.</li>
+                    <li>Financial records and app content stored for All Devices Sync in Cloud Firestore.</li>
+                    <li>Synced profile, achievement, notification, receipt, savings-goal, and custom-icon data associated with that account.</li>
+                    <li>Your Sign in with Apple authorization for Lago, when that provider is linked.</li>
+                </ul>
+
+                <h2>What remains</h2>
+                <ul>
+                    <li><strong>Local app data:</strong> information already stored on your devices remains available locally. Delete it in Lago, clear the app's storage, or uninstall the app if you also want that local copy removed.</li>
+                    <li><strong>Personal cloud backups:</strong> backups in your iCloud or Google Drive account are not automatically deleted. Manage them through the relevant backup or account settings.</li>
+                    <li><strong>Subscriptions and purchases:</strong> deleting your Lago account does not cancel an App Store or Google Play subscription or remove store purchase history. Manage subscriptions through the store where you purchased them.</li>
+                    <li><strong>Required records:</strong> limited support or security records may remain when reasonably necessary for fraud prevention, dispute resolution, or legal compliance.</li>
+                </ul>
+
+                <h2>If the in-app option is unavailable</h2>
+                <p>Email us from the address connected to your Lago sync account. Use the subject
+                    <strong>“Lago Account Deletion”</strong> and include whether you signed in with Apple or Google.
+                    Do not send financial details, passwords, receipt images, or identity documents in your first message.</p>
+                <p><a class="btn btn--primary" href="mailto:support@wartle.app?subject=Lago%20Account%20Deletion">Email a deletion request</a></p>
+                <p>We may ask you to verify control of the account. We normally complete verified requests within
+                    30 days and will confirm when the process is complete.</p>
+
+                <h2>Turning sync off is different</h2>
+                <p>Turning All Devices Sync off or signing out stops synchronization on that device, but it does not
+                    delete your Lago sync account or cloud data already stored. Use the in-app deletion option or submit
+                    a verified request if you want those records permanently removed.</p>
+
+                <hr>
+                <p style="text-align: center; color: var(--text-muted); font-size: 14px;">For more information, read the
+                    <a href="privacy.html">Lago Privacy Policy</a>. For other questions, email
+                    <a href="mailto:support@wartle.app">support@wartle.app</a>.</p>
+            </article>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="brand">
+                        <img src="images/icons/AppIcon-default.png" alt="" width="34" height="34" decoding="async" loading="lazy">
+                        Lago
+                    </span>
+                    <p>The professional way to track your finances on iOS and Android.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Support</h4>
+                        <a href="support.html">Help Center</a>
+                        <a href="mailto:support@wartle.app">Email Support</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="account-deletion.html">Account &amp; Data Deletion</a>
+                        <a href="terms.html">Terms of Use (EULA)</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2026 Lago. All rights reserved. iPhone and iOS are trademarks of Apple Inc.</div>
+        </div>
+    </footer>
+</body>
+
+</html>

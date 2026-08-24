@@ -8,6 +8,16 @@
     <link rel="icon" type="image/png" href="images/icons/AppIcon-default.png">
     <link rel="apple-touch-icon" href="images/icons/AppIcon-default.png">
     <title>Support - Lago</title>
+    <meta name="description" content="Help with Lago backups, sync, account deletion, privacy, transactions, and budgeting.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lago">
+    <meta property="og:title" content="Support - Lago">
+    <meta property="og:description" content="Help with Lago backups, sync, account deletion, privacy, transactions, and budgeting.">
+    <meta property="og:image" content="https://mobileledger.wartle.app/images/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Support - Lago">
+    <meta name="twitter:description" content="Help with Lago backups, sync, account deletion, privacy, transactions, and budgeting.">
+    <meta name="twitter:image" content="https://mobileledger.wartle.app/images/og.png">
     <script>document.documentElement.classList.add('js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,18 +71,20 @@
             <section>
                 <h2 data-i18n="faq-title">Frequently Asked Questions</h2>
                 <p><strong data-i18n="faq-1-q">Where is my data stored?</strong><br>
-                    <span data-i18n="faq-1-a">All your financial data is stored locally on your device. It never leaves your device unless you choose to create a manual
-                        backup.</span>
+                    <span data-i18n="faq-1-a">Lago uses local storage by default. If you choose cloud backup, Apple Devices Sync, All Devices Sync, or network-based Smart Input, the relevant data is sent to the provider needed for that feature.</span>
                 </p>
 
                 <p><strong data-i18n="faq-2-q">How do I backup my data?</strong><br>
-                    <span data-i18n="faq-2-a">You can create manual backups to your iCloud account (on iOS) or Google Drive (on Android) through the settings
-                        menu in the app. This ensures you can restore your data if you switch devices.</span>
+                    <span data-i18n="faq-2-a">Open Lago's Sync or Backup settings. Supported Apple devices can use iCloud, while Android can use Google Drive. All Devices Sync uses your Lago account to keep eligible data aligned across supported platforms.</span>
                 </p>
 
                 <p><strong data-i18n="faq-3-q">Is my data secure?</strong><br>
-                    <span data-i18n="faq-3-a">Yes. We leverage each platform's built-in encryption and offer optional biometric
-                        (Face ID/Touch ID on iOS, fingerprint/face unlock on Android) protection to keep your financial information private.</span>
+                    <span data-i18n="faq-3-a">Lago uses supported device security, optional biometric app locking, encrypted network connections, authenticated cloud access, and Firebase security controls. No storage or transmission method can guarantee absolute security.</span>
+                </p>
+
+                <p><strong data-i18n="faq-4-q">How do I delete my sync account and cloud data?</strong><br>
+                    <span data-i18n="faq-4-a">On supported Apple versions, open Settings → Manage Backups → Real-Time Sync, then choose Delete Lago Account. This permanently deletes the Lago sign-in and All Devices Sync cloud data. Local data, cloud backups, and subscriptions remain. If the option is unavailable, use our Account and Data Deletion page.</span>
+                    <br><a href="account-deletion.html" data-i18n="faq-4-link">Open Account and Data Deletion →</a>
                 </p>
             </section>
 
@@ -107,18 +119,18 @@
                     you can move to a new device or recover from accidents.</p>
 
                 <p><strong data-i18n="backup-step-1-q">Automatic backups</strong><br>
-                    <span data-i18n="backup-step-1-a">Settings → Sync → Manage Backups. Toggle "Automatic Backups"
+                    <span data-i18n="backup-step-1-a">Settings → Manage Backups. Toggle "Automatic Backups"
                         on. Backups run silently in the background while your phone is charging.</span>
                 </p>
 
                 <p><strong data-i18n="backup-step-2-q">Create a backup now</strong><br>
-                    <span data-i18n="backup-step-2-a">Settings → Sync → Manage Backups → "Create Backup Now". The
+                    <span data-i18n="backup-step-2-a">Settings → Manage Backups → "Create Backup Now". The
                         zip lands in iCloud Drive under Lago.</span>
                 </p>
 
                 <p><strong data-i18n="backup-step-3-q">Restore backups</strong><br>
                     <span data-i18n="backup-step-3-a">Open Lago on the new device. Accept the iCloud
-                        backup prompt on first launch, or go to Settings → Sync → Manage Backups, tap any backup,
+                        backup prompt on first launch, or go to Settings → Manage Backups, tap any backup,
                         and choose Restore.</span>
                 </p>
 
@@ -203,6 +215,7 @@
                     <div class="footer-col">
                         <h4 data-i18n="footer-legal-header">Legal</h4>
                         <a href="privacy.html" data-i18n="footer-privacy">Privacy Policy</a>
+                        <a href="account-deletion.html">Account &amp; Data Deletion</a>
                         <a href="terms.html" data-i18n="footer-terms">Terms of Use (EULA)</a>
                     </div>
                 </div>
@@ -238,11 +251,14 @@
                 "btn-email": "Email support@wartle.app",
                 "faq-title": "Frequently Asked Questions",
                 "faq-1-q": "Where is my data stored?",
-                "faq-1-a": "All your financial data is stored locally on your device. It never leaves your device unless you choose to create a manual backup.",
+                "faq-1-a": "Lago uses local storage by default. If you choose cloud backup, Apple Devices Sync, All Devices Sync, or network-based Smart Input, the relevant data is sent to the provider needed for that feature.",
                 "faq-2-q": "How do I backup my data?",
-                "faq-2-a": "You can create manual backups to your iCloud account (on iOS) or Google Drive (on Android) through the settings menu in the app. This ensures you can restore your data if you switch devices.",
+                "faq-2-a": "Open Lago's Sync or Backup settings. Supported Apple devices can use iCloud, while Android can use Google Drive. All Devices Sync uses your Lago account to keep eligible data aligned across supported platforms.",
                 "faq-3-q": "Is my data secure?",
-                "faq-3-a": "Yes. We leverage each platform's built-in encryption and offer optional biometric (Face ID/Touch ID on iOS, fingerprint/face unlock on Android) protection to keep your financial information private.",
+                "faq-3-a": "Lago uses supported device security, optional biometric app locking, encrypted network connections, authenticated cloud access, and Firebase security controls. No storage or transmission method can guarantee absolute security.",
+                "faq-4-q": "How do I delete my sync account and cloud data?",
+                "faq-4-a": "On supported Apple versions, open Settings → Manage Backups → Real-Time Sync, then choose Delete Lago Account. This permanently deletes the Lago sign-in and All Devices Sync cloud data. Local data, cloud backups, and subscriptions remain. If the option is unavailable, use our Account and Data Deletion page.",
+                "faq-4-link": "Open Account and Data Deletion →",
                 "voice-title": "Adding Transactions with Siri",
                 "voice-intro": "Lago 1.7 added voice and Shortcuts support, so you can log expenses and income without opening the app.",
                 "voice-step-1-q": "Siri voice",
@@ -255,11 +271,11 @@
                 "backup-title": "Backup & Restore",
                 "backup-intro": "Lago creates encrypted ZIP backups in your iCloud Drive so you can move to a new device or recover from accidents.",
                 "backup-step-1-q": "Automatic backups",
-                "backup-step-1-a": "Settings → Sync → Manage Backups. Toggle \"Automatic Backups\" on. Backups run silently in the background while your phone is charging.",
+                "backup-step-1-a": "Settings → Manage Backups. Toggle \"Automatic Backups\" on. Backups run silently in the background while your phone is charging.",
                 "backup-step-2-q": "Create a backup now",
-                "backup-step-2-a": "Settings → Sync → Manage Backups → \"Create Backup Now\". The zip lands in iCloud Drive under Lago.",
+                "backup-step-2-a": "Settings → Manage Backups → \"Create Backup Now\". The zip lands in iCloud Drive under Lago.",
                 "backup-step-3-q": "Restore backups",
-                "backup-step-3-a": "Open Lago on the new device. Accept the iCloud backup prompt on first launch, or go to Settings → Sync → Manage Backups, tap any backup, and choose Restore.",
+                "backup-step-3-a": "Open Lago on the new device. Accept the iCloud backup prompt on first launch, or go to Settings → Manage Backups, tap any backup, and choose Restore.",
                 "backup-tip": "Tip: backups include accounts, transactions, budgets, recurring rules, and your profile picture. Each device keeps its own retention window, so backups from your other devices stay visible too.",
                 "budgets-title": "Setting Up Budgets",
                 "budgets-intro": "Budgets help you stay on track. Each budget is tied to a specific ledger and category, with optional threshold alerts.",
@@ -305,11 +321,14 @@
                 "btn-email": "ईमेल support@wartle.app",
                 "faq-title": "अक्सर पूछे जाने वाले प्रश्न",
                 "faq-1-q": "मेरा डेटा कहाँ स्टोर किया जाता है?",
-                "faq-1-a": "आपका सारा वित्तीय डेटा आपके डिवाइस पर स्थानीय रूप से स्टोर किया जाता है। यह आपके डिवाइस को कभी नहीं छोड़ता जब तक कि आप मैन्युअल बैकअप बनाना नहीं चुनते।",
+                "faq-1-a": "Lago डिफ़ॉल्ट रूप से स्थानीय स्टोरेज का उपयोग करता है। यदि आप क्लाउड बैकअप, Apple Devices Sync, All Devices Sync या नेटवर्क-आधारित Smart Input चुनते हैं, तो संबंधित डेटा उस सुविधा के लिए आवश्यक सेवा प्रदाता को भेजा जाता है।",
                 "faq-2-q": "मैं अपने डेटा का बैकअप कैसे ले सकता हूँ?",
-                "faq-2-a": "आप ऐप में सेटिंग मेनू के माध्यम से अपने iCloud खाते (iOS पर) या Google Drive (Android पर) में मैन्युअल बैकअप बना सकते हैं। यह सुनिश्चित करता है कि यदि आप डिवाइस बदलते हैं तो आप अपना डेटा पुनर्स्थापित कर सकते हैं।",
+                "faq-2-a": "Lago की Sync या Backup सेटिंग्स खोलें। समर्थित Apple डिवाइस iCloud का उपयोग कर सकते हैं, जबकि Android Google Drive का उपयोग कर सकता है। All Devices Sync आपके Lago खाते के जरिए समर्थित प्लेटफ़ॉर्म पर योग्य डेटा को एक जैसा रखता है।",
                 "faq-3-q": "क्या मेरा डेटा सुरक्षित है?",
-                "faq-3-a": "हाँ। हम आपकी वित्तीय जानकारी को निजी रखने के लिए प्रत्येक प्लेटफ़ॉर्म के अंतर्निहित एन्क्रिप्शन का लाभ उठाते हैं और वैकल्पिक बायोमेट्रिक (iOS पर Face ID/Touch ID, Android पर फ़िंगरप्रिंट/फेस अनलॉक) सुरक्षा प्रदान करते हैं।",
+                "faq-3-a": "Lago समर्थित डिवाइस सुरक्षा, वैकल्पिक बायोमेट्रिक ऐप लॉक, एन्क्रिप्टेड नेटवर्क कनेक्शन, प्रमाणित क्लाउड एक्सेस और Firebase सुरक्षा नियंत्रणों का उपयोग करता है। कोई भी स्टोरेज या ट्रांसमिशन तरीका पूर्ण सुरक्षा की गारंटी नहीं दे सकता।",
+                "faq-4-q": "मैं अपना सिंक खाता और क्लाउड डेटा कैसे हटाऊँ?",
+                "faq-4-a": "समर्थित Apple संस्करणों पर Settings → Manage Backups → Real-Time Sync खोलें, फिर Delete Lago Account चुनें। इससे Lago साइन-इन और All Devices Sync का क्लाउड डेटा स्थायी रूप से हट जाता है। स्थानीय डेटा, क्लाउड बैकअप और सदस्यताएँ बनी रहती हैं। यदि विकल्प उपलब्ध नहीं है, तो Account and Data Deletion पेज का उपयोग करें।",
+                "faq-4-link": "खाता और डेटा हटाने का पेज खोलें →",
                 "voice-title": "Siri से लेनदेन जोड़ें",
                 "voice-intro": "Lago 1.7 में voice और Shortcuts का सपोर्ट जोड़ा गया है, इसलिए आप ऐप खोले बिना खर्च और आय लॉग कर सकते हैं।",
                 "voice-step-1-q": "Siri आवाज़",
@@ -322,11 +341,11 @@
                 "backup-title": "बैकअप और रिस्टोर",
                 "backup-intro": "Lago आपके iCloud Drive में एन्क्रिप्टेड ZIP बैकअप बनाता है, ताकि आप नए डिवाइस पर जा सकें या किसी समस्या से रिकवर हो सकें।",
                 "backup-step-1-q": "स्वचालित बैकअप",
-                "backup-step-1-a": "Settings → Sync → Manage Backups। \"Automatic Backups\" को चालू करें। फ़ोन चार्ज होते समय बैकअप पृष्ठभूमि में चुपचाप चलते हैं।",
+                "backup-step-1-a": "Settings → Manage Backups। \"Automatic Backups\" को चालू करें। फ़ोन चार्ज होते समय बैकअप पृष्ठभूमि में चुपचाप चलते हैं।",
                 "backup-step-2-q": "अभी बैकअप बनाएं",
-                "backup-step-2-a": "Settings → Sync → Manage Backups → \"Create Backup Now\"। ZIP iCloud Drive में Lago के अंतर्गत आता है।",
+                "backup-step-2-a": "Settings → Manage Backups → \"Create Backup Now\"। ZIP iCloud Drive में Lago के अंतर्गत आता है।",
                 "backup-step-3-q": "बैकअप रिस्टोर करें",
-                "backup-step-3-a": "नए डिवाइस पर Lago खोलें। पहले लॉन्च पर iCloud बैकअप प्रॉम्प्ट स्वीकार करें, या Settings → Sync → Manage Backups पर जाएं, किसी भी बैकअप को टैप करें, और Restore चुनें।",
+                "backup-step-3-a": "नए डिवाइस पर Lago खोलें। पहले लॉन्च पर iCloud बैकअप प्रॉम्प्ट स्वीकार करें, या Settings → Manage Backups पर जाएं, किसी भी बैकअप को टैप करें, और Restore चुनें।",
                 "backup-tip": "टिप: बैकअप में खाते, लेनदेन, बजट, आवर्ती नियम, और आपकी प्रोफ़ाइल तस्वीर शामिल होती है। हर डिवाइस अपना रिटेंशन विंडो रखता है, इसलिए दूसरे डिवाइसों के बैकअप भी दिखते रहते हैं।",
                 "budgets-title": "बजट सेट करें",
                 "budgets-intro": "बजट आपको ट्रैक पर रहने में मदद करते हैं। हर बजट एक विशेष लेजर और श्रेणी से जुड़ा होता है, वैकल्पिक थ्रेशोल्ड अलर्ट के साथ।",
@@ -372,11 +391,14 @@
                 "btn-email": "이메일 support@wartle.app",
                 "faq-title": "자주 묻는 질문",
                 "faq-1-q": "데이터는 어디에 저장되나요?",
-                "faq-1-a": "모든 재정 데이터는 장치에 로컬로 저장됩니다. 수동 백업을 만들지 않는 한 장치를 떠나지 않습니다.",
+                "faq-1-a": "Lago는 기본적으로 로컬 저장소를 사용합니다. 클라우드 백업, Apple Devices Sync, All Devices Sync 또는 네트워크 기반 Smart Input을 선택하면 해당 기능에 필요한 데이터가 서비스 제공업체로 전송됩니다.",
                 "faq-2-q": "데이터를 어떻게 백업하나요?",
-                "faq-2-a": "앱의 설정 메뉴를 통해 iCloud 계정(iOS) 또는 Google Drive(Android)에 수동 백업을 만들 수 있습니다. 이를 통해 장치를 변경할 때 데이터를 복구할 수 있습니다.",
+                "faq-2-a": "Lago의 동기화 또는 백업 설정을 여세요. 지원되는 Apple 기기는 iCloud를, Android는 Google Drive를 사용할 수 있습니다. All Devices Sync는 Lago 계정을 통해 지원되는 플랫폼 간에 대상 데이터를 동일하게 유지합니다.",
                 "faq-3-q": "데이터는 안전한가요?",
-                "faq-3-a": "네. 귀하의 재정 정보를 비공개로 유지하기 위해 각 플랫폼의 기본 암호화를 활용하고 선택적 생체 인식(iOS의 Face ID/Touch ID, Android의 지문/얼굴 인식) 보호를 제공합니다.",
+                "faq-3-a": "Lago는 지원되는 기기 보안, 선택적 생체 인식 앱 잠금, 암호화된 네트워크 연결, 인증된 클라우드 접근 및 Firebase 보안 제어를 사용합니다. 어떤 저장 또는 전송 방식도 절대적인 보안을 보장할 수 없습니다.",
+                "faq-4-q": "동기화 계정과 클라우드 데이터를 어떻게 삭제하나요?",
+                "faq-4-a": "지원되는 Apple 버전에서 설정 → 백업 관리 → 실시간 동기화를 연 다음 ‘Lago 계정 삭제’를 선택하세요. Lago 로그인과 All Devices Sync 클라우드 데이터가 영구 삭제됩니다. 로컬 데이터, 클라우드 백업 및 구독은 유지됩니다. 옵션이 없다면 계정 및 데이터 삭제 페이지를 이용하세요.",
+                "faq-4-link": "계정 및 데이터 삭제 페이지 열기 →",
                 "voice-title": "Siri로 거래 추가하기",
                 "voice-intro": "Lago 1.7에서 음성 및 단축어 기능이 추가되어, 앱을 열지 않고도 지출과 수입을 기록할 수 있습니다.",
                 "voice-step-1-q": "Siri 음성",
@@ -389,11 +411,11 @@
                 "backup-title": "백업 및 복원",
                 "backup-intro": "Lago는 iCloud Drive에 암호화된 ZIP 백업을 만들어, 새 기기로 이동하거나 사고에서 복구할 수 있도록 도와줍니다.",
                 "backup-step-1-q": "자동 백업",
-                "backup-step-1-a": "Settings → Sync → Manage Backups에서 \"Automatic Backups\"를 켜세요. 휴대폰이 충전 중일 때 백업이 백그라운드에서 조용히 실행됩니다.",
+                "backup-step-1-a": "Settings → Manage Backups에서 \"Automatic Backups\"를 켜세요. 휴대폰이 충전 중일 때 백업이 백그라운드에서 조용히 실행됩니다.",
                 "backup-step-2-q": "지금 백업 만들기",
-                "backup-step-2-a": "Settings → Sync → Manage Backups → \"Create Backup Now\". ZIP 파일은 iCloud Drive의 Lago 폴더에 저장됩니다.",
+                "backup-step-2-a": "Settings → Manage Backups → \"Create Backup Now\". ZIP 파일은 iCloud Drive의 Lago 폴더에 저장됩니다.",
                 "backup-step-3-q": "백업 복원",
-                "backup-step-3-a": "새 기기에서 Lago를 열고 첫 실행 시 iCloud 백업 프롬프트를 수락하거나, Settings → Sync → Manage Backups로 이동해 백업을 탭한 뒤 Restore를 선택하세요.",
+                "backup-step-3-a": "새 기기에서 Lago를 열고 첫 실행 시 iCloud 백업 프롬프트를 수락하거나, Settings → Manage Backups로 이동해 백업을 탭한 뒤 Restore를 선택하세요.",
                 "backup-tip": "팁: 백업에는 계정, 거래, 예산, 반복 규칙, 프로필 사진이 포함됩니다. 각 기기는 자체 보관 기간을 유지하므로 다른 기기의 백업도 그대로 표시됩니다.",
                 "budgets-title": "예산 설정",
                 "budgets-intro": "예산은 계획을 지키도록 도와줍니다. 각 예산은 특정 원장과 카테고리에 연결되며, 선택적 임계값 알림과 함께 작동합니다.",
@@ -439,11 +461,14 @@
                 "btn-email": "メール support@wartle.app",
                 "faq-title": "よくある質問",
                 "faq-1-q": "データはどこに保存されますか？",
-                "faq-1-a": "すべての財務データは、デバイス内にローカルに保存されます。手動バックアップを作成しない限り、デバイス外に送信されることはありません。",
+                "faq-1-a": "Lagoはデフォルトで端末内に保存します。クラウドバックアップ、Apple Devices Sync、All Devices Sync、またはネットワークベースのSmart Inputを選ぶと、その機能に必要なデータがサービス提供者へ送信されます。",
                 "faq-2-q": "データのバックアップ方法は？",
-                "faq-2-a": "アプリ内の設定メニューから、iCloudアカウント（iOS）または Google ドライブ（Android）に手動バックアップを作成できます。これにより、デバイスを買い替えた際などにデータを復元できます。",
+                "faq-2-a": "Lagoの同期またはバックアップ設定を開いてください。対応するAppleデバイスではiCloud、AndroidではGoogle Driveを利用できます。All Devices SyncはLagoアカウントを使い、対応プラットフォーム間で対象データを同期します。",
                 "faq-3-q": "データのセキュリティは？",
-                "faq-3-a": "はい。各プラットフォーム組み込みの暗号化を活用し、オプションで生体認証（iOSではFace ID/Touch ID、Androidでは指紋／顔認証）保護を提供することで、財務情報のプライバシーを保護しています。",
+                "faq-3-a": "Lagoは、対応デバイスのセキュリティ、任意の生体認証ロック、暗号化通信、認証済みクラウドアクセス、Firebaseのセキュリティ制御を使用します。ただし、保存または通信の方法が完全な安全性を保証することはありません。",
+                "faq-4-q": "同期アカウントとクラウドデータを削除するには？",
+                "faq-4-a": "対応するApple版で、設定 → バックアップを管理 → リアルタイム同期を開き、「Lagoアカウントを削除」を選択します。Lagoのサインイン情報とAll Devices Syncのクラウドデータが完全に削除されます。端末内のデータ、クラウドバックアップ、サブスクリプションは残ります。項目がない場合は、「アカウントとデータの削除」ページをご利用ください。",
+                "faq-4-link": "アカウントとデータの削除ページを開く →",
                 "voice-title": "Siriで取引を追加する",
                 "voice-intro": "Lago 1.7では音声とショートカットに対応したため、アプリを開かずに支出や収入を記録できます。",
                 "voice-step-1-q": "Siri音声",
@@ -456,11 +481,11 @@
                 "backup-title": "バックアップと復元",
                 "backup-intro": "LagoはiCloud Driveに暗号化されたZIPバックアップを作成するので、新しいデバイスへの移行や事故からの復旧ができます。",
                 "backup-step-1-q": "自動バックアップ",
-                "backup-step-1-a": "設定 → 同期 → バックアップ管理。「Automatic Backups」をオンにします。バックアップは充電中にバックグラウンドで静かに実行されます。",
+                "backup-step-1-a": "設定 → バックアップを管理。「Automatic Backups」をオンにします。バックアップは充電中にバックグラウンドで静かに実行されます。",
                 "backup-step-2-q": "今すぐバックアップを作成",
-                "backup-step-2-a": "設定 → 同期 → バックアップ管理 → 「Create Backup Now」。ZIPファイルはiCloud Drive内のLagoに保存されます。",
+                "backup-step-2-a": "設定 → バックアップを管理 → 「Create Backup Now」。ZIPファイルはiCloud Drive内のLagoに保存されます。",
                 "backup-step-3-q": "バックアップを復元",
-                "backup-step-3-a": "新しいデバイスでLagoを開き、初回起動時のiCloudバックアップのプロンプトを承認するか、設定 → 同期 → バックアップ管理から任意のバックアップをタップしてRestoreを選択します。",
+                "backup-step-3-a": "新しいデバイスでLagoを開き、初回起動時のiCloudバックアップのプロンプトを承認するか、設定 → バックアップを管理から任意のバックアップをタップしてRestoreを選択します。",
                 "backup-tip": "ヒント：バックアップには口座、取引、予算、繰り返しルール、プロフィール画像が含まれます。各デバイスは独自の保管期間を保持するため、他のデバイスのバックアップも引き続き表示されます。",
                 "budgets-title": "予算の設定",
                 "budgets-intro": "予算は計画を守るのに役立ちます。各予算は特定の元帳とカテゴリに紐付けられ、オプションでしきい値アラートも設定できます。",
