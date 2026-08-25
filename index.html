@@ -4,503 +4,480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0A1020">
-    <link rel="icon" type="image/png" href="images/icons/AppIcon-default.png">
-    <link rel="apple-touch-icon" href="images/icons/AppIcon-default.png">
-    <title>Lago — Simple, Secure Finance Tracking</title>
-    <meta name="description"
-        content="Take control of your spending and grow your wealth with Lago, the private finance tracker for iOS and Android.">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Lago">
-    <meta property="og:title" content="Lago — Simple, Secure Finance Tracking">
-    <meta property="og:description" content="Track spending, plan budgets, grow savings, and choose the sync option that fits you.">
-    <meta property="og:image" content="https://mobileledger.wartle.app/images/og.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lago — Simple, Secure Finance Tracking">
-    <meta name="twitter:description" content="Track spending, plan budgets, grow savings, and choose the sync option that fits you.">
-    <meta name="twitter:image" content="https://mobileledger.wartle.app/images/og.png">
-    <script>document.documentElement.classList.add('js');</script>
+    <title>Lago — Take control of your finances</title>
+    <meta name="description" content="Simple, secure, and smart finance tracking designed for your life. Lago (Mobile Ledger) for iOS and Android.">
+    <link rel="icon" href="images/icons/AppIcon-default.png">
+    <meta property="og:title" content="Lago — Take control of your finances">
+    <meta property="og:description" content="Simple, secure, and smart finance tracking designed for your life.">
+    <meta property="og:image" content="images/og.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+    <style>
+    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; background: #ffffff; }
+    * { box-sizing: border-box; }
+    img { max-width: 100%; display: block; }
+    a { color: #1B57C6; text-decoration: none; transition: color .18s ease; }
+    a:hover { color: #2D74E6; }
+    ::selection { background: rgba(245,166,35,.28); }
+    :focus-visible { outline: 3px solid #F5A623; outline-offset: 3px; border-radius: 6px; }
+    [data-drag] { scrollbar-width: none; -ms-overflow-style: none; }
+    [data-drag]::-webkit-scrollbar { display: none; }
+    @keyframes lgFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    @keyframes lgDraw { to { stroke-dashoffset: 0; } }
+    @keyframes lgPop { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+    .lgPath { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: lgDraw 2s cubic-bezier(.4,0,.1,1) .4s forwards; }
+    .lgNode { opacity: 0; transform-box: fill-box; transform-origin: center; animation: lgPop .38s ease forwards; }
+    .lgNode:nth-of-type(1) { animation-delay: .95s; }
+    .lgNode:nth-of-type(2) { animation-delay: 1.3s; }
+    .lgNode:nth-of-type(3) { animation-delay: 1.6s; }
+    .lgNode:nth-of-type(4) { animation-delay: 1.95s; }
+    @media (max-width: 960px) {
+    .lgSplit { grid-template-columns: 1fr !important; gap: 44px !important; }
+    .lgSticky { position: static !important; max-width: 320px; margin: 0 auto; }
+    .lgNavLinks { display: none !important; }
+    .lgHeroSide { display: none !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    .lgPath { stroke-dashoffset: 0; }
+    .lgNode { opacity: 1; }
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/motion@10.18.0/dist/motion.min.js"></script>
+    <script src="motion-fx.js"></script>
+    <style>
+      .lgH1:hover { color: #3A2600; }
+      .lgH2:hover { border-color: #DCEBFF; }
+      .lgH3:hover { border-color: #DCEBFF; }
+      .lgH4:hover { border-color: #DCEBFF; }
+      .lgH5:hover { background: rgba(234,241,251,.14); }
+      .lgH6:hover { background: rgba(234,241,251,.14); }
+      .lgH7:hover { color: #3A2600; }
+      .lgH8:hover { color: #0E1525; }
+      .lgH9:hover { color: #0E1525; }
+      .lgH10:hover { color: #0E1525; }
+      .lgH11:hover { color: #0E1525; }
+      .lgH12:hover { color: #0E1525; }
+    </style>
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="container">
-            <nav>
-                <a href="index.html" class="brand">
-                    <img src="images/icons/AppIcon-default.png" alt="" width="34" height="34" decoding="async">
-                    Lago
-                </a>
-                <div class="nav-links">
-                    <a href="#features" data-i18n="nav-features">Features</a>
-                    <a href="support.html" data-i18n="nav-support">Support</a>
-                    <a href="privacy.html" data-i18n="nav-privacy">Privacy</a>
-                    <select class="lang-selector" id="lang-selector" aria-label="Language">
-                        <option value="en">English</option>
-                        <option value="hi">हिन्दी</option>
-                        <option value="ko">한국어</option>
-                        <option value="ja">日本語</option>
-                    </select>
-                    <a href="mailto:support@wartle.app" class="btn btn--primary btn--sm" data-i18n="nav-contact">Contact</a>
-                </div>
-            </nav>
+<div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0E1525; background: #ffffff; line-height: 1.6;">
+
+  <div style="position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300; pointer-events: none;">
+    <div data-progress="" style="height: 100%; width: 100%; background: linear-gradient(90deg, #E08A0B, #F5A623 32%, #5AA0F2 72%, #2D74E6); transform: scaleX(0);"></div>
+  </div>
+
+  <header data-header="" style="position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,.74); backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px); border-bottom: 1px solid #E4EAF3;">
+    <div style="max-width: 1160px; margin: 0 auto; padding: 0 24px;">
+      <nav style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 0;">
+        <a href="#top" style="display: inline-flex; align-items: center; gap: 11px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -.01em; color: #0E1525;">
+          <img src="images/icons/AppIcon-default.png" alt="" width="34" height="34" style="width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 4px 14px rgba(13,28,60,.10);">
+          Lago
+        </a>
+        <div class="lgNavLinks" style="display: flex; align-items: center; gap: 26px;">
+          <a href="#features" style="font-size: 14.5px; font-weight: 500; color: #0E1525;">Features</a>
+          <a href="#walk" style="font-size: 14.5px; font-weight: 500; color: #0E1525;">Screens</a>
+          <a href="#privacy" style="font-size: 14.5px; font-weight: 500; color: #0E1525;">Privacy</a>
+          <a href="#faq" style="font-size: 14.5px; font-weight: 500; color: #0E1525;">FAQ</a>
+          <a href="support.html" style="font-size: 14.5px; font-weight: 500; color: #0E1525;">Support</a>
         </div>
-    </header>
+        <a class="lgH1" href="mailto:support@wartle.app" data-magnetic="5" style="display: inline-flex; align-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; line-height: 1; padding: 10px 19px; border-radius: 999px; color: #3A2600; background: linear-gradient(135deg, #FFC845, #E08A0B); box-shadow: 0 10px 26px rgba(245,166,35,.34); white-space: nowrap;">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <!-- ============================ HERO ============================ -->
-        <section class="hero">
-            <div class="container hero__inner">
-                <span class="eyebrow eyebrow--center" data-i18n="hero-eyebrow">Mobile Ledger · iOS &amp; Android</span>
-                <h1 data-i18n-html="hero-title">Take control of <span class="grad-text">your finances</span></h1>
-                <p class="hero__sub" data-i18n="hero-subtitle">Simple, secure, and smart finance tracking designed for
-                    your life.</p>
+  <main id="top">
 
-                <div class="store-badges">
-                    <a href="https://apps.apple.com/ph/app/mobile-ledger-finance-tracker/id6758619891" target="_blank"
-                        rel="noopener noreferrer">
-                        <img src="images/icons/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
-                            alt="Download on the App Store" class="store-badge" width="156" height="52" decoding="async">
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=app.wartle.mobileledger" target="_blank"
-                        rel="noopener noreferrer">
-                        <img src="images/icons/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play"
-                            class="store-badge" width="176" height="52" decoding="async">
-                    </a>
-                </div>
+    <section style="position: relative; overflow: hidden; text-align: center; padding: 82px 0 96px; background: radial-gradient(58% 48% at 12% 0%, rgba(245,166,35,.17), transparent 62%), radial-gradient(54% 46% at 92% 6%, rgba(45,116,230,.17), transparent 60%), linear-gradient(180deg, #ffffff, #F4F7FC);">
+      <div style="position: relative; z-index: 2; max-width: 1160px; margin: 0 auto; padding: 0 24px;">
+        <span data-load="0" style="display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: #C2740A;">
+          <span style="width: 22px; height: 2px; border-radius: 2px; background: linear-gradient(135deg, #FFC845, #E08A0B);"></span>
+          Mobile Ledger · iOS &amp; Android
+        </span>
+        <h1 data-load="80" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(38px, 6vw, 66px); line-height: 1.04; letter-spacing: -.025em; max-width: 16ch; margin: 20px auto 0;">Take control of <span style="background: linear-gradient(100deg, #E08A0B, #F5A623 26%, #5AA0F2 68%, #2D74E6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">your finances</span></h1>
+        <p data-load="150" style="font-size: clamp(17px, 2.4vw, 21px); color: #55617A; max-width: 54ch; margin: 22px auto 0;">Simple, secure, and smart finance tracking designed for your life.</p>
 
-                <!-- signature: the rising ledger line, drawn straight from the app mark -->
-                <svg class="ledger-line" viewBox="0 0 680 90" role="img" aria-label="A line trending upward">
-                    <defs>
-                        <linearGradient id="ledgerGrad" x1="0" y1="1" x2="1" y2="0">
-                            <stop offset="0" stop-color="#E08A0B" />
-                            <stop offset="0.45" stop-color="#F5A623" />
-                            <stop offset="0.75" stop-color="#5AA0F2" />
-                            <stop offset="1" stop-color="#2D74E6" />
-                        </linearGradient>
-                    </defs>
-                    <path class="ledger-line__path" d="M8 74 L150 58 L262 66 L392 34 L506 44 L672 8" />
-                    <circle class="ledger-line__node" cx="150" cy="58" r="5.5" />
-                    <circle class="ledger-line__node" cx="392" cy="34" r="5.5" />
-                    <circle class="ledger-line__node" cx="506" cy="44" r="5.5" />
-                    <circle class="ledger-line__node" cx="672" cy="8" r="6.5" />
-                </svg>
-
-                <div class="hero-figure">
-                    <div class="img-load" id="hero-img-wrap">
-                        <span class="img-load__ph" aria-hidden="true"></span>
-                        <img src="images/screenshots/1.png" alt="The Lago dashboard on iPhone" id="hero-img"
-                            width="1242" height="2688" fetchpriority="high" decoding="async">
-                    </div>
-                    <div class="stat-chip" aria-hidden="true">
-                        <span class="stat-chip__icon">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 17l6-6 4 4 8-8" />
-                                <path d="M21 7h-5" />
-                                <path d="M21 7v5" />
-                            </svg>
-                        </span>
-                        <span>
-                            <span class="stat-chip__label" data-i18n="chip-label">This week</span><br>
-                            <span class="stat-chip__value">+$2,310</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========================== FEATURES ========================= -->
-        <section class="section section--tint" id="features">
-            <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow eyebrow--center" data-i18n="features-eyebrow">Why Lago</span>
-                    <h2 data-i18n="features-title">Everything you need to master your money.</h2>
-                </div>
-                <div class="feature-grid">
-                    <div class="feature-card reveal">
-                        <span class="feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 3l7 3v5c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6l7-3z" />
-                                <path d="M9 12l2 2 4-4" />
-                            </svg>
-                        </span>
-                        <h3 data-i18n="feature-1-title">Privacy First</h3>
-                        <p data-i18n="feature-1-desc">Local by default. Optional backups and account-based sync turn on
-                            only when you choose them, with no advertising tracking.</p>
-                    </div>
-                    <div class="feature-card reveal">
-                        <span class="feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 21h18" />
-                                <path d="M6 21V12" />
-                                <path d="M11 21V7" />
-                                <path d="M16 21v-5" />
-                                <path d="M21 21V4" />
-                            </svg>
-                        </span>
-                        <h3 data-i18n="feature-2-title">Smart Insights</h3>
-                        <p data-i18n="feature-2-desc">Get a clear picture of your spending habits with automatic
-                            categorization and beautiful charts.</p>
-                    </div>
-                    <div class="feature-card reveal">
-                        <span class="feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="8.5" />
-                                <circle cx="12" cy="12" r="4.5" />
-                                <circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none" />
-                            </svg>
-                        </span>
-                        <h3 data-i18n="feature-3-title">Budgeting Made Easy</h3>
-                        <p data-i18n="feature-3-desc">Set goals, track your progress, and stay on top of your monthly
-                            expenses with intuitive budget tools.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========================== SHOWCASE ========================= -->
-        <section class="showcase">
-            <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow eyebrow--center eyebrow--on-dark" data-i18n="showcase-eyebrow">On every
-                        screen</span>
-                    <h2 data-i18n="showcase-title">A beautiful experience, every time.</h2>
-                </div>
-                <div class="showcase-grid" id="screenshot-grid">
-                    <!-- Screenshots are injected here by script; this static set is the no-JS fallback -->
-                    <div class="showcase-item">
-                        <div class="img-load">
-                            <span class="img-load__ph" aria-hidden="true"></span>
-                            <img src="images/screenshots/1.png" alt="Screenshot 1" width="1242" height="2688"
-                                loading="lazy" decoding="async">
-                        </div>
-                    </div>
-                    <div class="showcase-item">
-                        <div class="img-load">
-                            <span class="img-load__ph" aria-hidden="true"></span>
-                            <img src="images/screenshots/2.png" alt="Screenshot 2" width="1242" height="2688"
-                                loading="lazy" decoding="async">
-                        </div>
-                    </div>
-                    <div class="showcase-item">
-                        <div class="img-load">
-                            <span class="img-load__ph" aria-hidden="true"></span>
-                            <img src="images/screenshots/3.png" alt="Screenshot 3" width="1242" height="2688"
-                                loading="lazy" decoding="async">
-                        </div>
-                    </div>
-                    <div class="showcase-item">
-                        <div class="img-load">
-                            <span class="img-load__ph" aria-hidden="true"></span>
-                            <img src="images/screenshots/4.png" alt="Screenshot 4" width="1242" height="2688"
-                                loading="lazy" decoding="async">
-                        </div>
-                    </div>
-                    <div class="showcase-item">
-                        <div class="img-load">
-                            <span class="img-load__ph" aria-hidden="true"></span>
-                            <img src="images/screenshots/5.png" alt="Screenshot 5" width="1242" height="2688"
-                                loading="lazy" decoding="async">
-                        </div>
-                    </div>
-                    <div class="showcase-item">
-                        <div class="img-load">
-                            <span class="img-load__ph" aria-hidden="true"></span>
-                            <img src="images/screenshots/6.png" alt="Screenshot 6" width="1242" height="2688"
-                                loading="lazy" decoding="async">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================= CTA =========================== -->
-        <section class="cta">
-            <div class="container cta__card">
-                <span class="eyebrow eyebrow--center" data-i18n="hero-eyebrow">Mobile Ledger · iOS &amp; Android</span>
-                <h2 data-i18n="cta-title">Start your ledger today.</h2>
-                <p data-i18n="cta-subtitle">Free to download on iOS and Android.</p>
-                <div class="store-badges">
-                    <a href="https://apps.apple.com/ph/app/mobile-ledger-finance-tracker/id6758619891" target="_blank"
-                        rel="noopener noreferrer">
-                        <img src="images/icons/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
-                            alt="Download on the App Store" class="store-badge" width="156" height="52" decoding="async">
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=app.wartle.mobileledger" target="_blank"
-                        rel="noopener noreferrer">
-                        <img src="images/icons/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play"
-                            class="store-badge" width="176" height="52" decoding="async">
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <span class="brand">
-                        <img src="images/icons/AppIcon-default.png" alt="" width="34" height="34" decoding="async"
-                            loading="lazy">
-                        Lago
-                    </span>
-                    <p data-i18n="footer-desc">The professional way to track your finances on iOS and Android.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h4 data-i18n="footer-support-header">Support</h4>
-                        <a href="support.html" data-i18n="footer-help">Help Center</a>
-                        <a href="mailto:support@wartle.app" data-i18n="footer-email">Email Support</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4 data-i18n="footer-legal-header">Legal</h4>
-                        <a href="privacy.html" data-i18n="footer-privacy">Privacy Policy</a>
-                        <a href="account-deletion.html">Account &amp; Data Deletion</a>
-                        <a href="terms.html" data-i18n="footer-terms">Terms of Use (EULA)</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom" id="copyright-text">
-                &copy; 2026 Lago. All rights reserved. iPhone and iOS are trademarks of Apple Inc.
-            </div>
+        <div data-load="220" style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 32px;">
+          <a href="https://apps.apple.com/ph/app/mobile-ledger-finance-tracker/id6758619891" target="_blank" rel="noopener noreferrer" data-magnetic="7" data-magnetic-lift="">
+            <img src="images/icons/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" style="height: 52px; width: auto;">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=app.wartle.mobileledger" target="_blank" rel="noopener noreferrer" data-magnetic="7" data-magnetic-lift="">
+            <img src="images/icons/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" style="height: 52px; width: auto;">
+          </a>
         </div>
-    </footer>
 
-    <script>
-        const translations = {
-            en: {
-                "nav-features": "Features",
-                "nav-support": "Support",
-                "nav-privacy": "Privacy",
-                "nav-contact": "Contact",
-                "hero-eyebrow": "Mobile Ledger · iOS & Android",
-                "hero-title": "Take control of <span class=\"grad-text\">your finances</span>",
-                "hero-subtitle": "Simple, secure, and smart finance tracking designed for your life.",
-                "chip-label": "This week",
-                "features-eyebrow": "Why Lago",
-                "features-title": "Everything you need to master your money.",
-                "feature-1-title": "Privacy First",
-                "feature-1-desc": "Local by default. Optional backups and account-based sync turn on only when you choose them, with no advertising tracking.",
-                "feature-2-title": "Smart Insights",
-                "feature-2-desc": "Get a clear picture of your spending habits with automatic categorization and beautiful charts.",
-                "feature-3-title": "Budgeting Made Easy",
-                "feature-3-desc": "Set goals, track your progress, and stay on top of your monthly expenses with intuitive budget tools.",
-                "showcase-eyebrow": "On every screen",
-                "showcase-title": "A beautiful experience, every time.",
-                "cta-title": "Start your ledger today.",
-                "cta-subtitle": "Free to download on iOS and Android.",
-                "footer-desc": "The professional way to track your finances on iOS and Android.",
-                "footer-support-header": "Support",
-                "footer-help": "Help Center",
-                "footer-email": "Email Support",
-                "footer-legal-header": "Legal",
-                "footer-privacy": "Privacy Policy",
-                "footer-terms": "Terms of Use (EULA)",
-                "copyright": "&copy; 2026 Lago. All rights reserved. iPhone and iOS are trademarks of Apple Inc."
-            },
-            hi: {
-                "nav-features": "विशेषताएं",
-                "nav-support": "सहायता",
-                "nav-privacy": "गोपनीयता",
-                "nav-contact": "संपर्क करें",
-                "hero-eyebrow": "मोबाइल लेजर · iOS और Android",
-                "hero-title": "अपने <span class=\"grad-text\">वित्त पर नियंत्रण</span> रखें",
-                "hero-subtitle": "आपके जीवन के लिए डिज़ाइन किया गया सरल, सुरक्षित और स्मार्ट वित्त ट्रैकिंग।",
-                "chip-label": "इस सप्ताह",
-                "features-eyebrow": "Lago क्यों",
-                "features-title": "वह सब कुछ जो आपको अपने पैसे पर महारत हासिल करने के लिए चाहिए।",
-                "feature-1-title": "गोपनीयता पहले",
-                "feature-1-desc": "डिफ़ॉल्ट रूप से डेटा स्थानीय रहता है। वैकल्पिक बैकअप और खाते पर आधारित सिंक केवल आपके चुनने पर चालू होते हैं, और विज्ञापन ट्रैकिंग नहीं की जाती।",
-                "feature-2-title": "स्मार्ट अंतर्दृष्टि",
-                "feature-2-desc": "स्वचालित वर्गीकरण और सुंदर चार्ट के साथ अपनी खर्च करने की आदतों की स्पष्ट तस्वीर प्राप्त करें।",
-                "feature-3-title": "बजट बनाना हुआ आसान",
-                "feature-3-desc": "सहज बजट टूल के साथ लक्ष्य निर्धारित करें, अपनी प्रगति को ट्रैक करें और अपने मासिक खर्चों पर नज़र रखें।",
-                "showcase-eyebrow": "हर स्क्रीन पर",
-                "showcase-title": "हर बार एक सुंदर अनुभव।",
-                "cta-title": "आज ही अपना लेजर शुरू करें।",
-                "cta-subtitle": "iOS और Android पर मुफ़्त डाउनलोड।",
-                "footer-desc": "iOS और Android पर अपने वित्त को ट्रैक करने का पेशेवर तरीका।",
-                "footer-support-header": "सहायता",
-                "footer-help": "सहायता केंद्र",
-                "footer-email": "ईमेल सहायता",
-                "footer-legal-header": "कानूनी",
-                "footer-privacy": "गोपनीयता नीति",
-                "footer-terms": "उपयोग की शर्तें (EULA)",
-                "copyright": "&copy; 2026 Lago। सर्वाधिकार सुरक्षित। iPhone और iOS Apple Inc. के ट्रेडमार्क हैं।"
-            },
-            ko: {
-                "nav-features": "기능",
-                "nav-support": "지원",
-                "nav-privacy": "개인정보 보호",
-                "nav-contact": "문의하기",
-                "hero-eyebrow": "모바일 가계부 · iOS & Android",
-                "hero-title": "<span class=\"grad-text\">당신의 재정</span>을 관리하세요",
-                "hero-subtitle": "당신의 삶을 위해 설계된 간단하고 안전하며 스마트한 재정 추적.",
-                "chip-label": "이번 주",
-                "features-eyebrow": "Lago를 선택하는 이유",
-                "features-title": "돈을 마스터하는 데 필요한 모든 것.",
-                "feature-1-title": "개인정보 보호 우선",
-                "feature-1-desc": "기본적으로 기기에 저장됩니다. 선택적 백업과 계정 기반 동기화는 사용자가 선택할 때만 켜지며 광고 추적은 없습니다.",
-                "feature-2-title": "스마트 인사이트",
-                "feature-2-desc": "자동 분류 및 아름다운 차트로 소비 습관을 명확하게 파악하세요.",
-                "feature-3-title": "쉬운 예산 관리",
-                "feature-3-desc": "직관적인 예산 도구로 목표를 설정하고, 진행 상황을 추적하며, 월간 지출을 모니터링하세요.",
-                "showcase-eyebrow": "모든 화면에서",
-                "showcase-title": "항상 아름다운 경험.",
-                "cta-title": "오늘 가계부를 시작하세요.",
-                "cta-subtitle": "iOS와 Android에서 무료로 다운로드하세요.",
-                "footer-desc": "iOS 및 Android에서 재정을 추적하는 전문적인 방법.",
-                "footer-support-header": "지원",
-                "footer-help": "고객 센터",
-                "footer-email": "이메일 지원",
-                "footer-legal-header": "법적 고지",
-                "footer-privacy": "개인정보 처리방침",
-                "footer-terms": "이용 약관 (EULA)",
-                "copyright": "&copy; 2026 Lago. 모든 권리 보유. iPhone 및 iOS는 Apple Inc.의 상표입니다."
-            },
-            ja: {
-                "nav-features": "機能",
-                "nav-support": "サポート",
-                "nav-privacy": "プライバシー",
-                "nav-contact": "お問い合わせ",
-                "hero-eyebrow": "モバイル家計簿 · iOS & Android",
-                "hero-title": "<span class=\"grad-text\">家計</span>を完璧に管理",
-                "hero-subtitle": "あなたのライフスタイルに合わせた、シンプルで安全、かつスマートな収支管理。",
-                "chip-label": "今週",
-                "features-eyebrow": "Lagoが選ばれる理由",
-                "features-title": "お金をマスターするために必要なすべてがここに。",
-                "feature-1-title": "プライバシーを最優先",
-                "feature-1-desc": "デフォルトでは端末内に保存。任意のバックアップとアカウント同期は選択した場合のみ有効になり、広告目的のトラッキングは行いません。",
-                "feature-2-title": "スマートな分析",
-                "feature-2-desc": "自動カテゴリ分けと美しいチャートで、支出の傾向を明確に把握。",
-                "feature-3-title": "予算管理を簡単に",
-                "feature-3-desc": "直感的な予算ツールで目標を設定し、進捗を追跡。毎月の支出をしっかり管理。",
-                "showcase-eyebrow": "あらゆる画面で",
-                "showcase-title": "いつでも最高のユーザー体験を。",
-                "cta-title": "今日から家計簿を始めましょう。",
-                "cta-subtitle": "iOS・Androidで無料ダウンロード。",
-                "footer-desc": "iOSとAndroidで家計を管理するプロフェッショナルな方法。",
-                "footer-support-header": "サポート",
-                "footer-help": "ヘルプセンター",
-                "footer-email": "メールサポート",
-                "footer-legal-header": "法的情報",
-                "footer-privacy": "プライバシーポリシー",
-                "footer-terms": "利用規約 (EULA)",
-                "copyright": "&copy; 2026 Lago. All rights reserved. iPhoneおよびiOSはApple Inc.の商標です。"
-            }
-        };
+        <svg viewBox="0 0 680 90" role="img" aria-label="A line trending upward" style="display: block; width: min(680px, 88%); height: 90px; margin: 26px auto 0; overflow: visible;">
+          <defs>
+            <linearGradient id="lgGrad" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#E08A0B"></stop>
+              <stop offset=".45" stop-color="#F5A623"></stop>
+              <stop offset=".75" stop-color="#5AA0F2"></stop>
+              <stop offset="1" stop-color="#2D74E6"></stop>
+            </linearGradient>
+          </defs>
+          <path class="lgPath" d="M8 74 L150 58 L262 66 L392 34 L506 44 L672 8" style="fill: none; stroke: url(#lgGrad); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round;"></path>
+          <circle class="lgNode" cx="150" cy="58" r="5.5" style="fill: #F5A623; stroke: #fff; stroke-width: 2;"></circle>
+          <circle class="lgNode" cx="392" cy="34" r="5.5" style="fill: #F5A623; stroke: #fff; stroke-width: 2;"></circle>
+          <circle class="lgNode" cx="506" cy="44" r="5.5" style="fill: #F5A623; stroke: #fff; stroke-width: 2;"></circle>
+          <circle class="lgNode" cx="672" cy="8" r="6.5" style="fill: #2D74E6; stroke: #fff; stroke-width: 2;"></circle>
+        </svg>
 
-        function bindImageLoad(wrap) {
-            const img = wrap.querySelector('img');
-            if (!img || wrap.dataset.loadBound === '1') return;
-            wrap.dataset.loadBound = '1';
-            const markDone = () => {
-                wrap.classList.add('img-load--loaded');
-                wrap.classList.remove('img-load--error');
-            };
-            const markFail = () => wrap.classList.add('img-load--error');
-            if (img.complete && img.naturalWidth > 0) {
-                markDone();
-            } else {
-                img.addEventListener('load', markDone, { once: true });
-                img.addEventListener('error', markFail, { once: true });
-            }
-        }
+        <div data-load="300" style="display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 14px;">
+          <div class="lgHeroSide" data-parallax="0.045" style="width: 214px; flex: none;">
+            <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 18px 44px rgba(8,18,45,.16), 0 0 0 1px rgba(13,28,60,.05);">
+              <img src="images/screenshots/3.png" alt="Recurring bills and subscriptions in Lago" width="1242" height="2688" loading="lazy" style="width: 100%; height: auto;">
+            </div>
+          </div>
+          <div style="position: relative; width: min(320px, 74vw); flex: none;">
+            <div data-parallax="0.11" style="border-radius: 28px; overflow: hidden; box-shadow: 0 34px 66px rgba(8,18,45,.28), 0 0 0 1px rgba(13,28,60,.06);">
+              <img src="images/screenshots/1.png" alt="The Lago dashboard on iPhone and Apple Watch" width="1242" height="2688" fetchpriority="high" style="width: 100%; height: auto;">
+            </div>
+            <div aria-hidden="true" style="position: absolute; top: 14%; right: -26px; display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: rgba(255,255,255,.95); border: 1px solid #E4EAF3; border-radius: 14px; box-shadow: 0 10px 30px rgba(13,28,60,.12); animation: lgFloat 5s ease-in-out infinite;">
+              <span style="display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: #FFF7E6; color: #C2740A; flex: none;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"></path><path d="M21 7h-5"></path><path d="M21 7v5"></path></svg>
+              </span>
+              <span>
+                <span style="display: block; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: #8A94A8;">This week</span>
+                <span style="display: block; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; color: #1B57C6;">+$2,310</span>
+              </span>
+            </div>
+          </div>
+          <div class="lgHeroSide" data-parallax="0.045" style="width: 214px; flex: none;">
+            <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 18px 44px rgba(8,18,45,.16), 0 0 0 1px rgba(13,28,60,.05);">
+              <img src="images/screenshots/4.png" alt="Monthly budgets by category in Lago" width="1242" height="2688" loading="lazy" style="width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Scroll reveal — progressively enhances; no-op without IntersectionObserver
-        let revealObserver = null;
-        if ('IntersectionObserver' in window) {
-            revealObserver = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-in');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        }
+    <section style="background: #ffffff; border-bottom: 1px solid #E4EAF3;">
+      <div style="max-width: 1160px; margin: 0 auto; padding: 54px 24px;">
+        <div data-stagger="90" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px;">
+          <div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -.02em;"><span data-count="4">4</span></div>
+            <p style="margin: 12px 0 0; font-size: 14px; color: #55617A; line-height: 1.5;">Languages the app and site are translated into</p>
+          </div>
+          <div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -.02em;"><span data-count="2">2</span></div>
+            <p style="margin: 12px 0 0; font-size: 14px; color: #55617A; line-height: 1.5;">Platforms, iOS and Android, from a single ledger</p>
+          </div>
+          <div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -.02em; color: #C2740A;"><span data-count="0">0</span></div>
+            <p style="margin: 12px 0 0; font-size: 14px; color: #55617A; line-height: 1.5;">Bank connections required — Lago works offline</p>
+          </div>
+          <div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -.02em;"><span data-count="30">30</span></div>
+            <p style="margin: 12px 0 0; font-size: 14px; color: #55617A; line-height: 1.5;">Days we normally take to complete a verified deletion request</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        function observeReveals(scope) {
-            (scope || document).querySelectorAll('.reveal:not(.is-in)').forEach(el => {
-                if (revealObserver) revealObserver.observe(el);
-                else el.classList.add('is-in');
-            });
-        }
+    <section id="features" style="padding: 96px 0; background: #F4F7FC;">
+      <div style="max-width: 1160px; margin: 0 auto; padding: 0 24px;">
+        <div style="text-align: center; margin-bottom: 54px;">
+          <span data-reveal="" style="display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: #C2740A;">
+            <span style="width: 22px; height: 2px; border-radius: 2px; background: linear-gradient(135deg, #FFC845, #E08A0B);"></span>
+            Why Lago
+          </span>
+          <h2 data-reveal="" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 4vw, 42px); line-height: 1.1; letter-spacing: -.02em; margin: 14px auto 0; max-width: 18ch;">Everything you need to master your money.</h2>
+        </div>
+        <div data-stagger="110" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 26px;">
+          <div class="lgH2" data-magnetic="4" data-magnetic-lift="" style="background: #ffffff; border: 1px solid #E4EAF3; border-radius: 28px; padding: 34px 32px 36px;">
+            <span aria-hidden="true" style="display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: linear-gradient(135deg, #FFF7E6, #EEF5FF); color: #1B57C6; margin-bottom: 22px;">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
+            </span>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 11px;">Privacy First</h3>
+            <p style="color: #55617A; font-size: 16px; line-height: 1.6; margin: 0; text-wrap: pretty;">Local by default. Optional backups and account-based sync turn on only when you choose them, with no advertising tracking.</p>
+          </div>
+          <div class="lgH3" data-magnetic="4" data-magnetic-lift="" style="background: #ffffff; border: 1px solid #E4EAF3; border-radius: 28px; padding: 34px 32px 36px;">
+            <span aria-hidden="true" style="display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: linear-gradient(135deg, #FFF7E6, #EEF5FF); color: #1B57C6; margin-bottom: 22px;">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M6 21V12"></path><path d="M11 21V7"></path><path d="M16 21v-5"></path><path d="M21 21V4"></path></svg>
+            </span>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 11px;">Smart Insights</h3>
+            <p style="color: #55617A; font-size: 16px; line-height: 1.6; margin: 0; text-wrap: pretty;">Get a clear picture of your spending habits with automatic categorization and beautiful charts.</p>
+          </div>
+          <div class="lgH4" data-magnetic="4" data-magnetic-lift="" style="background: #ffffff; border: 1px solid #E4EAF3; border-radius: 28px; padding: 34px 32px 36px;">
+            <span aria-hidden="true" style="display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: linear-gradient(135deg, #FFF7E6, #EEF5FF); color: #1B57C6; margin-bottom: 22px;">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"></circle></svg>
+            </span>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 11px;">Budgeting Made Easy</h3>
+            <p style="color: #55617A; font-size: 16px; line-height: 1.6; margin: 0; text-wrap: pretty;">Set goals, track your progress, and stay on top of your monthly expenses with intuitive budget tools.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        function updateLanguage(lang) {
-            document.documentElement.lang = lang;
-            localStorage.setItem('preferred-lang', lang);
-            const dict = translations[lang] || translations.en;
+    <section id="walk" data-swap-root="" style="position: relative; overflow: hidden; padding: 98px 0 108px; background: #0A1020; color: #EAF1FB;">
+      <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background: radial-gradient(50% 40% at 18% 0%, rgba(245,166,35,.15), transparent 60%), radial-gradient(55% 45% at 86% 100%, rgba(45,116,230,.22), transparent 60%);"></div>
+      <div style="position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: 0 24px;">
+        <div style="text-align: center;">
+          <span data-reveal="" style="display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: #FFC845;">
+            <span style="width: 22px; height: 2px; border-radius: 2px; background: linear-gradient(135deg, #FFC845, #E08A0B);"></span>
+            On every screen
+          </span>
+          <h2 data-reveal="" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 4vw, 42px); line-height: 1.1; letter-spacing: -.02em; margin: 14px auto 0; max-width: 18ch; color: #EAF1FB;">A beautiful experience, every time.</h2>
+          <p data-reveal="" style="color: #9DB0D0; max-width: 50ch; margin: 16px auto 62px; font-size: 17px;">Scroll to walk the app screen by screen, or tap any step to jump.</p>
+        </div>
 
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (dict[key] != null) el.textContent = dict[key];
-            });
-            document.querySelectorAll('[data-i18n-html]').forEach(el => {
-                const key = el.getAttribute('data-i18n-html');
-                if (dict[key] != null) el.innerHTML = dict[key];
-            });
+        <div class="lgSplit" style="display: grid; grid-template-columns: 330px 1fr; gap: 76px; align-items: start;">
+          <div class="lgSticky" style="position: sticky; top: 104px;">
+            <div style="position: relative; width: 100%; aspect-ratio: 1242 / 2688;">
+              <div data-swap-slide="" style="position: absolute; inset: 0; border-radius: 26px; overflow: hidden; box-shadow: 0 26px 54px rgba(0,0,0,.5);"><img src="images/screenshots/1.png" alt="Lago dashboard on iPhone and Apple Watch" style="width: 100%; height: 100%; object-fit: cover;"></div>
+              <div data-swap-slide="" style="position: absolute; inset: 0; border-radius: 26px; overflow: hidden; box-shadow: 0 26px 54px rgba(0,0,0,.5);"><img src="images/screenshots/2.png" alt="All accounts grouped in one stack" style="width: 100%; height: 100%; object-fit: cover;"></div>
+              <div data-swap-slide="" style="position: absolute; inset: 0; border-radius: 26px; overflow: hidden; box-shadow: 0 26px 54px rgba(0,0,0,.5);"><img src="images/screenshots/3.png" alt="Recurring bills and subscriptions" style="width: 100%; height: 100%; object-fit: cover;"></div>
+              <div data-swap-slide="" style="position: absolute; inset: 0; border-radius: 26px; overflow: hidden; box-shadow: 0 26px 54px rgba(0,0,0,.5);"><img src="images/screenshots/4.png" alt="Monthly budgets by category" style="width: 100%; height: 100%; object-fit: cover;"></div>
+              <div data-swap-slide="" style="position: absolute; inset: 0; border-radius: 26px; overflow: hidden; box-shadow: 0 26px 54px rgba(0,0,0,.5);"><img src="images/screenshots/5.png" alt="Lago running offline with local data" style="width: 100%; height: 100%; object-fit: cover;"></div>
+              <div data-swap-slide="" style="position: absolute; inset: 0; border-radius: 26px; overflow: hidden; box-shadow: 0 26px 54px rgba(0,0,0,.5);"><img src="images/screenshots/6.png" alt="Savings goals and reports together" style="width: 100%; height: 100%; object-fit: cover;"></div>
+            </div>
+          </div>
 
-            const copy = document.getElementById('copyright-text');
-            if (copy && dict['copyright']) copy.innerHTML = dict['copyright'];
+          <div style="display: flex; flex-direction: column;">
+            <div data-swap-step="" style="display: grid; grid-template-columns: 3px 46px 1fr; gap: 20px; align-items: start; padding: 28px 0; cursor: pointer;">
+              <span data-swap-bar="" style="display: block; width: 3px; height: 100%; min-height: 46px; background: linear-gradient(180deg, #FFC845, #E08A0B); border-radius: 2px;"></span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9DB0D0; padding-top: 7px;">01</span>
+              <span>
+                <span style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2;">Your wealth, on every screen.</span>
+                <span style="display: block; margin-top: 9px; font-size: 16px; line-height: 1.6; color: #9DB0D0; max-width: 44ch; text-wrap: pretty;">iPhone for the full picture, Apple Watch for the quick glance — the same ledger in both places.</span>
+              </span>
+            </div>
+            <div data-swap-step="" style="display: grid; grid-template-columns: 3px 46px 1fr; gap: 20px; align-items: start; padding: 28px 0; cursor: pointer;">
+              <span data-swap-bar="" style="display: block; width: 3px; height: 100%; min-height: 46px; background: linear-gradient(180deg, #FFC845, #E08A0B); border-radius: 2px;"></span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9DB0D0; padding-top: 7px;">02</span>
+              <span>
+                <span style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2;">Every balance, in one view.</span>
+                <span style="display: block; margin-top: 9px; font-size: 16px; line-height: 1.6; color: #9DB0D0; max-width: 44ch; text-wrap: pretty;">Banks, wallets and cards in one stack — then drill into any account's recent activity.</span>
+              </span>
+            </div>
+            <div data-swap-step="" style="display: grid; grid-template-columns: 3px 46px 1fr; gap: 20px; align-items: start; padding: 28px 0; cursor: pointer;">
+              <span data-swap-bar="" style="display: block; width: 3px; height: 100%; min-height: 46px; background: linear-gradient(180deg, #FFC845, #E08A0B); border-radius: 2px;"></span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9DB0D0; padding-top: 7px;">03</span>
+              <span>
+                <span style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2;">Nothing slips through the cracks.</span>
+                <span style="display: block; margin-top: 9px; font-size: 16px; line-height: 1.6; color: #9DB0D0; max-width: 44ch; text-wrap: pretty;">Bills, subscriptions and income as recurring rules, all in one place.</span>
+              </span>
+            </div>
+            <div data-swap-step="" style="display: grid; grid-template-columns: 3px 46px 1fr; gap: 20px; align-items: start; padding: 28px 0; cursor: pointer;">
+              <span data-swap-bar="" style="display: block; width: 3px; height: 100%; min-height: 46px; background: linear-gradient(180deg, #FFC845, #E08A0B); border-radius: 2px;"></span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9DB0D0; padding-top: 7px;">04</span>
+              <span>
+                <span style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2;">Stay under budget.</span>
+                <span style="display: block; margin-top: 9px; font-size: 16px; line-height: 1.6; color: #9DB0D0; max-width: 44ch; text-wrap: pretty;">Set monthly limits by category and see what is left before you spend it.</span>
+              </span>
+            </div>
+            <div data-swap-step="" style="display: grid; grid-template-columns: 3px 46px 1fr; gap: 20px; align-items: start; padding: 28px 0; cursor: pointer;">
+              <span data-swap-bar="" style="display: block; width: 3px; height: 100%; min-height: 46px; background: linear-gradient(180deg, #FFC845, #E08A0B); border-radius: 2px;"></span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9DB0D0; padding-top: 7px;">05</span>
+              <span>
+                <span style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2;">Your data stays yours.</span>
+                <span style="display: block; margin-top: 9px; font-size: 16px; line-height: 1.6; color: #9DB0D0; max-width: 44ch; text-wrap: pretty;">Works offline. No bank connections required.</span>
+              </span>
+            </div>
+            <div data-swap-step="" style="display: grid; grid-template-columns: 3px 46px 1fr; gap: 20px; align-items: start; padding: 28px 0; cursor: pointer;">
+              <span data-swap-bar="" style="display: block; width: 3px; height: 100%; min-height: 46px; background: linear-gradient(180deg, #FFC845, #E08A0B); border-radius: 2px;"></span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9DB0D0; padding-top: 7px;">06</span>
+              <span>
+                <span style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2;">Reach your goals.</span>
+                <span style="display: block; margin-top: 9px; font-size: 16px; line-height: 1.6; color: #9DB0D0; max-width: 44ch; text-wrap: pretty;">Set a target and watch it fill up, alongside reports for the month behind you.</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            // Rebuild showcase grid (keeps it in sync and re-arms reveal/lazy loading)
-            const grid = document.getElementById('screenshot-grid');
-            if (grid) {
-                grid.innerHTML = '';
-                for (let i = 1; i <= 6; i++) {
-                    const item = document.createElement('div');
-                    item.className = 'showcase-item reveal';
-                    const wrap = document.createElement('div');
-                    wrap.className = 'img-load';
-                    const ph = document.createElement('span');
-                    ph.className = 'img-load__ph';
-                    ph.setAttribute('aria-hidden', 'true');
-                    const img = document.createElement('img');
-                    img.src = `images/screenshots/${i}.png`;
-                    img.alt = `Lago screenshot ${i}`;
-                    img.width = 1242;
-                    img.height = 2688;
-                    img.loading = 'lazy';
-                    img.decoding = 'async';
-                    wrap.appendChild(ph);
-                    wrap.appendChild(img);
-                    item.appendChild(wrap);
-                    grid.appendChild(item);
-                    bindImageLoad(wrap);
-                }
-                observeReveals(grid);
-            }
+    <section style="padding: 90px 0 96px; background: #0E1525; color: #EAF1FB; overflow: hidden;">
+      <div style="max-width: 1160px; margin: 0 auto; padding: 0 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div>
+          <span data-reveal="" style="display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: #FFC845;">
+            <span style="width: 22px; height: 2px; border-radius: 2px; background: linear-gradient(135deg, #FFC845, #E08A0B);"></span>
+            Store gallery
+          </span>
+          <h2 data-reveal="" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.12; letter-spacing: -.02em; margin: 14px 0 0; color: #EAF1FB;">Straight from the store listing.</h2>
+          <p data-reveal="" style="margin: 10px 0 0; font-size: 16px; color: #9DB0D0;">Drag sideways to browse.</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button class="lgH5" data-drag-prev="" aria-label="Previous screenshot" style="width: 46px; height: 46px; border-radius: 999px; border: 1px solid rgba(234,241,251,.24); background: rgba(234,241,251,.06); color: #EAF1FB; font-size: 18px; cursor: pointer; font-family: inherit;">←</button>
+          <button class="lgH6" data-drag-next="" aria-label="Next screenshot" style="width: 46px; height: 46px; border-radius: 999px; border: 1px solid rgba(234,241,251,.24); background: rgba(234,241,251,.06); color: #EAF1FB; font-size: 18px; cursor: pointer; font-family: inherit;">→</button>
+        </div>
+      </div>
+      <div data-drag="" style="margin-top: 40px; display: flex; gap: 22px; overflow-x: auto; padding: 6px 24px 26px; scroll-snap-type: x proximity;">
+        <div style="flex: none; width: 268px; scroll-snap-align: center;"><div style="border-radius: 22px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,.42);"><img src="images/play/lago-play-01.png" alt="Master Your Wealth — every account in one clear picture" width="1284" height="2778" loading="lazy" style="width: 100%; height: auto; pointer-events: none;"></div></div>
+        <div style="flex: none; width: 268px; scroll-snap-align: center;"><div style="border-radius: 22px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,.42);"><img src="images/play/lago-play-02.png" alt="Every Peso Accounted For — search, filter and review in seconds" width="1284" height="2778" loading="lazy" style="width: 100%; height: auto; pointer-events: none;"></div></div>
+        <div style="flex: none; width: 268px; scroll-snap-align: center;"><div style="border-radius: 22px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,.42);"><img src="images/play/lago-play-03.png" alt="Know Where It Goes — spending and income broken down every month" width="1284" height="2778" loading="lazy" style="width: 100%; height: auto; pointer-events: none;"></div></div>
+        <div style="flex: none; width: 268px; scroll-snap-align: center;"><div style="border-radius: 22px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,.42);"><img src="images/play/lago-play-04.png" alt="All Your Accounts — banks, wallets and cards in one stack" width="1284" height="2778" loading="lazy" style="width: 100%; height: auto; pointer-events: none;"></div></div>
+        <div style="flex: none; width: 268px; scroll-snap-align: center;"><div style="border-radius: 22px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,.42);"><img src="images/play/lago-play-05.png" alt="Open Any Account — balance and recent activity at a glance" width="1284" height="2778" loading="lazy" style="width: 100%; height: auto; pointer-events: none;"></div></div>
+        <div style="flex: none; width: 268px; scroll-snap-align: center;"><div style="border-radius: 22px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,.42);"><img src="images/play/lago-play-06.png" alt="Stay Under Budget — see what is left before you spend it" width="1284" height="2778" loading="lazy" style="width: 100%; height: auto; pointer-events: none;"></div></div>
+        <div style="flex: none; width: 268px; scroll-snap-align: center;"><div style="border-radius: 22px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,.42);"><img src="images/play/lago-play-07.png" alt="Reach Your Goals — set a target and watch it fill up" width="1284" height="2778" loading="lazy" style="width: 100%; height: auto; pointer-events: none;"></div></div>
+      </div>
+    </section>
 
-            // Carry the language across internal page links
-            document.querySelectorAll('a[href$=".html"]').forEach(link => {
-                const url = new URL(link.href, window.location.origin);
-                url.searchParams.set('lang', lang);
-                link.href = url.pathname + url.search;
-            });
-        }
+    <section id="privacy" style="padding: 96px 0; background: #ffffff;">
+      <div style="max-width: 1160px; margin: 0 auto; padding: 0 24px;">
+        <div class="lgSplit" style="display: grid; grid-template-columns: 1fr 1fr; gap: 76px; align-items: center;">
+          <div>
+            <span data-reveal="" style="display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: #C2740A;">
+              <span style="width: 22px; height: 2px; border-radius: 2px; background: linear-gradient(135deg, #FFC845, #E08A0B);"></span>
+              Privacy at a glance
+            </span>
+            <h2 data-reveal="" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.8vw, 40px); line-height: 1.1; letter-spacing: -.02em; margin: 14px 0 20px;">Your ledger stays yours.</h2>
+            <p data-reveal="" style="font-size: 17px; color: #55617A; margin: 0 0 26px; max-width: 46ch; text-wrap: pretty;">Lago works offline with data stored on your device. Everything beyond that is a switch you turn on yourself.</p>
+            <a class="lgH7" href="privacy.html" data-reveal="" data-magnetic="5" style="display: inline-flex; align-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; line-height: 1; padding: 14px 26px; border-radius: 999px; color: #3A2600; background: linear-gradient(135deg, #FFC845, #E08A0B); box-shadow: 0 12px 30px rgba(245,166,35,.34);">Read the Privacy Policy</a>
+          </div>
+          <div data-stagger="90" style="display: flex; flex-direction: column;">
+            <div style="display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; padding: 19px 0; border-bottom: 1px solid #E4EAF3;">
+              <span style="color: #C2740A; font-size: 18px; line-height: 1.4;">✓</span>
+              <span style="font-size: 16.5px; line-height: 1.55; text-wrap: pretty;">Works offline and can be used with data stored only on your device.</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; padding: 19px 0; border-bottom: 1px solid #E4EAF3;">
+              <span style="color: #C2740A; font-size: 18px; line-height: 1.4;">✓</span>
+              <span style="font-size: 16.5px; line-height: 1.55; text-wrap: pretty;">Cloud backup and sync are optional, controlled from the app's settings.</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; padding: 19px 0; border-bottom: 1px solid #E4EAF3;">
+              <span style="color: #C2740A; font-size: 18px; line-height: 1.4;">✓</span>
+              <span style="font-size: 16.5px; line-height: 1.55; text-wrap: pretty;">No bank connections. Lago never asks for your banking credentials.</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; padding: 19px 0; border-bottom: 1px solid #E4EAF3;">
+              <span style="color: #C2740A; font-size: 18px; line-height: 1.4;">✓</span>
+              <span style="font-size: 16.5px; line-height: 1.55; text-wrap: pretty;">We do not sell personal or financial information, or use it for advertising tracking.</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; padding: 19px 0;">
+              <span style="color: #C2740A; font-size: 18px; line-height: 1.4;">✓</span>
+              <span style="font-size: 16.5px; line-height: 1.55; text-wrap: pretty;">You can request deletion of your sync account and its cloud data at any time.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        const selector = document.getElementById('lang-selector');
-        selector.addEventListener('change', (e) => updateLanguage(e.target.value));
+    <!-- Reviews section — hidden until there are real App Store / Google Play reviews to quote.
+         Uncomment and replace the placeholder copy when the first reviews land.
+    <section style="padding: 96px 0; background: #F4F7FC;">
+      <div style="max-width: 1160px; margin: 0 auto; padding: 0 24px;">
+        <div style="text-align: center; margin-bottom: 48px;">
+          <h2 data-reveal="" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.12; letter-spacing: -.02em; margin: 0;">Reviews</h2>
+          <p data-reveal="" style="font-size: 16px; color: #55617A; margin: 12px auto 0; max-width: 46ch;">Three slots ready for real App Store and Google Play reviews.</p>
+        </div>
+        <div data-stagger="110" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px;">
+          <div style="background: #ffffff; border: 1px dashed #C3CFE0; border-radius: 26px; padding: 32px;">
+            <div style="color: #E08A0B; font-size: 16px; letter-spacing: 3px; margin-bottom: 16px;">★★★★★</div>
+            <p style="font-size: 17px; line-height: 1.55; color: #55617A; margin: 0 0 20px; text-wrap: pretty;">Paste a real review here — App Store or Google Play.</p>
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #8A94A8; margin: 0;">Reviewer name, region</p>
+          </div>
+          <div style="background: #ffffff; border: 1px dashed #C3CFE0; border-radius: 26px; padding: 32px;">
+            <div style="color: #E08A0B; font-size: 16px; letter-spacing: 3px; margin-bottom: 16px;">★★★★★</div>
+            <p style="font-size: 17px; line-height: 1.55; color: #55617A; margin: 0 0 20px; text-wrap: pretty;">Paste a real review here — App Store or Google Play.</p>
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #8A94A8; margin: 0;">Reviewer name, region</p>
+          </div>
+          <div style="background: #ffffff; border: 1px dashed #C3CFE0; border-radius: 26px; padding: 32px;">
+            <div style="color: #E08A0B; font-size: 16px; letter-spacing: 3px; margin-bottom: 16px;">★★★★★</div>
+            <p style="font-size: 17px; line-height: 1.55; color: #55617A; margin: 0 0 20px; text-wrap: pretty;">Paste a real review here — App Store or Google Play.</p>
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #8A94A8; margin: 0;">Reviewer name, region</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get('lang');
-        const savedLang = localStorage.getItem('preferred-lang');
-        const initialLang = (langParam && translations[langParam]) ? langParam
-            : (savedLang && translations[savedLang]) ? savedLang : 'en';
+    <section id="faq" style="padding: 96px 0; background: #F4F7FC;">
+      <div style="max-width: 840px; margin: 0 auto; padding: 0 24px;">
+        <h2 data-reveal="" style="text-align: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.12; letter-spacing: -.02em; margin: 0 0 44px;">Frequently asked questions</h2>
+        <div style="display: flex; flex-direction: column;">
+          <div data-acc-item="" style="border-top: 1px solid #E4EAF3; border-radius: 16px;">
+            <div data-acc-q="" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 18px; cursor: pointer;">
+              <span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -.01em;">Where is my data stored?</span>
+              <span data-acc-mark="" style="flex: none; color: #C2740A; font-size: 26px; line-height: 1; font-weight: 300;">+</span>
+            </div>
+            <div data-acc-a=""><p style="margin: 0; padding: 0 18px 26px; font-size: 16.5px; line-height: 1.6; color: #55617A; max-width: 66ch; text-wrap: pretty;">On your device by default. If you turn on cloud backup or account-based sync, the data those features need is sent to the provider behind them.</p></div>
+          </div>
+          <div data-acc-item="" style="border-top: 1px solid #E4EAF3; border-radius: 16px;">
+            <div data-acc-q="" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 18px; cursor: pointer;">
+              <span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -.01em;">Does Lago connect to my bank?</span>
+              <span data-acc-mark="" style="flex: none; color: #C2740A; font-size: 26px; line-height: 1; font-weight: 300;">+</span>
+            </div>
+            <div data-acc-a=""><p style="margin: 0; padding: 0 18px 26px; font-size: 16.5px; line-height: 1.6; color: #55617A; max-width: 66ch; text-wrap: pretty;">No. Lago never asks for banking credentials and requires no bank connection. You enter transactions yourself, and the app works fully offline.</p></div>
+          </div>
+          <div data-acc-item="" style="border-top: 1px solid #E4EAF3; border-radius: 16px;">
+            <div data-acc-q="" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 18px; cursor: pointer;">
+              <span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -.01em;">Is it on both iOS and Android?</span>
+              <span data-acc-mark="" style="flex: none; color: #C2740A; font-size: 26px; line-height: 1; font-weight: 300;">+</span>
+            </div>
+            <div data-acc-a=""><p style="margin: 0; padding: 0 18px 26px; font-size: 16.5px; line-height: 1.6; color: #55617A; max-width: 66ch; text-wrap: pretty;">Yes. Lago is on the App Store and Google Play, and optional sync keeps eligible data aligned across both.</p></div>
+          </div>
+          <div data-acc-item="" style="border-top: 1px solid #E4EAF3; border-bottom: 1px solid #E4EAF3; border-radius: 16px;">
+            <div data-acc-q="" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 18px; cursor: pointer;">
+              <span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -.01em;">How do I delete my account and cloud data?</span>
+              <span data-acc-mark="" style="flex: none; color: #C2740A; font-size: 26px; line-height: 1; font-weight: 300;">+</span>
+            </div>
+            <div data-acc-a=""><p style="margin: 0; padding: 0 18px 26px; font-size: 16.5px; line-height: 1.6; color: #55617A; max-width: 66ch; text-wrap: pretty;">Turning sync off or signing out does not remove data already in the cloud. Submit a verified request on the <a href="account-deletion.html">Account &amp; Data Deletion</a> page.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        selector.value = initialLang;
-        bindImageLoad(document.getElementById('hero-img-wrap'));
-        updateLanguage(initialLang);
-        observeReveals();
-    </script>
+    <section style="padding: 104px 0 112px; background: linear-gradient(180deg, #0A1020, #12203A); text-align: center;">
+      <div style="max-width: 1160px; margin: 0 auto; padding: 0 24px;">
+        <img data-reveal="" src="images/icons/AppIcon-default.png" alt="" width="72" height="72" style="width: 72px; height: 72px; border-radius: 19px; margin: 0 auto 26px; box-shadow: 0 18px 40px rgba(0,0,0,.45);">
+        <h2 data-reveal="" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(30px, 4.2vw, 44px); line-height: 1.08; letter-spacing: -.022em; margin: 0 0 14px; color: #EAF1FB;">Start your ledger today.</h2>
+        <p data-reveal="" style="font-size: 19px; color: #9DB0D0; margin: 0 auto 34px; max-width: 44ch;">Free to download on iOS and Android.</p>
+        <div data-reveal="" style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;">
+          <a href="https://apps.apple.com/ph/app/mobile-ledger-finance-tracker/id6758619891" target="_blank" rel="noopener noreferrer" data-magnetic="7" data-magnetic-lift="">
+            <img src="images/icons/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" style="height: 54px; width: auto;">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=app.wartle.mobileledger" target="_blank" rel="noopener noreferrer" data-magnetic="7" data-magnetic-lift="">
+            <img src="images/icons/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" style="height: 54px; width: auto;">
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="padding: 70px 0 36px; background: #ffffff; border-top: 1px solid #E4EAF3; font-size: 13px; color: #55617A;">
+    <div style="max-width: 1160px; margin: 0 auto; padding: 0 24px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 44px;">
+        <div style="max-width: 300px;">
+          <span style="display: inline-flex; align-items: center; gap: 11px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 19px; color: #0E1525;">
+            <img src="images/icons/AppIcon-default.png" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; border-radius: 9px;">
+            Lago
+          </span>
+          <p style="margin: 14px 0 0; line-height: 1.6;">The professional way to track your finances on iOS and Android.</p>
+        </div>
+        <div style="display: flex; gap: 56px; flex-wrap: wrap;">
+          <div>
+            <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #8A94A8; margin: 0 0 14px;">Support</h4>
+            <div style="display: flex; flex-direction: column; gap: 9px;">
+              <a class="lgH8" href="support.html" style="color: #55617A;">Help Center</a>
+              <a class="lgH9" href="mailto:support@wartle.app" style="color: #55617A;">Email Support</a>
+            </div>
+          </div>
+          <div>
+            <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #8A94A8; margin: 0 0 14px;">Legal</h4>
+            <div style="display: flex; flex-direction: column; gap: 9px;">
+              <a class="lgH10" href="privacy.html" style="color: #55617A;">Privacy Policy</a>
+              <a class="lgH11" href="account-deletion.html" style="color: #55617A;">Account &amp; Data Deletion</a>
+              <a class="lgH12" href="terms.html" style="color: #55617A;">Terms of Use (EULA)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 46px; padding-top: 22px; border-top: 1px solid #E4EAF3; font-size: 12.5px; color: #8A94A8;">
+        © 2026 Lago. All rights reserved. iPhone and iOS are trademarks of Apple Inc.
+      </div>
+    </div>
+  </footer>
+</div>
+<script>
+  (function boot() {
+    if (window.LagoMotion) { window.LagoMotion.init(document); return; }
+    setTimeout(boot, 120);
+  })();
+</script>
 </body>
 
 </html>
