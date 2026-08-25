@@ -52,12 +52,20 @@
                 </header>
 
                 <p>You can permanently delete your Lago sync account and the All Devices Sync cloud data associated
-                    with it. Supported Apple versions provide the quickest and most secure method directly inside Lago.</p>
+                    with it. Supported Apple and Android versions provide the quickest and most secure method directly inside Lago.</p>
 
                 <div class="summary-box">
                     <h3>Delete your account in Lago</h3>
+                    <p><strong>On Android</strong></p>
                     <ol class="deletion-steps">
-                        <li>Open <strong>Settings</strong> in Lago on your Apple device.</li>
+                        <li>Open <strong>Settings</strong> in Lago.</li>
+                        <li>Choose <strong>Manage Backups</strong>, then <strong>Cloud Sync</strong>.</li>
+                        <li>In the <strong>Cross-platform sync</strong> section, tap <strong>Delete Lago account</strong>.</li>
+                        <li>Review the warning, continue with Google, and sign in with the Google account currently connected to Lago.</li>
+                    </ol>
+                    <p><strong>On Apple devices</strong></p>
+                    <ol class="deletion-steps">
+                        <li>Open <strong>Settings</strong> in Lago.</li>
                         <li>Choose <strong>Manage Backups</strong>, then <strong>Real-Time Sync</strong>.</li>
                         <li>Tap <strong>Delete Lago Account</strong>.</li>
                         <li>Review the warning, confirm deletion, and complete the requested Apple or Google sign-in.</li>
@@ -70,7 +78,7 @@
                     <li>Your Lago Firebase Authentication account and Lago sign-in.</li>
                     <li>Financial records and app content stored for All Devices Sync in Cloud Firestore.</li>
                     <li>Synced profile, achievement, notification, receipt, savings-goal, and custom-icon data associated with that account.</li>
-                    <li>Your Sign in with Apple authorization for Lago, when that provider is linked.</li>
+                    <li>Your Sign in with Apple authorization for Lago, when that provider is linked. On Android, Lago signs out of the connected Google account after deleting the Firebase account.</li>
                 </ul>
 
                 <h2>What remains</h2>
